@@ -51,7 +51,7 @@ class TimerLabel: UILabel
         {
             if self.timeFormat.characters.count != 0
             {
-                self.dateFormatter?.dateFormat = timeFormat
+                self.dateFormatter.dateFormat = timeFormat
             }
             
             self.updateLabel()
@@ -84,26 +84,41 @@ class TimerLabel: UILabel
         }
     }
     
-    var timeUserValue: NSTimeInterval?
+    var timeUserValue: NSTimeInterval = 0
     var startCountDate: NSDate?
     var pausedTime: NSDate?
     var date1970: NSDate = NSDate(timeIntervalSince1970: 0)
     var timeToCountOff: NSDate?
     
     var timer: NSTimer?
-    var dateFormatter: NSDateFormatter?
+    var dateFormatter: NSDateFormatter
     
     var endBlock: ((NSTimeInterval) -> ())?
     
     /*--------designated Initializer*/
-    init(frame: CGRect, label: UILabel?,  timerType: TimerLabelType?)
+    init(frame: CGRect, label: UILabel?,  theTimerType: TimerLabelType?)
     {
-        super.init(frame: frame)
-        self.timeLabel = label
+        timeLabel = label
 
         if let _ = timerType
         {
-            self.timerType = timerType
+            timerType = theTimerType
+        }
+        
+        dateFormatter = NSDateFormatter()
+        dateFormatter.locale = NSLocale(localeIdentifier: "en_US")
+        dateFormatter.timeZone = NSTimeZone(name: "GMT")
+        dateFormatter.dateFormat = self.timeFormat
+
+        super.init(frame: frame)
+
+        if let _ = label
+        {
+            timeLabel = label
+        }
+        else
+        {
+            timeLabel = self
         }
         
         self.setup()
@@ -112,26 +127,31 @@ class TimerLabel: UILabel
     /*--------Init methods to choose*/
     convenience init(timerType: TimerLabelType)
     {
-        self.init(frame:CGRectZero, label: nil, timerType: timerType)
+        self.init(frame:CGRectZero, label: nil, theTimerType: timerType)
     }
 
-    convenience init(label: UILabel, timerType: TimerLabelType)
+    convenience init(label: UILabel?, timerType: TimerLabelType)
     {
-        self.init(frame: CGRectZero, label: label, timerType: timerType)
+        self.init(frame: CGRectZero, label: label, theTimerType: timerType)
     }
     
-    convenience init(label: UILabel)
+    convenience init(label: UILabel?)
     {
-        self.init(frame: CGRectZero, label: label, timerType: nil)
+        self.init(frame: CGRectZero, label: label, theTimerType: nil)
     }
 
     override convenience init(frame: CGRect)
     {
-        self.init(frame: frame, label: nil, timerType: nil)
+        self.init(frame: frame, label: nil, theTimerType: nil)
     }
     
     required init?(coder aDecoder: NSCoder)
     {
+        dateFormatter = NSDateFormatter()
+        dateFormatter.locale = NSLocale(localeIdentifier: "en_US")
+        dateFormatter.timeZone = NSTimeZone(name: "GMT")
+        dateFormatter.dateFormat = self.timeFormat
+
         super.init(coder: aDecoder)
         self.setup()
     }
@@ -140,7 +160,7 @@ class TimerLabel: UILabel
     func setCountDownTime(time: NSTimeInterval)
     {
         self.timeUserValue = (time < 0) ? 0 : time
-        self.timeToCountOff = self.date1970.dateByAddingTimeInterval(self.timeUserValue!)
+        self.timeToCountOff = self.date1970.dateByAddingTimeInterval(self.timeUserValue)
         self.updateLabel()
     }
     
@@ -150,7 +170,7 @@ class TimerLabel: UILabel
         
         if self.timeUserValue > 0
         {
-            self.startCountDate = NSDate().dateByAddingTimeInterval(-1 * self.timeUserValue!)
+            self.startCountDate = NSDate().dateByAddingTimeInterval(-1 * self.timeUserValue)
             self.pausedTime = NSDate()
             self.updateLabel()
         }
@@ -177,7 +197,7 @@ class TimerLabel: UILabel
         switch self.timerType!
         {
         case .Timer:
-            self.setCountDownTime(time + self.timeUserValue!)
+            self.setCountDownTime(time + self.timeUserValue)
         case .Stopwatch:
             let newStartDate = self.startCountDate?.dateByAddingTimeInterval(-1 * time)
             if NSDate().timeIntervalSinceDate(newStartDate!) >= 0
@@ -194,24 +214,6 @@ class TimerLabel: UILabel
     }
     
     /*--------Getter methods*/
-    func getDateFormat() -> NSDateFormatter
-    {
-        if let format = self.dateFormatter
-        {
-            return format
-        }
-        else
-        {
-            let dateFormat = NSDateFormatter()
-            dateFormat.locale = NSLocale(localeIdentifier: "en_US")
-            dateFormat.timeZone = NSTimeZone(name: "GMT")
-            dateFormat.dateFormat = self.timeFormat
-            self.dateFormatter = dateFormat
-            
-            return self.dateFormatter!
-        }
-    }
-    
     func getTimeLabel() -> UILabel
     {
         if self.timeLabel == nil
@@ -246,7 +248,7 @@ class TimerLabel: UILabel
     {
         if self.timerType == .Timer
         {
-            return self.timeUserValue! - self.getTimeCounted()
+            return self.timeUserValue - self.getTimeCounted()
         }
         
         return 0
@@ -256,7 +258,7 @@ class TimerLabel: UILabel
     {
         if self.timerType == .Timer
         {
-            return self.timeUserValue!
+            return self.timeUserValue
         }
         
         return 0
@@ -289,7 +291,7 @@ class TimerLabel: UILabel
             
             if (self.timerType == .Stopwatch && self.timeUserValue > 0)
             {
-                startCountDate = self.startCountDate?.dateByAddingTimeInterval(-1 * self.timeUserValue!)
+                startCountDate = self.startCountDate?.dateByAddingTimeInterval(-1 * self.timeUserValue)
             }
         }
         
@@ -338,8 +340,15 @@ class TimerLabel: UILabel
     
     func updateLabel()
     {
-        
-        let timeDiff = NSDate().timeIntervalSinceDate(self.startCountDate!)
+        var timeDiff: NSTimeInterval
+        if let startDate = self.startCountDate
+        {
+            timeDiff = NSDate().timeIntervalSinceDate(startDate)
+        }
+        else
+        {
+            timeDiff = 0
+        }
         var timeToShow = NSDate()
         var timerEnded = false
         
@@ -366,7 +375,7 @@ class TimerLabel: UILabel
         case .Timer:
             if self.counting
             {
-                let timeLeft = self.timeUserValue! - timeDiff
+                let timeLeft = self.timeUserValue - timeDiff
                 self.timerDelegate?.timerLabel(self, countingTo: timeLeft, timerType: self.timerType!)
                 
                 if timeDiff >= self.timeUserValue
@@ -383,9 +392,16 @@ class TimerLabel: UILabel
             }
             else
             {
-                timeToShow = self.timeToCountOff!
+                if let _ = self.timeToCountOff
+                {
+                    timeToShow = self.timeToCountOff!
+                }
+                else
+                {
+                    timeToShow = NSDate()
+                }
+                
             }
-            
             
         }
         
@@ -395,13 +411,13 @@ class TimerLabel: UILabel
         case .Stopwatch:
             atTime = timeDiff
         case .Timer:
-            if self.timeUserValue! - timeDiff < 0
+            if self.timeUserValue - timeDiff < 0
             {
                 atTime = 0
             }
             else
             {
-                atTime = self.timeUserValue! - timeDiff
+                atTime = self.timeUserValue - timeDiff
             }
         }
         
@@ -412,21 +428,21 @@ class TimerLabel: UILabel
         }
         else
         {
-            self.timeLabel?.text = self.dateFormatter?.stringFromDate(timeToShow)
+            self.timeLabel?.text = self.dateFormatter.stringFromDate(timeToShow)
             
             if self.shouldCountBeyondHHLimit
             {
                 let originalTimeFormat = self.timeFormat
                 var beyondFormat = self.timeFormat.stringByReplacingOccurrencesOfString("HH", withString: kTimeHourFormatReplace)
                 beyondFormat = beyondFormat.stringByReplacingOccurrencesOfString("H", withString: kTimeHourFormatReplace)
-                self.dateFormatter?.dateFormat = beyondFormat
+                self.dateFormatter.dateFormat = beyondFormat
                 
-                let hours = self.timerType! == .Stopwatch ? self.getTimeCounted() / 3600 : self.getTimeRemaining() / 3600
-                let formattedDate = self.dateFormatter?.stringFromDate(timeToShow)
-                let beyondDate = formattedDate?.stringByReplacingOccurrencesOfString(kTimeHourFormatReplace, withString: "\(hours)")
+                let hours = self.timerType! == .Stopwatch ? Int(self.getTimeCounted() / 3600) : Int(self.getTimeRemaining() / 3600)
+                let formattedDate = self.dateFormatter.stringFromDate(timeToShow)
+                let beyondDate = formattedDate.stringByReplacingOccurrencesOfString(kTimeHourFormatReplace, withString: "\(hours)")
                 
                 self.timeLabel?.text = beyondDate
-                self.dateFormatter?.dateFormat = originalTimeFormat
+                self.dateFormatter.dateFormat = originalTimeFormat
             }
             else
             {
@@ -434,21 +450,21 @@ class TimerLabel: UILabel
                 {
                     if let dictionary = self.attributedDictionaryForTextInRange
                     {
-                        let attrTextInRange = NSAttributedString(string: (self.dateFormatter?.stringFromDate(timeToShow))!, attributes: dictionary)
+                        let attrTextInRange = NSAttributedString(string: self.dateFormatter.stringFromDate(timeToShow), attributes: dictionary)
                         let attributedString = NSMutableAttributedString(string: self.text!)
                         attributedString.replaceCharactersInRange(self.textRange!, withAttributedString: attrTextInRange)
                         self.timeLabel?.attributedText = attributedString
                     }
                     else
                     {
-                        let labelText = (self.text! as NSString).stringByReplacingCharactersInRange(self.textRange!, withString: (self.dateFormatter!.stringFromDate(timeToShow)))
+                        let labelText = (self.text! as NSString).stringByReplacingCharactersInRange(self.textRange!, withString: (self.dateFormatter.stringFromDate(timeToShow)))
                         self.timeLabel?.text = labelText
                     }
 
                 }
                 else
                 {
-                    self.timeLabel?.text = self.dateFormatter?.stringFromDate(timeToShow)
+                    self.timeLabel?.text = self.dateFormatter.stringFromDate(timeToShow)
                 }
             }
         }
@@ -456,11 +472,11 @@ class TimerLabel: UILabel
         
         if timerEnded
         {
-            self.timerDelegate?.timerLabel(self, finishedCountDownTimerWithTime: self.timeUserValue!)
+            self.timerDelegate?.timerLabel(self, finishedCountDownTimerWithTime: self.timeUserValue)
             
             if let endBlock = self.endBlock
             {
-                endBlock(self.timeUserValue!)
+                endBlock(self.timeUserValue)
             }
             
             if self.resetTimerAfterFinish

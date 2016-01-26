@@ -8,17 +8,20 @@
 
 import UIKit
 
-class TrainingViewController: UIViewController
+class TrainingViewController: UIViewController, TimerLabelDelegate
 {
-    @IBOutlet var timerLabel: TimerLabel?
+    @IBOutlet var timerLabel: UILabel?
+    @IBOutlet var timerButton: UIButton?
+    var timer: TimerLabel?
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.timerLabel = TimerLabel(timerType: .Timer)
-        self.timerLabel?.setCountDownTime(60)
+        self.timer = TimerLabel(label: self.timerLabel, timerType: .Timer)
+        self.timer?.timerDelegate = self
+        self.timer?.setCountDownTime(60)
     }
 
     override func didReceiveMemoryWarning()
@@ -26,7 +29,34 @@ class TrainingViewController: UIViewController
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func startWasPressed(sender: UIButton)
+    {
+        if self.timer!.counting
+        {
+            self.timer?.pause()
+            self.timerButton?.setTitle("Start", forState: .Normal)
+        }
+        else
+        {
+            self.timer?.start()
+            self.timerButton?.setTitle("Pause", forState: .Normal)
+        }
+    }
 
-
+    func timerLabel(timerLabel: TimerLabel, countingTo time: NSTimeInterval, timerType: TimerLabelType)
+    {
+        
+    }
+    
+    func timerLabel(timerLabel: TimerLabel, customTextToDisplayAtTime time: NSTimeInterval) -> String?
+    {
+        return nil
+    }
+    
+    func timerLabel(timerLabel: TimerLabel, finishedCountDownTimerWithTime countTime: NSTimeInterval)
+    {
+        self.timerButton?.setTitle("Start", forState: .Normal)
+    }
 }
 
