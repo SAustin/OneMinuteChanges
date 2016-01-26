@@ -8,13 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		61A268381C53DBD00010ADBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A268371C53DBD00010ADBD /* AppDelegate.swift */; };
-		61A2683A1C53DBD00010ADBD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A268391C53DBD00010ADBD /* ViewController.swift */; };
+		61A2683A1C53DBD00010ADBD /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A268391C53DBD00010ADBD /* TrainingViewController.swift */; };
 		61A2683D1C53DBD00010ADBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61A2683B1C53DBD00010ADBD /* Main.storyboard */; };
 		61A268401C53DBD00010ADBD /* OneMinuteChanges.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 61A2683E1C53DBD00010ADBD /* OneMinuteChanges.xcdatamodeld */; };
 		61A268421C53DBD00010ADBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61A268411C53DBD00010ADBD /* Assets.xcassets */; };
 		61A268451C53DBD00010ADBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61A268431C53DBD00010ADBD /* LaunchScreen.storyboard */; };
 		61A268501C53DBD00010ADBD /* OneMinuteChangesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A2684F1C53DBD00010ADBD /* OneMinuteChangesTests.swift */; };
 		61A2685B1C53DBD00010ADBD /* OneMinuteChangesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A2685A1C53DBD00010ADBD /* OneMinuteChangesUITests.swift */; };
+		61F8C9631C56A64200816939 /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F8C9621C56A64200816939 /* TimerLabel.swift */; };
+		61F8C9641C57BCE800816939 /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F8C9621C56A64200816939 /* TimerLabel.swift */; };
+		61F8C9651C57BCE800816939 /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F8C9621C56A64200816939 /* TimerLabel.swift */; };
+		61F8C9661C57BCEE00816939 /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A268391C53DBD00010ADBD /* TrainingViewController.swift */; };
+		61F8C9671C57BCEE00816939 /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A268391C53DBD00010ADBD /* TrainingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +42,7 @@
 /* Begin PBXFileReference section */
 		61A268341C53DBD00010ADBD /* OneMinuteChanges.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneMinuteChanges.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61A268371C53DBD00010ADBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		61A268391C53DBD00010ADBD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		61A268391C53DBD00010ADBD /* TrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
 		61A2683C1C53DBD00010ADBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		61A2683F1C53DBD00010ADBD /* OneMinuteChanges.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OneMinuteChanges.xcdatamodel; sourceTree = "<group>"; };
 		61A268411C53DBD00010ADBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +54,7 @@
 		61A268561C53DBD00010ADBD /* OneMinuteChangesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OneMinuteChangesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		61A2685A1C53DBD00010ADBD /* OneMinuteChangesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneMinuteChangesUITests.swift; sourceTree = "<group>"; };
 		61A2685C1C53DBD00010ADBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		61F8C9621C56A64200816939 /* TimerLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +105,9 @@
 		61A268361C53DBD00010ADBD /* OneMinuteChanges */ = {
 			isa = PBXGroup;
 			children = (
+				61F8C9611C569FEA00816939 /* Timer */,
 				61A268371C53DBD00010ADBD /* AppDelegate.swift */,
-				61A268391C53DBD00010ADBD /* ViewController.swift */,
+				61A268391C53DBD00010ADBD /* TrainingViewController.swift */,
 				61A2683B1C53DBD00010ADBD /* Main.storyboard */,
 				61A268411C53DBD00010ADBD /* Assets.xcassets */,
 				61A268431C53DBD00010ADBD /* LaunchScreen.storyboard */,
@@ -126,6 +133,14 @@
 				61A2685C1C53DBD00010ADBD /* Info.plist */,
 			);
 			path = OneMinuteChangesUITests;
+			sourceTree = "<group>";
+		};
+		61F8C9611C569FEA00816939 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				61F8C9621C56A64200816939 /* TimerLabel.swift */,
+			);
+			name = Timer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,7 +274,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61A2683A1C53DBD00010ADBD /* ViewController.swift in Sources */,
+				61F8C9631C56A64200816939 /* TimerLabel.swift in Sources */,
+				61A2683A1C53DBD00010ADBD /* TrainingViewController.swift in Sources */,
 				61A268381C53DBD00010ADBD /* AppDelegate.swift in Sources */,
 				61A268401C53DBD00010ADBD /* OneMinuteChanges.xcdatamodeld in Sources */,
 			);
@@ -269,6 +285,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61F8C9661C57BCEE00816939 /* TrainingViewController.swift in Sources */,
+				61F8C9641C57BCE800816939 /* TimerLabel.swift in Sources */,
 				61A268501C53DBD00010ADBD /* OneMinuteChangesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,6 +295,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61F8C9671C57BCEE00816939 /* TrainingViewController.swift in Sources */,
+				61F8C9651C57BCE800816939 /* TimerLabel.swift in Sources */,
 				61A2685B1C53DBD00010ADBD /* OneMinuteChangesUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,6 +424,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = OneMinuteChanges/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.europaSoftware.OneMinuteChanges;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -415,6 +436,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = OneMinuteChanges/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.europaSoftware.OneMinuteChanges;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -426,6 +448,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = OneMinuteChangesTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.europaSoftware.OneMinuteChangesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -438,6 +461,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = OneMinuteChangesTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.europaSoftware.OneMinuteChangesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -449,6 +473,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = OneMinuteChangesUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.europaSoftware.OneMinuteChangesUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -461,6 +486,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = OneMinuteChangesUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.europaSoftware.OneMinuteChangesUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -488,6 +514,7 @@
 				61A268611C53DBD00010ADBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		61A268621C53DBD00010ADBD /* Build configuration list for PBXNativeTarget "OneMinuteChangesTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +523,7 @@
 				61A268641C53DBD00010ADBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		61A268651C53DBD00010ADBD /* Build configuration list for PBXNativeTarget "OneMinuteChangesUITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +532,7 @@
 				61A268671C53DBD00010ADBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

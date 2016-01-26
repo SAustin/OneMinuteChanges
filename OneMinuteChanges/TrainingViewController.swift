@@ -8,13 +8,17 @@
 
 import UIKit
 
-class ViewController: UIViewController
+class TrainingViewController: UIViewController
 {
-
+    @IBOutlet var timerLabel: TimerLabel?
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.timerLabel = TimerLabel(timerType: .Timer)
+        self.timerLabel?.setCountDownTime(60)
     }
 
     override func didReceiveMemoryWarning()
