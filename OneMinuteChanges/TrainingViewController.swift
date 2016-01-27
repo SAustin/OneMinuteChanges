@@ -14,6 +14,10 @@ class TrainingViewController: UIViewController, TimerLabelDelegate
     @IBOutlet var timerButton: UIButton?
     var timer: TimerLabel?
     
+    var sequenceType: ChordSequenceType?
+    var chordSequence: [Chord]?
+    
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -35,12 +39,13 @@ class TrainingViewController: UIViewController, TimerLabelDelegate
         if self.timer!.counting
         {
             self.timer?.pause()
-            self.timerButton?.setTitle("Start", forState: .Normal)
+            self.timerButton?.setBackgroundImage(UIImage(contentsOfFile: NSBundle.mainBundle().pathForResource("startButton", ofType: "png")!), forState: .Normal)
+
         }
         else
         {
             self.timer?.start()
-            self.timerButton?.setTitle("Pause", forState: .Normal)
+            self.timerButton?.setBackgroundImage(UIImage(contentsOfFile: NSBundle.mainBundle().pathForResource("pauseButton", ofType: "png")!), forState: .Normal)
         }
     }
 
@@ -56,7 +61,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate
     
     func timerLabel(timerLabel: TimerLabel, finishedCountDownTimerWithTime countTime: NSTimeInterval)
     {
-        self.timerButton?.setTitle("Start", forState: .Normal)
+        self.timerButton?.setBackgroundImage(UIImage(contentsOfFile: NSBundle.mainBundle().pathForResource("startButton", ofType: "png")!), forState: .Normal)
     }
 }
 

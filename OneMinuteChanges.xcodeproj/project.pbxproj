@@ -15,6 +15,25 @@
 		61A268451C53DBD00010ADBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61A268431C53DBD00010ADBD /* LaunchScreen.storyboard */; };
 		61A268501C53DBD00010ADBD /* OneMinuteChangesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A2684F1C53DBD00010ADBD /* OneMinuteChangesTests.swift */; };
 		61A2685B1C53DBD00010ADBD /* OneMinuteChangesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A2685A1C53DBD00010ADBD /* OneMinuteChangesUITests.swift */; };
+		61A268991C58820D0010ADBD /* tabIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268981C58820D0010ADBD /* tabIcon.png */; };
+		61A2689B1C588A930010ADBD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A2689A1C588A930010ADBD /* Constants.swift */; };
+		61A2689C1C588BD70010ADBD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A2689A1C588A930010ADBD /* Constants.swift */; };
+		61A2689D1C588BD70010ADBD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A2689A1C588A930010ADBD /* Constants.swift */; };
+		61A2689F1C588DF10010ADBD /* ChordSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A2689E1C588DF10010ADBD /* ChordSelectionViewController.swift */; };
+		61A268A01C588DF10010ADBD /* ChordSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A2689E1C588DF10010ADBD /* ChordSelectionViewController.swift */; };
+		61A268A11C588DF10010ADBD /* ChordSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A2689E1C588DF10010ADBD /* ChordSelectionViewController.swift */; };
+		61A268A31C5891880010ADBD /* CustomCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A268A21C5891880010ADBD /* CustomCells.swift */; };
+		61A268A41C5891880010ADBD /* CustomCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A268A21C5891880010ADBD /* CustomCells.swift */; };
+		61A268A51C5891880010ADBD /* CustomCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A268A21C5891880010ADBD /* CustomCells.swift */; };
+		61A268A71C589D230010ADBD /* startButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268A61C589D230010ADBD /* startButton.png */; };
+		61A268A81C589D230010ADBD /* startButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268A61C589D230010ADBD /* startButton.png */; };
+		61A268A91C589D230010ADBD /* startButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268A61C589D230010ADBD /* startButton.png */; };
+		61A268AB1C589D320010ADBD /* pauseButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268AA1C589D320010ADBD /* pauseButton.png */; };
+		61A268AC1C589D320010ADBD /* pauseButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268AA1C589D320010ADBD /* pauseButton.png */; };
+		61A268AD1C589D320010ADBD /* pauseButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268AA1C589D320010ADBD /* pauseButton.png */; };
+		61A268AF1C58A58B0010ADBD /* skipButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268AE1C58A58B0010ADBD /* skipButton.png */; };
+		61A268B01C58A58B0010ADBD /* skipButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268AE1C58A58B0010ADBD /* skipButton.png */; };
+		61A268B11C58A58B0010ADBD /* skipButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268AE1C58A58B0010ADBD /* skipButton.png */; };
 		61F8C9631C56A64200816939 /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F8C9621C56A64200816939 /* TimerLabel.swift */; };
 		61F8C9641C57BCE800816939 /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F8C9621C56A64200816939 /* TimerLabel.swift */; };
 		61F8C9651C57BCE800816939 /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F8C9621C56A64200816939 /* TimerLabel.swift */; };
@@ -54,6 +73,13 @@
 		61A268561C53DBD00010ADBD /* OneMinuteChangesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OneMinuteChangesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		61A2685A1C53DBD00010ADBD /* OneMinuteChangesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneMinuteChangesUITests.swift; sourceTree = "<group>"; };
 		61A2685C1C53DBD00010ADBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		61A268981C58820D0010ADBD /* tabIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabIcon.png; sourceTree = "<group>"; };
+		61A2689A1C588A930010ADBD /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		61A2689E1C588DF10010ADBD /* ChordSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordSelectionViewController.swift; sourceTree = "<group>"; };
+		61A268A21C5891880010ADBD /* CustomCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCells.swift; sourceTree = "<group>"; };
+		61A268A61C589D230010ADBD /* startButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startButton.png; sourceTree = "<group>"; };
+		61A268AA1C589D320010ADBD /* pauseButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pauseButton.png; sourceTree = "<group>"; };
+		61A268AE1C58A58B0010ADBD /* skipButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skipButton.png; sourceTree = "<group>"; };
 		61F8C9621C56A64200816939 /* TimerLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,6 +131,7 @@
 		61A268361C53DBD00010ADBD /* OneMinuteChanges */ = {
 			isa = PBXGroup;
 			children = (
+				61A268681C5881D60010ADBD /* Images */,
 				61F8C9611C569FEA00816939 /* Timer */,
 				61A268371C53DBD00010ADBD /* AppDelegate.swift */,
 				61A268391C53DBD00010ADBD /* TrainingViewController.swift */,
@@ -113,6 +140,9 @@
 				61A268431C53DBD00010ADBD /* LaunchScreen.storyboard */,
 				61A268461C53DBD00010ADBD /* Info.plist */,
 				61A2683E1C53DBD00010ADBD /* OneMinuteChanges.xcdatamodeld */,
+				61A2689A1C588A930010ADBD /* Constants.swift */,
+				61A2689E1C588DF10010ADBD /* ChordSelectionViewController.swift */,
+				61A268A21C5891880010ADBD /* CustomCells.swift */,
 			);
 			path = OneMinuteChanges;
 			sourceTree = "<group>";
@@ -133,6 +163,17 @@
 				61A2685C1C53DBD00010ADBD /* Info.plist */,
 			);
 			path = OneMinuteChangesUITests;
+			sourceTree = "<group>";
+		};
+		61A268681C5881D60010ADBD /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				61A268AE1C58A58B0010ADBD /* skipButton.png */,
+				61A268AA1C589D320010ADBD /* pauseButton.png */,
+				61A268A61C589D230010ADBD /* startButton.png */,
+				61A268981C58820D0010ADBD /* tabIcon.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 		61F8C9611C569FEA00816939 /* Timer */ = {
@@ -247,8 +288,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61A268AF1C58A58B0010ADBD /* skipButton.png in Resources */,
+				61A268A71C589D230010ADBD /* startButton.png in Resources */,
 				61A268451C53DBD00010ADBD /* LaunchScreen.storyboard in Resources */,
+				61A268AB1C589D320010ADBD /* pauseButton.png in Resources */,
 				61A268421C53DBD00010ADBD /* Assets.xcassets in Resources */,
+				61A268991C58820D0010ADBD /* tabIcon.png in Resources */,
 				61A2683D1C53DBD00010ADBD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,6 +302,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61A268B01C58A58B0010ADBD /* skipButton.png in Resources */,
+				61A268AC1C589D320010ADBD /* pauseButton.png in Resources */,
+				61A268A81C589D230010ADBD /* startButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +312,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61A268B11C58A58B0010ADBD /* skipButton.png in Resources */,
+				61A268AD1C589D320010ADBD /* pauseButton.png in Resources */,
+				61A268A91C589D230010ADBD /* startButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,9 +325,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61A2689B1C588A930010ADBD /* Constants.swift in Sources */,
 				61F8C9631C56A64200816939 /* TimerLabel.swift in Sources */,
 				61A2683A1C53DBD00010ADBD /* TrainingViewController.swift in Sources */,
+				61A268A31C5891880010ADBD /* CustomCells.swift in Sources */,
 				61A268381C53DBD00010ADBD /* AppDelegate.swift in Sources */,
+				61A2689F1C588DF10010ADBD /* ChordSelectionViewController.swift in Sources */,
 				61A268401C53DBD00010ADBD /* OneMinuteChanges.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,6 +342,9 @@
 				61F8C9661C57BCEE00816939 /* TrainingViewController.swift in Sources */,
 				61F8C9641C57BCE800816939 /* TimerLabel.swift in Sources */,
 				61A268501C53DBD00010ADBD /* OneMinuteChangesTests.swift in Sources */,
+				61A268A01C588DF10010ADBD /* ChordSelectionViewController.swift in Sources */,
+				61A268A41C5891880010ADBD /* CustomCells.swift in Sources */,
+				61A2689C1C588BD70010ADBD /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +355,9 @@
 				61F8C9671C57BCEE00816939 /* TrainingViewController.swift in Sources */,
 				61F8C9651C57BCE800816939 /* TimerLabel.swift in Sources */,
 				61A2685B1C53DBD00010ADBD /* OneMinuteChangesUITests.swift in Sources */,
+				61A268A11C588DF10010ADBD /* ChordSelectionViewController.swift in Sources */,
+				61A268A51C5891880010ADBD /* CustomCells.swift in Sources */,
+				61A2689D1C588BD70010ADBD /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
