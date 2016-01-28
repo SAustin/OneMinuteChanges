@@ -8,14 +8,14 @@
 
 import UIKit
 
-class TrainingViewController: UIViewController, TimerLabelDelegate
+class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelectionDelegate
 {
     @IBOutlet var timerLabel: UILabel?
     @IBOutlet var timerButton: UIButton?
     var timer: TimerLabel?
     
     var sequenceType: ChordSequenceType?
-    var chordSequence: [Chord]?
+    var chordSequence: [(Chord, Chord)]?
     
     
     override func viewDidLoad()
@@ -48,6 +48,47 @@ class TrainingViewController: UIViewController, TimerLabelDelegate
             self.timerButton?.setBackgroundImage(UIImage(contentsOfFile: NSBundle.mainBundle().pathForResource("pauseButton", ofType: "png")!), forState: .Normal)
         }
     }
+    
+    //MARK: - Chord Selection Delegate
+    func randomChordsWereSelected(chordList: [Chord])
+    {
+        var fullList = [(Chord, Chord)]()
+        //Create the full list of chords
+        for i in 0...chordList.count - 1
+        {
+            for j in i+1...chordList.count - 1
+            {
+                fullList.append((chordList[i], chordList[j]))
+            }
+        }
+        
+        fullList.shuffleInPlace()
+        
+        self.chordSequence = fullList
+    }
+    
+    func chordSequenceWasSelected(chordSequence: [(Chord, Chord)])
+    {
+        self.chordSequence = chordSequence.shuffle()
+    }
+    
+    func singleChordWasSelected(chord: Chord)
+    {
+        var fullList = [(Chord, Chord)]()
+        
+        for i in 0...Chord.Count.rawValue
+        {
+            if chord != Chord(rawValue: i)
+            {
+                fullList.append((chord, Chord(rawValue: i)!))
+            }
+        }
+        
+        self.chordSequence = fullList.shuffle()
+    }
+    
+    
+    //MARK: - Timer Delegate
 
     func timerLabel(timerLabel: TimerLabel, countingTo time: NSTimeInterval, timerType: TimerLabelType)
     {

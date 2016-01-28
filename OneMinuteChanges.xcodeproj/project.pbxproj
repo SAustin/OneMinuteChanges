@@ -39,6 +39,7 @@
 		61F8C9651C57BCE800816939 /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F8C9621C56A64200816939 /* TimerLabel.swift */; };
 		61F8C9661C57BCEE00816939 /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A268391C53DBD00010ADBD /* TrainingViewController.swift */; };
 		61F8C9671C57BCEE00816939 /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A268391C53DBD00010ADBD /* TrainingViewController.swift */; };
+		61F8C96A1C5A6D0E00816939 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F8C9691C5A6D0E00816939 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		61A268AA1C589D320010ADBD /* pauseButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pauseButton.png; sourceTree = "<group>"; };
 		61A268AE1C58A58B0010ADBD /* skipButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skipButton.png; sourceTree = "<group>"; };
 		61F8C9621C56A64200816939 /* TimerLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerLabel.swift; sourceTree = "<group>"; };
+		61F8C9691C5A6D0E00816939 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 		61A268361C53DBD00010ADBD /* OneMinuteChanges */ = {
 			isa = PBXGroup;
 			children = (
+				61F8C9681C5A6D0400816939 /* Extensions */,
 				61A268681C5881D60010ADBD /* Images */,
 				61F8C9611C569FEA00816939 /* Timer */,
 				61A268371C53DBD00010ADBD /* AppDelegate.swift */,
@@ -182,6 +185,14 @@
 				61F8C9621C56A64200816939 /* TimerLabel.swift */,
 			);
 			name = Timer;
+			sourceTree = "<group>";
+		};
+		61F8C9681C5A6D0400816939 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				61F8C9691C5A6D0E00816939 /* Extensions.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,6 +339,7 @@
 				61A2689B1C588A930010ADBD /* Constants.swift in Sources */,
 				61F8C9631C56A64200816939 /* TimerLabel.swift in Sources */,
 				61A2683A1C53DBD00010ADBD /* TrainingViewController.swift in Sources */,
+				61F8C96A1C5A6D0E00816939 /* Extensions.swift in Sources */,
 				61A268A31C5891880010ADBD /* CustomCells.swift in Sources */,
 				61A268381C53DBD00010ADBD /* AppDelegate.swift in Sources */,
 				61A2689F1C588DF10010ADBD /* ChordSelectionViewController.swift in Sources */,
