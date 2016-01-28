@@ -16,9 +16,14 @@ protocol ChordSelectionDelegate
 
 class ChordSelectionViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
 {
+    @IBOutlet var selectionTypeSwitch: UISegmentedControl?
+    @IBOutlet var numberOfChordTextField: UITextField?
+    @IBOutlet var stepper: UIStepper?
     @IBOutlet var chordListTable: UITableView?
     var selectionList = [Chord]()
     var chordSelectionDelegate: ChordSelectionDelegate?
+    
+    var selectionIsRandom: Bool = false
     
     override func viewDidLoad()
     {
