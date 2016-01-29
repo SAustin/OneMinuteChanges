@@ -13,3 +13,9 @@ class RandomChordCell: UITableViewCell
 {
     @IBOutlet var chordNameLabel: UILabel?
 }
+
+class SpecificPairCell: UITableViewCell
+{
+    @IBOutlet var firstChord: UIButton?
+    @IBOutlet var secondChord: UIButton?
+}
