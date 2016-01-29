@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6156EBAE1C5BF16200F2D78F /* ChordListPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6156EBAD1C5BF16200F2D78F /* ChordListPopoverViewController.swift */; };
+		6156EBAF1C5BF16200F2D78F /* ChordListPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6156EBAD1C5BF16200F2D78F /* ChordListPopoverViewController.swift */; };
+		6156EBB01C5BF16200F2D78F /* ChordListPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6156EBAD1C5BF16200F2D78F /* ChordListPopoverViewController.swift */; };
 		61A268381C53DBD00010ADBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A268371C53DBD00010ADBD /* AppDelegate.swift */; };
 		61A2683A1C53DBD00010ADBD /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A268391C53DBD00010ADBD /* TrainingViewController.swift */; };
 		61A2683D1C53DBD00010ADBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61A2683B1C53DBD00010ADBD /* Main.storyboard */; };
@@ -62,6 +65,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6156EBAD1C5BF16200F2D78F /* ChordListPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordListPopoverViewController.swift; sourceTree = "<group>"; };
 		61A268341C53DBD00010ADBD /* OneMinuteChanges.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneMinuteChanges.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61A268371C53DBD00010ADBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61A268391C53DBD00010ADBD /* TrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +151,7 @@
 				61A2689A1C588A930010ADBD /* Constants.swift */,
 				61A268391C53DBD00010ADBD /* TrainingViewController.swift */,
 				61A2689E1C588DF10010ADBD /* ChordSelectionViewController.swift */,
+				6156EBAD1C5BF16200F2D78F /* ChordListPopoverViewController.swift */,
 				61A268A21C5891880010ADBD /* CustomCells.swift */,
 			);
 			path = OneMinuteChanges;
@@ -345,6 +350,7 @@
 				61A268A31C5891880010ADBD /* CustomCells.swift in Sources */,
 				61A268381C53DBD00010ADBD /* AppDelegate.swift in Sources */,
 				61A2689F1C588DF10010ADBD /* ChordSelectionViewController.swift in Sources */,
+				6156EBAE1C5BF16200F2D78F /* ChordListPopoverViewController.swift in Sources */,
 				61A268401C53DBD00010ADBD /* OneMinuteChanges.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,6 +364,7 @@
 				61A268501C53DBD00010ADBD /* OneMinuteChangesTests.swift in Sources */,
 				61A268A01C588DF10010ADBD /* ChordSelectionViewController.swift in Sources */,
 				61A268A41C5891880010ADBD /* CustomCells.swift in Sources */,
+				6156EBAF1C5BF16200F2D78F /* ChordListPopoverViewController.swift in Sources */,
 				61A2689C1C588BD70010ADBD /* Constants.swift in Sources */,
 				61A268B21C5B2BC70010ADBD /* Extensions.swift in Sources */,
 			);
@@ -372,6 +379,7 @@
 				61A2685B1C53DBD00010ADBD /* OneMinuteChangesUITests.swift in Sources */,
 				61A268A11C588DF10010ADBD /* ChordSelectionViewController.swift in Sources */,
 				61A268A51C5891880010ADBD /* CustomCells.swift in Sources */,
+				6156EBB01C5BF16200F2D78F /* ChordListPopoverViewController.swift in Sources */,
 				61A2689D1C588BD70010ADBD /* Constants.swift in Sources */,
 				61A268B31C5B2BC80010ADBD /* Extensions.swift in Sources */,
 			);

@@ -12,9 +12,11 @@ import UIKit
 protocol ChordSelectionDelegate
 {
     func randomChordsWereSelected(chordList: [Chord])
+    func chordSequenceWasSelected(chordSequence: [(Chord, Chord)])
+    func singleChordWasSelected(chord: Chord)
 }
 
-class ChordSelectionViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
+class ChordSelectionViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ChordListPopoverDelegate, UIPopoverPresentationControllerDelegate
 {
     @IBOutlet var selectionTypeSwitch: UISegmentedControl?
     @IBOutlet var numberOfChordTextField: UITextField?
@@ -38,8 +40,21 @@ class ChordSelectionViewController: UIViewController, UITableViewDataSource, UIT
     {
         //TODO: Present popover
         self.currentButtonSelection = sender.tag % 2
+        self.currentRowSelection = Int(sender.tag / 100)
+        
+        let popover = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ChordListPopoverViewController") as! ChordListPopoverViewController
+        popover.modalPresentationStyle = .Popover
+        popover.chordListPopoverDelegate = self
+        popover.popoverPresentationController?.delegate = self
+        popover.popoverPresentationController?.sourceView = sender
+        popover.popoverPresentationController?.sourceRect = sender.frame
+        popover.popoverPresentationController?.permittedArrowDirections = .Any
+        popover.preferredContentSize = CGSizeMake(60, 264)
+        
+        self.presentViewController(popover, animated: true, completion: nil)
     }
     
+    //MARK: - Chord list Popover delegate
     func chordWasSelected(theChord: Chord)
     {
         let cell = self.tableView(self.chordListTable!, cellForRowAtIndexPath: NSIndexPath(forRow: self.currentRowSelection, inSection: 0))
@@ -197,9 +212,17 @@ class ChordSelectionViewController: UIViewController, UITableViewDataSource, UIT
     
     @IBAction func doneWasPressed(sender: UIBarButtonItem)
     {
-        if self.randomSelectionList.count > 0
+        if self.randomSelectionList.count > 1
         {
             self.chordSelectionDelegate?.randomChordsWereSelected(self.randomSelectionList)
+        }
+        else if self.randomSelectionList.count == 1
+        {
+            self.chordSelectionDelegate?.singleChordWasSelected(self.randomSelectionList[0])
+        }
+        else if self.selectedSelectionList.count > 0
+        {
+            self.chordSelectionDelegate?.chordSequenceWasSelected(self.selectedSelectionList)
         }
         
         self.dismissViewControllerAnimated(true, completion: nil)

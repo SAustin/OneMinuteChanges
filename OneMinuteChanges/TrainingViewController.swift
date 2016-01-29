@@ -15,7 +15,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
     @IBOutlet var nextChordPairLabel: UILabel?
     @IBOutlet var numberOfAttemptsLabel: UILabel?
     @IBOutlet var previousMaximum: UILabel?
-    @IBOutlet var currentAttemptButton: UIButton?
+    @IBOutlet var currentAttemptTextField: UITextField?
     @IBOutlet var skipButton: UIButton?
     @IBOutlet var timerButton: UIButton?
     @IBOutlet var resetButton: UIButton?
@@ -68,6 +68,11 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
             self.resetButton?.hidden = false
 
         }
+    }
+    
+    @IBAction func viewTapped(sender: AnyObject)
+    {
+        self.currentAttemptTextField?.resignFirstResponder()
     }
     
     @IBAction func skipWasPressed(sender: UIButton)
@@ -152,7 +157,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
     {
         var fullList = [(Chord, Chord)]()
         
-        for i in 0...Chord.Count.rawValue
+        for i in 0...Chord.Count.rawValue - 1
         {
             if chord != Chord(rawValue: i)
             {
