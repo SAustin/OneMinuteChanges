@@ -34,6 +34,8 @@
 		61A268AF1C58A58B0010ADBD /* skipButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268AE1C58A58B0010ADBD /* skipButton.png */; };
 		61A268B01C58A58B0010ADBD /* skipButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268AE1C58A58B0010ADBD /* skipButton.png */; };
 		61A268B11C58A58B0010ADBD /* skipButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268AE1C58A58B0010ADBD /* skipButton.png */; };
+		61A268B21C5B2BC70010ADBD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F8C9691C5A6D0E00816939 /* Extensions.swift */; };
+		61A268B31C5B2BC80010ADBD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F8C9691C5A6D0E00816939 /* Extensions.swift */; };
 		61F8C9631C56A64200816939 /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F8C9621C56A64200816939 /* TimerLabel.swift */; };
 		61F8C9641C57BCE800816939 /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F8C9621C56A64200816939 /* TimerLabel.swift */; };
 		61F8C9651C57BCE800816939 /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F8C9621C56A64200816939 /* TimerLabel.swift */; };
@@ -357,6 +359,7 @@
 				61A268A01C588DF10010ADBD /* ChordSelectionViewController.swift in Sources */,
 				61A268A41C5891880010ADBD /* CustomCells.swift in Sources */,
 				61A2689C1C588BD70010ADBD /* Constants.swift in Sources */,
+				61A268B21C5B2BC70010ADBD /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +373,7 @@
 				61A268A11C588DF10010ADBD /* ChordSelectionViewController.swift in Sources */,
 				61A268A51C5891880010ADBD /* CustomCells.swift in Sources */,
 				61A2689D1C588BD70010ADBD /* Constants.swift in Sources */,
+				61A268B31C5B2BC80010ADBD /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

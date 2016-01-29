@@ -8,6 +8,8 @@
 
 import Foundation
 
+let kCountdownTime: NSTimeInterval = 60
+
 enum ChordSequenceType: Int
 {
     case Random = 0

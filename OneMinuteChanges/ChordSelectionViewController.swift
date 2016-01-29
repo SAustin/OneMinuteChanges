@@ -68,18 +68,24 @@ class ChordSelectionViewController: UIViewController, UITableViewDataSource, UIT
         if self.selectionList.contains(Chord(rawValue: indexPath.row)!)
         {
             self.selectionList.removeAtIndex(self.selectionList.indexOf(Chord(rawValue: indexPath.row)!)!)
+            cell.selected = false
             cell.accessoryType = .None
         }
         else
         {
             self.selectionList.append(Chord(rawValue: indexPath.row)!)
+            cell.selected = true
             cell.accessoryType = .Checkmark
         }
     }
     
     @IBAction func doneWasPressed(sender: UIBarButtonItem)
     {
-        self.chordSelectionDelegate?.randomChordsWereSelected(self.selectionList)
+        if self.selectionList.count > 0
+        {
+            self.chordSelectionDelegate?.randomChordsWereSelected(self.selectionList)
+        }
+        
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
