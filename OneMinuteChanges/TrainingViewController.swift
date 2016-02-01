@@ -40,6 +40,12 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         
         self.resetButton?.hidden = true
         
+        if let savedSequence = NSUserDefaults.standardUserDefaults().objectForKey(kCurrentChordSequence)
+        {
+            self.chordSequence = self.convertArrayToSequence(savedSequence as! [String])
+            self.chordSequence?.shuffleInPlace()
+        }
+
         if let _ = self.chordSequence
         {
             self.updateChordLabels()
@@ -272,13 +278,17 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         self.chordSequence = fullList
         self.currentChord = 0
         self.updateChordLabels()
+        
+        NSUserDefaults.standardUserDefaults().setObject(self.convertSequenceToArray(), forKey: kCurrentChordSequence)
     }
     
     func chordSequenceWasSelected(chordSequence: [(Chord, Chord)])
     {
-        self.chordSequence = chordSequence.shuffle()
+        self.chordSequence?.shuffleInPlace()
         self.currentChord = 0
         self.updateChordLabels()
+        
+        NSUserDefaults.standardUserDefaults().setObject(self.convertSequenceToArray(), forKey: kCurrentChordSequence)
     }
     
     func singleChordWasSelected(chord: Chord)
@@ -297,6 +307,8 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         self.chordSequence = fullList.shuffle()
         self.currentChord = 0
         self.updateChordLabels()
+        
+        NSUserDefaults.standardUserDefaults().setObject(self.convertSequenceToArray(), forKey: kCurrentChordSequence)
     }
     
     //MARK: - Timer Delegate
@@ -320,6 +332,44 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         self.resetButton?.hidden = true
         self.timerEnded = true
         self.timerButton?.setBackgroundImage(UIImage(contentsOfFile: NSBundle.mainBundle().pathForResource("startButton", ofType: "png")!), forState: .Normal)
+    }
+    
+    func convertSequenceToArray() -> [String]?
+    {
+        if let sequence = self.chordSequence
+        {
+            var returnArray = [String]()
+            for (chord1, chord2) in sequence
+            {
+                returnArray.append(chord1.name!)
+                returnArray.append(chord2.name!)
+            }
+            return returnArray
+        }
+        else
+        {
+            return nil
+        }
+    }
+    
+    func convertArrayToSequence(source: [String]) -> [(Chord, Chord)]?
+    {
+        var returnSequence = [(Chord, Chord)]()
+        var chord1: Chord
+        var chord2: Chord
+        
+        let dataHelper = (UIApplication.sharedApplication().delegate as! AppDelegate).dataHelper
+        
+        for index in 0...source.count - 1
+        {
+            if index % 2 == 0
+            {
+                chord1 = dataHelper.getChord(source[index])
+                chord2 = dataHelper.getChord(source[index + 1])
+                returnSequence.append((chord1, chord2))
+            }
+        }
+        return returnSequence
     }
 }
 

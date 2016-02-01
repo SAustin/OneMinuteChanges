@@ -11,6 +11,7 @@ import UIKit
 
 let kCountdownTime: NSTimeInterval = 60
 let kPrepareTime = 3
+let kCurrentChordSequence = "OneMinuteChangesCurrentChordSequence"
 
 /*
 * Delay
