@@ -10,6 +10,7 @@
 		6156EBAE1C5BF16200F2D78F /* ChordListPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6156EBAD1C5BF16200F2D78F /* ChordListPopoverViewController.swift */; };
 		6156EBAF1C5BF16200F2D78F /* ChordListPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6156EBAD1C5BF16200F2D78F /* ChordListPopoverViewController.swift */; };
 		6156EBB01C5BF16200F2D78F /* ChordListPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6156EBAD1C5BF16200F2D78F /* ChordListPopoverViewController.swift */; };
+		615C05BF1C5FC039000F4996 /* beep-07.wav in Resources */ = {isa = PBXBuildFile; fileRef = 615C05BE1C5FC039000F4996 /* beep-07.wav */; };
 		61A268381C53DBD00010ADBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A268371C53DBD00010ADBD /* AppDelegate.swift */; };
 		61A2683A1C53DBD00010ADBD /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A268391C53DBD00010ADBD /* TrainingViewController.swift */; };
 		61A2683D1C53DBD00010ADBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61A2683B1C53DBD00010ADBD /* Main.storyboard */; };
@@ -116,6 +117,7 @@
 
 /* Begin PBXFileReference section */
 		6156EBAD1C5BF16200F2D78F /* ChordListPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordListPopoverViewController.swift; sourceTree = "<group>"; };
+		615C05BE1C5FC039000F4996 /* beep-07.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "beep-07.wav"; path = "Sounds/beep-07.wav"; sourceTree = "<group>"; };
 		61A268341C53DBD00010ADBD /* OneMinuteChanges.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneMinuteChanges.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61A268371C53DBD00010ADBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61A268391C53DBD00010ADBD /* TrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +188,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		615C05BD1C5FC02F000F4996 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				615C05BE1C5FC039000F4996 /* beep-07.wav */,
+			);
+			name = Sounds;
+			sourceTree = "<group>";
+		};
 		61A2682B1C53DBD00010ADBD = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +219,7 @@
 		61A268361C53DBD00010ADBD /* OneMinuteChanges */ = {
 			isa = PBXGroup;
 			children = (
+				615C05BD1C5FC02F000F4996 /* Sounds */,
 				61BA4B831C5FACC6008563D0 /* OneMinuteChanges.entitlements */,
 				61F8C9681C5A6D0400816939 /* Extensions */,
 				61A268681C5881D60010ADBD /* Images */,
@@ -437,6 +448,7 @@
 				61A268E11C5F00550010ADBD /* top_charts@3x.png in Resources */,
 				61A268F51C5F00CF0010ADBD /* top_charts.png in Resources */,
 				61A268F21C5F00CF0010ADBD /* timer.png in Resources */,
+				615C05BF1C5FC039000F4996 /* beep-07.wav in Resources */,
 				61A268D91C5F003E0010ADBD /* top_charts@2x.png in Resources */,
 				61A268FD1C5F0BB80010ADBD /* nextButton.png in Resources */,
 				61A268421C53DBD00010ADBD /* Assets.xcassets in Resources */,

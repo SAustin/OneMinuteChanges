@@ -10,6 +10,12 @@ import Foundation
 import UIKit
 
 let kCountdownTime: NSTimeInterval = 60
+let kPrepareTime = 3
+
+/*
+* Delay
+* Runs x code after a delay
+*/
 
 func delay(delay:Double, closure:()->())
 {
@@ -19,6 +25,27 @@ func delay(delay:Double, closure:()->())
             Int64(delay * Double(NSEC_PER_SEC))
         ),
         dispatch_get_main_queue(), closure)
+}
+
+/*
+* Performs a countdown.
+* Method performs countdownClosure at each second, and finalClosure when the countdown is finished.
+*/
+func countdown(seconds: Int,
+    eachSecondAction countdownClosure: (timeIndex: Int) -> (),
+    finalAction finalClosure: () -> ())
+{
+    for index in 1...(seconds - 1)
+    {
+        delay(Double(index))
+            {
+                countdownClosure(timeIndex: index)
+        }
+    }
+    delay(Double(seconds))
+        {
+            finalClosure()
+    }
 }
 
 enum Recommendation: Int

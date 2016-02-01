@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelectionDelegate
 {
@@ -25,6 +26,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
     var currentChord = 0
     var chordSequence: [(Chord, Chord)]?
     
+    var soundPlayer: AVAudioPlayer?
     
     override func viewDidLoad()
     {
@@ -60,7 +62,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
     @IBAction func startWasPressed(sender: UIButton)
     {
         if self.chordSequence == nil ||
-           self.chordSequence?.count == 0
+            self.chordSequence?.count == 0
         {
             let alertController = UIAlertController(title: "Warning", message: "You must select chords to practice before you begin.", preferredStyle: .Alert)
             
@@ -71,7 +73,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
                 })
             
             self.presentViewController(alertController, animated: true, completion: nil)
-
+            
         }
         else if self.timer!.counting
         {
@@ -80,10 +82,50 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         }
         else
         {
-            self.timer?.start()
-            self.timerButton?.setBackgroundImage(UIImage(contentsOfFile: NSBundle.mainBundle().pathForResource("pauseButton", ofType: "png")!), forState: .Normal)
-            self.resetButton?.hidden = false
+            let soundPath = NSBundle.mainBundle().pathForResource("beep-07", ofType: "wav")
+            
+            try! self.soundPlayer = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: soundPath!))
+            
+            self.soundPlayer!.prepareToPlay()
+            
+            let prepareAlertController = UIAlertController(title: "Countdown", message: "Preparing to start!", preferredStyle: .Alert)
+            self.presentViewController(prepareAlertController, animated: true, completion: nil)
+            
+            countdown(kPrepareTime, eachSecondAction:
+                {
+                    timeIndex in
+                    
+                    let startTime = kPrepareTime - timeIndex
+                    
+                    prepareAlertController.message = "Timer starting in \(startTime)!"
+                    
+                    self.playBeeps(1)
+                },
+                finalAction:
+                {
+                    prepareAlertController.dismissViewControllerAnimated(true, completion: nil)
+                    
+                    self.timer?.start()
+                    self.timerButton?.setBackgroundImage(UIImage(contentsOfFile: NSBundle.mainBundle().pathForResource("pauseButton", ofType: "png")!), forState: .Normal)
+                    self.resetButton?.hidden = false
+            })
+            
         }
+            
+        
+    }
+    
+    func playBeeps(numberOfBeeps: Int)
+    {
+        for index in 0...numberOfBeeps - 1
+        {
+            delay(Double(index)*0.2)
+            {
+                self.soundPlayer?.play()
+                return
+            }
+        }
+        
     }
     
     @IBAction func viewTapped(sender: AnyObject)
