@@ -156,6 +156,7 @@
 		61A269001C5F19E40010ADBD /* OneMinuteChanges-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OneMinuteChanges-Bridging-Header.h"; sourceTree = "<group>"; };
 		61A269011C5F19E40010ADBD /* OneMinuteChangesTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OneMinuteChangesTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		61A269021C5F19E40010ADBD /* OneMinuteChangesUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OneMinuteChangesUITests-Bridging-Header.h"; sourceTree = "<group>"; };
+		61BA4B831C5FACC6008563D0 /* OneMinuteChanges.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = OneMinuteChanges.entitlements; sourceTree = "<group>"; };
 		61F8C9621C56A64200816939 /* TimerLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerLabel.swift; sourceTree = "<group>"; };
 		61F8C9691C5A6D0E00816939 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -208,6 +209,7 @@
 		61A268361C53DBD00010ADBD /* OneMinuteChanges */ = {
 			isa = PBXGroup;
 			children = (
+				61BA4B831C5FACC6008563D0 /* OneMinuteChanges.entitlements */,
 				61F8C9681C5A6D0400816939 /* Extensions */,
 				61A268681C5881D60010ADBD /* Images */,
 				61F8C9611C569FEA00816939 /* Timer */,
@@ -382,6 +384,12 @@
 				TargetAttributes = {
 					61A268331C53DBD00010ADBD = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = YMJJF4LH5P;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					61A2684A1C53DBD00010ADBD = {
 						CreatedOnToolsVersion = 7.2;
@@ -670,11 +678,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = OneMinuteChanges/OneMinuteChanges.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = OneMinuteChanges/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.europaSoftware.OneMinuteChanges;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "OneMinuteChanges/OneMinuteChanges-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -685,11 +697,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = OneMinuteChanges/OneMinuteChanges.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = OneMinuteChanges/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.europaSoftware.OneMinuteChanges;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "OneMinuteChanges/OneMinuteChanges-Bridging-Header.h";
 			};
 			name = Release;

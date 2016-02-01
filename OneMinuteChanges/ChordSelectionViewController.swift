@@ -156,6 +156,16 @@ class ChordSelectionViewController: UIViewController, UITableViewDataSource, UIT
         case 0:
             cell = tableView.dequeueReusableCellWithIdentifier("RandomChordCell", forIndexPath: atIndexPath)
             (cell as! RandomChordCell).chordNameLabel?.text = appDelegate.chordList?[atIndexPath.row].name!
+            
+            if self.randomSelectionList.contains((appDelegate.chordList?[atIndexPath.row])!)
+            {
+                cell.accessoryType = .Checkmark
+            }
+            else
+            {
+                cell.accessoryType = .None
+            }
+            
         case 1:
             cell = tableView.dequeueReusableCellWithIdentifier("SpecificPairCell", forIndexPath: atIndexPath)
             (cell as! SpecificPairCell).firstChord?.layer.cornerRadius = 5
@@ -186,6 +196,8 @@ class ChordSelectionViewController: UIViewController, UITableViewDataSource, UIT
             NSLog("Someone changed the switch!")
         }
         
+        cell.selectionStyle = .None
+        
         return cell
     }
     
@@ -205,15 +217,15 @@ class ChordSelectionViewController: UIViewController, UITableViewDataSource, UIT
         if self.randomSelectionList.contains((appDelegate.chordList?[indexPath.row])!)
         {
             self.randomSelectionList.removeAtIndex(self.randomSelectionList.indexOf((appDelegate.chordList?[indexPath.row])!)!)
-            cell.setSelected(false, animated: true)
             cell.accessoryType = .None
         }
         else
         {
             self.randomSelectionList.append((appDelegate.chordList?[indexPath.row])!)
-            cell.setSelected(true, animated: true)
             cell.accessoryType = .Checkmark
         }
+        
+        tableView.reloadData()
     }
     
     @IBAction func doneWasPressed(sender: UIBarButtonItem)

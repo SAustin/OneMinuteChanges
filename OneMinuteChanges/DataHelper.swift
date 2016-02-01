@@ -77,7 +77,7 @@ class DataHelper
         let fetch = NSFetchRequest()
         fetch.entity = assetEntity
         
-        let predicate = NSPredicate(format: "name != %@", argumentArray: [""])
+        let predicate = NSPredicate(format: "name != %@", argumentArray: ["--"])
         fetch.predicate = predicate
 
         let sortDescriptor = NSSortDescriptor(key: "sortNumber", ascending: true)
