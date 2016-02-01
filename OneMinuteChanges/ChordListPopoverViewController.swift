@@ -14,9 +14,25 @@ protocol ChordListPopoverDelegate
     func chordWasSelected(theChord: Chord)
 }
 
-class ChordListPopoverViewController: UITableViewController
+class ChordListPopoverViewController: UITableViewController, UIPopoverPresentationControllerDelegate
 {
     var chordListPopoverDelegate: ChordListPopoverDelegate?
+    
+    required init(coder: NSCoder)
+    {
+        super.init(coder: coder)!
+        self.modalPresentationStyle = .Popover
+        self.popoverPresentationController?.delegate = self
+    }
+    
+    override init(style: UITableViewStyle)
+    {
+        super.init(style: style)
+        self.modalPresentationStyle = .Popover
+        self.popoverPresentationController?.delegate = self
+
+    }
+    
     // MARK: - Table View
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int
@@ -26,7 +42,7 @@ class ChordListPopoverViewController: UITableViewController
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return Chord.Count.rawValue
+        return ((UIApplication.sharedApplication().delegate as! AppDelegate).chordList?.count)!
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
@@ -37,7 +53,7 @@ class ChordListPopoverViewController: UITableViewController
     func configureCell(tableView: UITableView, atIndexPath: NSIndexPath) -> UITableViewCell
     {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("ChordListPopoverCell")
-        cell?.textLabel?.text = Chord(rawValue: atIndexPath.row)?.description()
+        cell?.textLabel?.text = (UIApplication.sharedApplication().delegate as! AppDelegate).chordList?[atIndexPath.row].name
         
         return cell!
     }
@@ -50,7 +66,8 @@ class ChordListPopoverViewController: UITableViewController
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        self.chordListPopoverDelegate?.chordWasSelected(Chord(rawValue: indexPath.row)!)
+        let appDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
+        self.chordListPopoverDelegate?.chordWasSelected((appDelegate.chordList?[indexPath.row])!)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 

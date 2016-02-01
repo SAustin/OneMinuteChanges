@@ -39,6 +39,56 @@
 		61A268B11C58A58B0010ADBD /* skipButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268AE1C58A58B0010ADBD /* skipButton.png */; };
 		61A268B21C5B2BC70010ADBD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F8C9691C5A6D0E00816939 /* Extensions.swift */; };
 		61A268B31C5B2BC80010ADBD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F8C9691C5A6D0E00816939 /* Extensions.swift */; };
+		61A268BE1C5D5F9B0010ADBD /* DataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A268BD1C5D5F9B0010ADBD /* DataHelper.swift */; };
+		61A268BF1C5D5F9B0010ADBD /* DataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A268BD1C5D5F9B0010ADBD /* DataHelper.swift */; };
+		61A268C01C5D5F9B0010ADBD /* DataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A268BD1C5D5F9B0010ADBD /* DataHelper.swift */; };
+		61A268C11C5D603C0010ADBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A268371C53DBD00010ADBD /* AppDelegate.swift */; };
+		61A268C21C5D603D0010ADBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A268371C53DBD00010ADBD /* AppDelegate.swift */; };
+		61A268C71C5D62470010ADBD /* Result+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A268C31C5D62470010ADBD /* Result+CoreDataProperties.swift */; };
+		61A268C81C5D62470010ADBD /* Result+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A268C31C5D62470010ADBD /* Result+CoreDataProperties.swift */; };
+		61A268C91C5D62470010ADBD /* Result+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A268C31C5D62470010ADBD /* Result+CoreDataProperties.swift */; };
+		61A268CA1C5D62470010ADBD /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A268C41C5D62470010ADBD /* Result.swift */; };
+		61A268CB1C5D62470010ADBD /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A268C41C5D62470010ADBD /* Result.swift */; };
+		61A268CC1C5D62470010ADBD /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A268C41C5D62470010ADBD /* Result.swift */; };
+		61A268CD1C5D62470010ADBD /* Chord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A268C51C5D62470010ADBD /* Chord+CoreDataProperties.swift */; };
+		61A268CE1C5D62470010ADBD /* Chord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A268C51C5D62470010ADBD /* Chord+CoreDataProperties.swift */; };
+		61A268CF1C5D62470010ADBD /* Chord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A268C51C5D62470010ADBD /* Chord+CoreDataProperties.swift */; };
+		61A268D01C5D62470010ADBD /* Chord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A268C61C5D62470010ADBD /* Chord.swift */; };
+		61A268D11C5D62470010ADBD /* Chord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A268C61C5D62470010ADBD /* Chord.swift */; };
+		61A268D21C5D62470010ADBD /* Chord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A268C61C5D62470010ADBD /* Chord.swift */; };
+		61A268D51C5EFFE50010ADBD /* timer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268D41C5EFFE40010ADBD /* timer@2x.png */; };
+		61A268D61C5EFFE50010ADBD /* timer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268D41C5EFFE40010ADBD /* timer@2x.png */; };
+		61A268D71C5EFFE50010ADBD /* timer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268D41C5EFFE40010ADBD /* timer@2x.png */; };
+		61A268D91C5F003E0010ADBD /* top_charts@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268D81C5F003E0010ADBD /* top_charts@2x.png */; };
+		61A268DA1C5F003E0010ADBD /* top_charts@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268D81C5F003E0010ADBD /* top_charts@2x.png */; };
+		61A268DB1C5F003E0010ADBD /* top_charts@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268D81C5F003E0010ADBD /* top_charts@2x.png */; };
+		61A268DE1C5F00550010ADBD /* timer@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268DC1C5F00550010ADBD /* timer@3x.png */; };
+		61A268DF1C5F00550010ADBD /* timer@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268DC1C5F00550010ADBD /* timer@3x.png */; };
+		61A268E01C5F00550010ADBD /* timer@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268DC1C5F00550010ADBD /* timer@3x.png */; };
+		61A268E11C5F00550010ADBD /* top_charts@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268DD1C5F00550010ADBD /* top_charts@3x.png */; };
+		61A268E21C5F00550010ADBD /* top_charts@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268DD1C5F00550010ADBD /* top_charts@3x.png */; };
+		61A268E31C5F00550010ADBD /* top_charts@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268DD1C5F00550010ADBD /* top_charts@3x.png */; };
+		61A268E51C5F00970010ADBD /* more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268E41C5F00970010ADBD /* more@2x.png */; };
+		61A268E61C5F00970010ADBD /* more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268E41C5F00970010ADBD /* more@2x.png */; };
+		61A268E71C5F00970010ADBD /* more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268E41C5F00970010ADBD /* more@2x.png */; };
+		61A268E91C5F00AE0010ADBD /* more@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268E81C5F00AE0010ADBD /* more@3x.png */; };
+		61A268EA1C5F00AE0010ADBD /* more@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268E81C5F00AE0010ADBD /* more@3x.png */; };
+		61A268EB1C5F00AE0010ADBD /* more@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268E81C5F00AE0010ADBD /* more@3x.png */; };
+		61A268EF1C5F00CF0010ADBD /* more.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268EC1C5F00CF0010ADBD /* more.png */; };
+		61A268F01C5F00CF0010ADBD /* more.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268EC1C5F00CF0010ADBD /* more.png */; };
+		61A268F11C5F00CF0010ADBD /* more.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268EC1C5F00CF0010ADBD /* more.png */; };
+		61A268F21C5F00CF0010ADBD /* timer.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268ED1C5F00CF0010ADBD /* timer.png */; };
+		61A268F31C5F00CF0010ADBD /* timer.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268ED1C5F00CF0010ADBD /* timer.png */; };
+		61A268F41C5F00CF0010ADBD /* timer.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268ED1C5F00CF0010ADBD /* timer.png */; };
+		61A268F51C5F00CF0010ADBD /* top_charts.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268EE1C5F00CF0010ADBD /* top_charts.png */; };
+		61A268F61C5F00CF0010ADBD /* top_charts.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268EE1C5F00CF0010ADBD /* top_charts.png */; };
+		61A268F71C5F00CF0010ADBD /* top_charts.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268EE1C5F00CF0010ADBD /* top_charts.png */; };
+		61A268F91C5F0AF60010ADBD /* resetButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268F81C5F0AF60010ADBD /* resetButton.png */; };
+		61A268FA1C5F0AF60010ADBD /* resetButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268F81C5F0AF60010ADBD /* resetButton.png */; };
+		61A268FB1C5F0AF60010ADBD /* resetButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268F81C5F0AF60010ADBD /* resetButton.png */; };
+		61A268FD1C5F0BB80010ADBD /* nextButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268FC1C5F0BB80010ADBD /* nextButton.png */; };
+		61A268FE1C5F0BB80010ADBD /* nextButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268FC1C5F0BB80010ADBD /* nextButton.png */; };
+		61A268FF1C5F0BB80010ADBD /* nextButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268FC1C5F0BB80010ADBD /* nextButton.png */; };
 		61F8C9631C56A64200816939 /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F8C9621C56A64200816939 /* TimerLabel.swift */; };
 		61F8C9641C57BCE800816939 /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F8C9621C56A64200816939 /* TimerLabel.swift */; };
 		61F8C9651C57BCE800816939 /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F8C9621C56A64200816939 /* TimerLabel.swift */; };
@@ -87,6 +137,25 @@
 		61A268A61C589D230010ADBD /* startButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startButton.png; sourceTree = "<group>"; };
 		61A268AA1C589D320010ADBD /* pauseButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pauseButton.png; sourceTree = "<group>"; };
 		61A268AE1C58A58B0010ADBD /* skipButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skipButton.png; sourceTree = "<group>"; };
+		61A268BD1C5D5F9B0010ADBD /* DataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHelper.swift; sourceTree = "<group>"; };
+		61A268C31C5D62470010ADBD /* Result+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Result+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		61A268C41C5D62470010ADBD /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		61A268C51C5D62470010ADBD /* Chord+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Chord+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		61A268C61C5D62470010ADBD /* Chord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chord.swift; sourceTree = "<group>"; };
+		61A268D41C5EFFE40010ADBD /* timer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timer@2x.png"; sourceTree = "<group>"; };
+		61A268D81C5F003E0010ADBD /* top_charts@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top_charts@2x.png"; sourceTree = "<group>"; };
+		61A268DC1C5F00550010ADBD /* timer@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timer@3x.png"; sourceTree = "<group>"; };
+		61A268DD1C5F00550010ADBD /* top_charts@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top_charts@3x.png"; sourceTree = "<group>"; };
+		61A268E41C5F00970010ADBD /* more@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "more@2x.png"; sourceTree = "<group>"; };
+		61A268E81C5F00AE0010ADBD /* more@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "more@3x.png"; sourceTree = "<group>"; };
+		61A268EC1C5F00CF0010ADBD /* more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more.png; sourceTree = "<group>"; };
+		61A268ED1C5F00CF0010ADBD /* timer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timer.png; sourceTree = "<group>"; };
+		61A268EE1C5F00CF0010ADBD /* top_charts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top_charts.png; sourceTree = "<group>"; };
+		61A268F81C5F0AF60010ADBD /* resetButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = resetButton.png; sourceTree = "<group>"; };
+		61A268FC1C5F0BB80010ADBD /* nextButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nextButton.png; sourceTree = "<group>"; };
+		61A269001C5F19E40010ADBD /* OneMinuteChanges-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OneMinuteChanges-Bridging-Header.h"; sourceTree = "<group>"; };
+		61A269011C5F19E40010ADBD /* OneMinuteChangesTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OneMinuteChangesTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		61A269021C5F19E40010ADBD /* OneMinuteChangesUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OneMinuteChangesUITests-Bridging-Header.h"; sourceTree = "<group>"; };
 		61F8C9621C56A64200816939 /* TimerLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerLabel.swift; sourceTree = "<group>"; };
 		61F8C9691C5A6D0E00816939 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,16 +212,17 @@
 				61A268681C5881D60010ADBD /* Images */,
 				61F8C9611C569FEA00816939 /* Timer */,
 				61A268371C53DBD00010ADBD /* AppDelegate.swift */,
+				61A268B41C5D5F6A0010ADBD /* Data */,
 				61A2683B1C53DBD00010ADBD /* Main.storyboard */,
 				61A268411C53DBD00010ADBD /* Assets.xcassets */,
 				61A268431C53DBD00010ADBD /* LaunchScreen.storyboard */,
 				61A268461C53DBD00010ADBD /* Info.plist */,
-				61A2683E1C53DBD00010ADBD /* OneMinuteChanges.xcdatamodeld */,
 				61A2689A1C588A930010ADBD /* Constants.swift */,
 				61A268391C53DBD00010ADBD /* TrainingViewController.swift */,
 				61A2689E1C588DF10010ADBD /* ChordSelectionViewController.swift */,
 				6156EBAD1C5BF16200F2D78F /* ChordListPopoverViewController.swift */,
 				61A268A21C5891880010ADBD /* CustomCells.swift */,
+				61A269081C5F1A120010ADBD /* Supporting Files */,
 			);
 			path = OneMinuteChanges;
 			sourceTree = "<group>";
@@ -178,12 +248,54 @@
 		61A268681C5881D60010ADBD /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				61A268FC1C5F0BB80010ADBD /* nextButton.png */,
+				61A268F81C5F0AF60010ADBD /* resetButton.png */,
+				61A268D31C5EFFA00010ADBD /* Icons */,
 				61A268AE1C58A58B0010ADBD /* skipButton.png */,
 				61A268AA1C589D320010ADBD /* pauseButton.png */,
 				61A268A61C589D230010ADBD /* startButton.png */,
 				61A268981C58820D0010ADBD /* tabIcon.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		61A268B41C5D5F6A0010ADBD /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				61A268BD1C5D5F9B0010ADBD /* DataHelper.swift */,
+				61A2683E1C53DBD00010ADBD /* OneMinuteChanges.xcdatamodeld */,
+				61A268C31C5D62470010ADBD /* Result+CoreDataProperties.swift */,
+				61A268C41C5D62470010ADBD /* Result.swift */,
+				61A268C51C5D62470010ADBD /* Chord+CoreDataProperties.swift */,
+				61A268C61C5D62470010ADBD /* Chord.swift */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		61A268D31C5EFFA00010ADBD /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				61A268EC1C5F00CF0010ADBD /* more.png */,
+				61A268ED1C5F00CF0010ADBD /* timer.png */,
+				61A268EE1C5F00CF0010ADBD /* top_charts.png */,
+				61A268E81C5F00AE0010ADBD /* more@3x.png */,
+				61A268E41C5F00970010ADBD /* more@2x.png */,
+				61A268DC1C5F00550010ADBD /* timer@3x.png */,
+				61A268DD1C5F00550010ADBD /* top_charts@3x.png */,
+				61A268D81C5F003E0010ADBD /* top_charts@2x.png */,
+				61A268D41C5EFFE40010ADBD /* timer@2x.png */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
+		61A269081C5F1A120010ADBD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				61A269001C5F19E40010ADBD /* OneMinuteChanges-Bridging-Header.h */,
+				61A269011C5F19E40010ADBD /* OneMinuteChangesTests-Bridging-Header.h */,
+				61A269021C5F19E40010ADBD /* OneMinuteChangesUITests-Bridging-Header.h */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		61F8C9611C569FEA00816939 /* Timer */ = {
@@ -308,11 +420,22 @@
 			files = (
 				61A268AF1C58A58B0010ADBD /* skipButton.png in Resources */,
 				61A268A71C589D230010ADBD /* startButton.png in Resources */,
+				61A268D51C5EFFE50010ADBD /* timer@2x.png in Resources */,
+				61A268E51C5F00970010ADBD /* more@2x.png in Resources */,
 				61A268451C53DBD00010ADBD /* LaunchScreen.storyboard in Resources */,
+				61A268E91C5F00AE0010ADBD /* more@3x.png in Resources */,
 				61A268AB1C589D320010ADBD /* pauseButton.png in Resources */,
+				61A268F91C5F0AF60010ADBD /* resetButton.png in Resources */,
+				61A268E11C5F00550010ADBD /* top_charts@3x.png in Resources */,
+				61A268F51C5F00CF0010ADBD /* top_charts.png in Resources */,
+				61A268F21C5F00CF0010ADBD /* timer.png in Resources */,
+				61A268D91C5F003E0010ADBD /* top_charts@2x.png in Resources */,
+				61A268FD1C5F0BB80010ADBD /* nextButton.png in Resources */,
 				61A268421C53DBD00010ADBD /* Assets.xcassets in Resources */,
 				61A268991C58820D0010ADBD /* tabIcon.png in Resources */,
 				61A2683D1C53DBD00010ADBD /* Main.storyboard in Resources */,
+				61A268EF1C5F00CF0010ADBD /* more.png in Resources */,
+				61A268DE1C5F00550010ADBD /* timer@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,7 +444,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				61A268B01C58A58B0010ADBD /* skipButton.png in Resources */,
+				61A268E21C5F00550010ADBD /* top_charts@3x.png in Resources */,
+				61A268FE1C5F0BB80010ADBD /* nextButton.png in Resources */,
 				61A268AC1C589D320010ADBD /* pauseButton.png in Resources */,
+				61A268FA1C5F0AF60010ADBD /* resetButton.png in Resources */,
+				61A268EA1C5F00AE0010ADBD /* more@3x.png in Resources */,
+				61A268E61C5F00970010ADBD /* more@2x.png in Resources */,
+				61A268D61C5EFFE50010ADBD /* timer@2x.png in Resources */,
+				61A268F01C5F00CF0010ADBD /* more.png in Resources */,
+				61A268DF1C5F00550010ADBD /* timer@3x.png in Resources */,
+				61A268F61C5F00CF0010ADBD /* top_charts.png in Resources */,
+				61A268DA1C5F003E0010ADBD /* top_charts@2x.png in Resources */,
+				61A268F31C5F00CF0010ADBD /* timer.png in Resources */,
 				61A268A81C589D230010ADBD /* startButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,7 +465,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				61A268B11C58A58B0010ADBD /* skipButton.png in Resources */,
+				61A268E31C5F00550010ADBD /* top_charts@3x.png in Resources */,
+				61A268FF1C5F0BB80010ADBD /* nextButton.png in Resources */,
 				61A268AD1C589D320010ADBD /* pauseButton.png in Resources */,
+				61A268FB1C5F0AF60010ADBD /* resetButton.png in Resources */,
+				61A268EB1C5F00AE0010ADBD /* more@3x.png in Resources */,
+				61A268E71C5F00970010ADBD /* more@2x.png in Resources */,
+				61A268D71C5EFFE50010ADBD /* timer@2x.png in Resources */,
+				61A268F11C5F00CF0010ADBD /* more.png in Resources */,
+				61A268E01C5F00550010ADBD /* timer@3x.png in Resources */,
+				61A268F71C5F00CF0010ADBD /* top_charts.png in Resources */,
+				61A268DB1C5F003E0010ADBD /* top_charts@2x.png in Resources */,
+				61A268F41C5F00CF0010ADBD /* timer.png in Resources */,
 				61A268A91C589D230010ADBD /* startButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,10 +492,15 @@
 				61F8C9631C56A64200816939 /* TimerLabel.swift in Sources */,
 				61A2683A1C53DBD00010ADBD /* TrainingViewController.swift in Sources */,
 				61F8C96A1C5A6D0E00816939 /* Extensions.swift in Sources */,
+				61A268C71C5D62470010ADBD /* Result+CoreDataProperties.swift in Sources */,
 				61A268A31C5891880010ADBD /* CustomCells.swift in Sources */,
+				61A268D01C5D62470010ADBD /* Chord.swift in Sources */,
+				61A268CA1C5D62470010ADBD /* Result.swift in Sources */,
 				61A268381C53DBD00010ADBD /* AppDelegate.swift in Sources */,
+				61A268CD1C5D62470010ADBD /* Chord+CoreDataProperties.swift in Sources */,
 				61A2689F1C588DF10010ADBD /* ChordSelectionViewController.swift in Sources */,
 				6156EBAE1C5BF16200F2D78F /* ChordListPopoverViewController.swift in Sources */,
+				61A268BE1C5D5F9B0010ADBD /* DataHelper.swift in Sources */,
 				61A268401C53DBD00010ADBD /* OneMinuteChanges.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,12 +509,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61A268C11C5D603C0010ADBD /* AppDelegate.swift in Sources */,
 				61F8C9661C57BCEE00816939 /* TrainingViewController.swift in Sources */,
 				61F8C9641C57BCE800816939 /* TimerLabel.swift in Sources */,
 				61A268501C53DBD00010ADBD /* OneMinuteChangesTests.swift in Sources */,
+				61A268C81C5D62470010ADBD /* Result+CoreDataProperties.swift in Sources */,
 				61A268A01C588DF10010ADBD /* ChordSelectionViewController.swift in Sources */,
+				61A268D11C5D62470010ADBD /* Chord.swift in Sources */,
+				61A268CB1C5D62470010ADBD /* Result.swift in Sources */,
 				61A268A41C5891880010ADBD /* CustomCells.swift in Sources */,
+				61A268CE1C5D62470010ADBD /* Chord+CoreDataProperties.swift in Sources */,
 				6156EBAF1C5BF16200F2D78F /* ChordListPopoverViewController.swift in Sources */,
+				61A268BF1C5D5F9B0010ADBD /* DataHelper.swift in Sources */,
 				61A2689C1C588BD70010ADBD /* Constants.swift in Sources */,
 				61A268B21C5B2BC70010ADBD /* Extensions.swift in Sources */,
 			);
@@ -374,12 +530,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61A268C21C5D603D0010ADBD /* AppDelegate.swift in Sources */,
 				61F8C9671C57BCEE00816939 /* TrainingViewController.swift in Sources */,
 				61F8C9651C57BCE800816939 /* TimerLabel.swift in Sources */,
 				61A2685B1C53DBD00010ADBD /* OneMinuteChangesUITests.swift in Sources */,
+				61A268C91C5D62470010ADBD /* Result+CoreDataProperties.swift in Sources */,
 				61A268A11C588DF10010ADBD /* ChordSelectionViewController.swift in Sources */,
+				61A268D21C5D62470010ADBD /* Chord.swift in Sources */,
+				61A268CC1C5D62470010ADBD /* Result.swift in Sources */,
 				61A268A51C5891880010ADBD /* CustomCells.swift in Sources */,
+				61A268CF1C5D62470010ADBD /* Chord+CoreDataProperties.swift in Sources */,
 				6156EBB01C5BF16200F2D78F /* ChordListPopoverViewController.swift in Sources */,
+				61A268C01C5D5F9B0010ADBD /* DataHelper.swift in Sources */,
 				61A2689D1C588BD70010ADBD /* Constants.swift in Sources */,
 				61A268B31C5B2BC80010ADBD /* Extensions.swift in Sources */,
 			);
@@ -507,11 +669,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = OneMinuteChanges/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.europaSoftware.OneMinuteChanges;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OneMinuteChanges/OneMinuteChanges-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -519,11 +684,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = OneMinuteChanges/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.europaSoftware.OneMinuteChanges;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OneMinuteChanges/OneMinuteChanges-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -531,11 +698,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = OneMinuteChangesTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.europaSoftware.OneMinuteChangesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OneMinuteChanges/OneMinuteChangesTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OneMinuteChanges.app/OneMinuteChanges";
 			};
 			name = Debug;
@@ -544,11 +714,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = OneMinuteChangesTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.europaSoftware.OneMinuteChangesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OneMinuteChanges/OneMinuteChangesTests-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OneMinuteChanges.app/OneMinuteChanges";
 			};
 			name = Release;
@@ -556,11 +728,14 @@
 		61A268661C53DBD00010ADBD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = OneMinuteChangesUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.europaSoftware.OneMinuteChangesUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OneMinuteChanges/OneMinuteChangesUITests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_TARGET_NAME = OneMinuteChanges;
 				USES_XCTRUNNER = YES;
 			};
@@ -569,11 +744,13 @@
 		61A268671C53DBD00010ADBD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = OneMinuteChangesUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.europaSoftware.OneMinuteChangesUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OneMinuteChanges/OneMinuteChangesUITests-Bridging-Header.h";
 				TEST_TARGET_NAME = OneMinuteChanges;
 				USES_XCTRUNNER = YES;
 			};

@@ -29,15 +29,18 @@ class ChordSelectionViewController: UIViewController, UITableViewDataSource, UIT
     var currentRowSelection = 0
     var currentButtonSelection = 0
     
+    var blankChord: Chord?
+    
     var selectionIsRandom: Bool = false
     
     override func viewDidLoad()
     {
-        
+        self.blankChord = (UIApplication.sharedApplication().delegate as! AppDelegate).dataHelper.getEntity("Chord", withKey: "name", andValue: "--") as? Chord
     }
     
     func chordSelectionWasPressed(sender: UIButton)
     {
+        
         //TODO: Present popover
         self.currentButtonSelection = sender.tag % 2
         self.currentRowSelection = Int(sender.tag / 100)
@@ -49,10 +52,22 @@ class ChordSelectionViewController: UIViewController, UITableViewDataSource, UIT
         popover.popoverPresentationController?.sourceView = sender
         popover.popoverPresentationController?.sourceRect = sender.frame
         popover.popoverPresentationController?.permittedArrowDirections = .Any
-        popover.preferredContentSize = CGSizeMake(60, 264)
+        popover.preferredContentSize = CGSizeMake(90, 440)
         
         self.presentViewController(popover, animated: true, completion: nil)
     }
+    
+    // MARK: - PopoverControllerDelegate
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle
+    {
+        return UIModalPresentationStyle.None
+    }
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle
+    {
+        return UIModalPresentationStyle.None
+    }
+
     
     //MARK: - Chord list Popover delegate
     func chordWasSelected(theChord: Chord)
@@ -61,17 +76,17 @@ class ChordSelectionViewController: UIViewController, UITableViewDataSource, UIT
         
         if self.selectedSelectionList.count <= self.currentRowSelection
         {
-            self.selectedSelectionList.append((Chord.Count, Chord.Count))
+            self.selectedSelectionList.append((self.blankChord!, self.blankChord!))
         }
         var (chord1, chord2) = self.selectedSelectionList[self.currentRowSelection]
         
         switch self.currentButtonSelection
         {
         case 0:
-            (cell as! SpecificPairCell).firstChord?.setTitle(theChord.description(), forState: .Normal)
+            (cell as! SpecificPairCell).firstChord?.setTitle(theChord.name!, forState: .Normal)
             chord1 = theChord
         case 1:
-            (cell as! SpecificPairCell).secondChord?.setTitle(theChord.description(), forState: .Normal)
+            (cell as! SpecificPairCell).secondChord?.setTitle(theChord.name!, forState: .Normal)
             chord2 = theChord
         default:
             NSLog("Inappropriate value coming across in chord selection")
@@ -106,7 +121,7 @@ class ChordSelectionViewController: UIViewController, UITableViewDataSource, UIT
             switch self.selectionTypeSwitch!.selectedSegmentIndex
             {
             case 0:
-                return Chord.Count.rawValue
+                return ((UIApplication.sharedApplication().delegate as! AppDelegate).chordList?.count)!
             case 1:
                 return self.selectedSelectionList.count + 1
             default:
@@ -115,7 +130,7 @@ class ChordSelectionViewController: UIViewController, UITableViewDataSource, UIT
         }
         else
         {
-            return Chord.Count.rawValue
+            return ((UIApplication.sharedApplication().delegate as! AppDelegate).chordList?.count)!
         }
         
     }
@@ -127,6 +142,7 @@ class ChordSelectionViewController: UIViewController, UITableViewDataSource, UIT
     
     func configureCell(tableView: UITableView, atIndexPath: NSIndexPath) -> UITableViewCell
     {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         var cell: UITableViewCell
         
         var activeSwitch = 0
@@ -139,7 +155,7 @@ class ChordSelectionViewController: UIViewController, UITableViewDataSource, UIT
         {
         case 0:
             cell = tableView.dequeueReusableCellWithIdentifier("RandomChordCell", forIndexPath: atIndexPath)
-            (cell as! RandomChordCell).chordNameLabel?.text = Chord(rawValue: atIndexPath.row)?.description()
+            (cell as! RandomChordCell).chordNameLabel?.text = appDelegate.chordList?[atIndexPath.row].name!
         case 1:
             cell = tableView.dequeueReusableCellWithIdentifier("SpecificPairCell", forIndexPath: atIndexPath)
             (cell as! SpecificPairCell).firstChord?.layer.cornerRadius = 5
@@ -160,22 +176,9 @@ class ChordSelectionViewController: UIViewController, UITableViewDataSource, UIT
             else
             {
                 let (chord1, chord2) = self.selectedSelectionList[atIndexPath.row]
-                if chord1 == .Count
-                {
-                    (cell as! SpecificPairCell).firstChord?.setTitle("--", forState: .Normal)
-                }
-                else
-                {
-                    (cell as! SpecificPairCell).firstChord?.setTitle(chord1.description(), forState: .Normal)
-                }
-                if chord2 == .Count
-                {
-                    (cell as! SpecificPairCell).secondChord?.setTitle("--", forState: .Normal)
-                }
-                else
-                {
-                    (cell as! SpecificPairCell).secondChord?.setTitle(chord2.description(), forState: .Normal)
-                }
+
+                (cell as! SpecificPairCell).firstChord?.setTitle(chord1.name!, forState: .Normal)
+                (cell as! SpecificPairCell).secondChord?.setTitle(chord2.name!, forState: .Normal)
             }
             
         default:
@@ -194,18 +197,21 @@ class ChordSelectionViewController: UIViewController, UITableViewDataSource, UIT
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
+        //TODO: Fix the unselect.
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
         let cell = self.tableView(tableView, cellForRowAtIndexPath: indexPath)
         
-        if self.randomSelectionList.contains(Chord(rawValue: indexPath.row)!)
+        if self.randomSelectionList.contains((appDelegate.chordList?[indexPath.row])!)
         {
-            self.randomSelectionList.removeAtIndex(self.randomSelectionList.indexOf(Chord(rawValue: indexPath.row)!)!)
-            cell.selected = false
+            self.randomSelectionList.removeAtIndex(self.randomSelectionList.indexOf((appDelegate.chordList?[indexPath.row])!)!)
+            cell.setSelected(false, animated: true)
             cell.accessoryType = .None
         }
         else
         {
-            self.randomSelectionList.append(Chord(rawValue: indexPath.row)!)
-            cell.selected = true
+            self.randomSelectionList.append((appDelegate.chordList?[indexPath.row])!)
+            cell.setSelected(true, animated: true)
             cell.accessoryType = .Checkmark
         }
     }
@@ -222,7 +228,16 @@ class ChordSelectionViewController: UIViewController, UITableViewDataSource, UIT
         }
         else if self.selectedSelectionList.count > 0
         {
-            self.chordSelectionDelegate?.chordSequenceWasSelected(self.selectedSelectionList)
+            var returnArray = [(Chord, Chord)]()
+            for (chord1, chord2) in self.selectedSelectionList
+            {
+                if chord1 != self.blankChord &&
+                   chord2 != self.blankChord
+                {
+                    returnArray.append((chord1, chord2))
+                }
+            }
+            self.chordSelectionDelegate?.chordSequenceWasSelected(returnArray)
         }
         
         self.dismissViewControllerAnimated(true, completion: nil)

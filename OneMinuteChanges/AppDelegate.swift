@@ -13,10 +13,21 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var chordList: [Chord]?
+    var dataHelper = DataHelper()
 
-
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
+    {
         // Override point for customization after application launch.
+        
+        self.chordList = self.dataHelper.getAllChords()
+        
+        if self.chordList!.count == 0
+        {
+            self.dataHelper.initData()
+            self.chordList = self.dataHelper.getAllChords()
+        }
+        
         return true
     }
 

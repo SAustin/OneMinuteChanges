@@ -7,77 +7,9 @@
 //
 
 import Foundation
+import UIKit
 
 let kCountdownTime: NSTimeInterval = 60
-
-enum ChordSequenceType: Int
-{
-    case Random = 0
-    case Schedule
-    case Targeted
-}
-
-enum Chord: Int
-{
-    case D = 0
-    case A
-    case E
-    case Amin
-    case Emin
-    case Dmin
-    case G
-    case C
-    case G7
-    case C7
-    case B7
-    case Fmaj7
-    case A7
-    case D7
-    case E7
-    case F
-    case Count
-    
-    func description() -> String
-    {
-        switch self
-        {
-        case .D:
-            return "D"
-        case .A:
-            return "A"
-        case .E:
-            return "E"
-        case .Amin:
-            return "Amin"
-        case .Emin:
-            return "Emin"
-        case .Dmin:
-            return "Dmin"
-        case .G:
-            return "G"
-        case .C:
-            return "C"
-        case .G7:
-            return "G7"
-        case .C7:
-            return "C7"
-        case .B7:
-            return "B7"
-        case .Fmaj7:
-            return "Fmaj7"
-        case .A7:
-            return "A7"
-        case .D7:
-            return "D7"
-        case .E7:
-            return "E7"
-        case .F:
-            return "F"
-        default:
-            return "Count"
-        }
-    }
-}
 
 func delay(delay:Double, closure:()->())
 {
@@ -88,3 +20,63 @@ func delay(delay:Double, closure:()->())
         ),
         dispatch_get_main_queue(), closure)
 }
+
+enum Recommendation: Int
+{
+    case BeginnerOne = 0
+    case BeginnerTwo
+    case BeginnerThree
+    case BeginnerFour
+    case BeginnerFive
+    case BeginnerSix
+    case BeginnerSeven
+    case BeginnerEight
+    case BeginnerNine
+    
+    func getSequence() -> [(Chord, Chord)]?
+    {
+        let dataHelper = (UIApplication.sharedApplication().delegate as! AppDelegate).dataHelper
+
+        switch self
+        {
+        case .BeginnerOne:
+            return [(dataHelper.getChord("D"), dataHelper.getChord("A")), (dataHelper.getChord("D"), dataHelper.getChord("E")), (dataHelper.getChord("A"), dataHelper.getChord("E"))]
+        case .BeginnerTwo:
+            return [(dataHelper.getChord("Amin"), dataHelper.getChord("E")),
+                (dataHelper.getChord("Amin"), dataHelper.getChord("Dmin")),
+                (dataHelper.getChord("A"), dataHelper.getChord("Dmin")),
+                (dataHelper.getChord("E"), dataHelper.getChord("D")),
+                (dataHelper.getChord("Emin"), dataHelper.getChord("D"))]
+        case .BeginnerThree:
+            return [(dataHelper.getChord("C"), dataHelper.getChord("Amin")),
+                (dataHelper.getChord("C"), dataHelper.getChord("A")),
+                (dataHelper.getChord("C"), dataHelper.getChord("G")),
+                (dataHelper.getChord("G"), dataHelper.getChord("E")),
+                (dataHelper.getChord("G"), dataHelper.getChord("D"))]
+        case .BeginnerFour:
+            return [(dataHelper.getChord("C"), dataHelper.getChord("G7")),
+                (dataHelper.getChord("C7"), dataHelper.getChord("FMaj7")),
+                (dataHelper.getChord("E"), dataHelper.getChord("B7")),
+                (dataHelper.getChord("C7"), dataHelper.getChord("G7")),
+                (dataHelper.getChord("D"), dataHelper.getChord("A")),
+                (dataHelper.getChord("D"), dataHelper.getChord("A")),
+                (dataHelper.getChord("E7"), dataHelper.getChord("A")),
+                (dataHelper.getChord("FMaj7"), dataHelper.getChord("A"))]
+        case .BeginnerFive:
+            return nil
+        case .BeginnerSix:
+            return [(dataHelper.getChord("F"), dataHelper.getChord("C")),
+                (dataHelper.getChord("F"), dataHelper.getChord("E")),
+                (dataHelper.getChord("F"), dataHelper.getChord("D")),
+                (dataHelper.getChord("F"), dataHelper.getChord("Amin")),
+                (dataHelper.getChord("F"), dataHelper.getChord("G"))]
+        case .BeginnerSeven:
+            return nil
+        case .BeginnerEight:
+            return nil
+        case .BeginnerNine:
+            return nil
+        }
+    }
+}
+
