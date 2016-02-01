@@ -57,6 +57,35 @@ class ChordSelectionViewController: UIViewController, UITableViewDataSource, UIT
         self.presentViewController(popover, animated: true, completion: nil)
     }
     
+    func selectProblemChordCombos()
+    {
+        var returnList = [(Chord, Chord)]()
+        let allResultList = (UIApplication.sharedApplication().delegate as! AppDelegate).dataHelper.getAllResults()
+        if let resultList = allResultList
+        {
+            var total = 0
+            var count = 0
+            for result in resultList
+            {
+                total += result.score!.integerValue
+                count++
+            }
+            let average = total/count
+            
+            for result in resultList
+            {
+                if result.score!.integerValue < average
+                {
+                    let chordArray = Array(result.chords!) as! [Chord]
+                    returnList.append((chordArray[0], chordArray[1]))
+                }
+            }
+            
+            self.chordSelectionDelegate?.chordSequenceWasSelected(returnList)
+            
+        }
+    }
+    
     // MARK: - PopoverControllerDelegate
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle
     {

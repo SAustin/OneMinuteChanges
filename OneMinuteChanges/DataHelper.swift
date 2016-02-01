@@ -98,6 +98,32 @@ class DataHelper
         return fetchedResults as? [Chord]
     }
     
+    func getAllResults() -> [Result]?
+    {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let assetEntity = NSEntityDescription.entityForName("Result", inManagedObjectContext: appDelegate.managedObjectContext)
+        
+        let fetch = NSFetchRequest()
+        fetch.entity = assetEntity
+        
+        let sortDescriptor = NSSortDescriptor(key: "score", ascending: true)
+        fetch.sortDescriptors = [sortDescriptor]
+        
+        var fetchedResults: [AnyObject]?
+        
+        do
+        {
+            try fetchedResults = appDelegate.managedObjectContext.executeFetchRequest(fetch) as! [NSManagedObject]
+        }
+        catch
+        {
+            NSLog("Error fetching entity all chords: \(error)")
+        }
+        
+        return fetchedResults as? [Result]
+    }
+
+    
     func addResult(chord1: Chord, chord2: Chord, score: Int)
     {
         let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext

@@ -273,9 +273,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
             }
         }
         
-        fullList.shuffleInPlace()
-        
-        self.chordSequence = fullList
+        self.chordSequence = fullList.shuffle()
         self.currentChord = 0
         self.updateChordLabels()
         
@@ -284,7 +282,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
     
     func chordSequenceWasSelected(chordSequence: [(Chord, Chord)])
     {
-        self.chordSequence?.shuffleInPlace()
+        self.chordSequence = chordSequence.shuffle()
         self.currentChord = 0
         self.updateChordLabels()
         
@@ -325,7 +323,8 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
     
     func timerLabel(timerLabel: TimerLabel, finishedCountDownTimerWithTime countTime: NSTimeInterval)
     {
-        //TODO: Change 'skip' to 'next'
+        self.playBeeps(3)
+        
         let nextPath = NSBundle.mainBundle().pathForResource("nextButton", ofType: "png")
         self.skipButton?.setBackgroundImage(UIImage(contentsOfFile: nextPath!)!, forState: .Normal)
 
