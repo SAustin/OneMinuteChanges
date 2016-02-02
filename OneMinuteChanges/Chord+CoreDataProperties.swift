@@ -15,6 +15,7 @@ import CoreData
 extension Chord {
 
     @NSManaged var name: String?
+    @NSManaged var fileName: String?
     @NSManaged var sortNumber: NSNumber?
     @NSManaged var results: NSSet?
 
