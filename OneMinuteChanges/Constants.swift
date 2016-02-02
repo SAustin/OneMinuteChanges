@@ -60,6 +60,35 @@ enum Recommendation: Int
     case BeginnerSeven
     case BeginnerEight
     case BeginnerNine
+    case Count
+    
+    func description() -> String
+    {
+        switch self
+        {
+        case .BeginnerOne:
+            return "Beginner Week One"
+        case .BeginnerTwo:
+            return "Beginner Week Two"
+        case .BeginnerThree:
+            return "Beginner Week Three"
+        case .BeginnerFour:
+            return "Beginner Week Four"
+        case .BeginnerFive:
+            return "Beginner Week Five"
+        case .BeginnerSix:
+            return "Beginner Week Six"
+        case .BeginnerSeven:
+            return "Beginner Week Seven"
+        case .BeginnerEight:
+            return "Beginner Week Eight"
+        case .BeginnerNine:
+            return "Beginner Week Nine"
+        default:
+            return ""
+            
+        }
+    }
     
     func getSequence() -> [(Chord, Chord)]?
     {
@@ -103,6 +132,8 @@ enum Recommendation: Int
         case .BeginnerEight:
             return nil
         case .BeginnerNine:
+            return nil
+        case .Count:
             return nil
         }
     }

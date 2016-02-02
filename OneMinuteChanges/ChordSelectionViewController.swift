@@ -22,10 +22,12 @@ class ChordSelectionViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet var numberOfChordTextField: UITextField?
     @IBOutlet var stepper: UIStepper?
     @IBOutlet var chordListTable: UITableView?
+    
     var randomSelectionList = [Chord]()
     var selectedSelectionList = [(Chord, Chord)]()
     var chordSelectionDelegate: ChordSelectionDelegate?
     
+    var currentRecommendation: Recommendation?
     var currentRowSelection = 0
     var currentButtonSelection = 0
     
@@ -153,6 +155,8 @@ class ChordSelectionViewController: UIViewController, UITableViewDataSource, UIT
                 return ((UIApplication.sharedApplication().delegate as! AppDelegate).chordList?.count)!
             case 1:
                 return self.selectedSelectionList.count + 1
+            case 2:
+                return Recommendation.Count.rawValue
             default:
                 return 0
             }
@@ -219,7 +223,27 @@ class ChordSelectionViewController: UIViewController, UITableViewDataSource, UIT
                 (cell as! SpecificPairCell).firstChord?.setTitle(chord1.name!, forState: .Normal)
                 (cell as! SpecificPairCell).secondChord?.setTitle(chord2.name!, forState: .Normal)
             }
-            
+        case 2:
+            cell = tableView.dequeueReusableCellWithIdentifier("RandomChordCell", forIndexPath: atIndexPath)
+            (cell as! RandomChordCell).chordNameLabel?.text = Recommendation(rawValue: atIndexPath.row)?.description()
+
+            if let recommendation = self.currentRecommendation
+            {
+                if recommendation == Recommendation(rawValue: atIndexPath.row)
+                {
+                    cell.accessoryType = .Checkmark
+                }
+                else
+                {
+                    cell.accessoryType = .None
+                }
+                
+            }
+            else
+            {
+                cell.accessoryType = .None
+            }
+
         default:
             cell = tableView.dequeueReusableCellWithIdentifier("RandomChordCell")!
             NSLog("Someone changed the switch!")
@@ -238,21 +262,42 @@ class ChordSelectionViewController: UIViewController, UITableViewDataSource, UIT
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        //TODO: Fix the unselect.
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
-        let cell = self.tableView(tableView, cellForRowAtIndexPath: indexPath)
+        switch self.selectionTypeSwitch!.selectedSegmentIndex
+        {
+        case 0:
+            if self.randomSelectionList.contains((appDelegate.chordList?[indexPath.row])!)
+            {
+                self.randomSelectionList.removeAtIndex(self.randomSelectionList.indexOf((appDelegate.chordList?[indexPath.row])!)!)
+            }
+            else
+            {
+                self.randomSelectionList.append((appDelegate.chordList?[indexPath.row])!)
+            }
+            
+        case 1:
+            NSLog("Do nothing")
+        case 2:
+            if let recommendation = self.currentRecommendation
+            {
+                if recommendation == Recommendation(rawValue: indexPath.row)
+                {
+                    self.currentRecommendation = nil
+                }
+                else
+                {
+                    self.currentRecommendation = recommendation
+                }
+            }
+            else
+            {
+                self.currentRecommendation = Recommendation(rawValue: indexPath.row)
+            }
+        default:
+            NSLog("Do nothing")
+        }
         
-        if self.randomSelectionList.contains((appDelegate.chordList?[indexPath.row])!)
-        {
-            self.randomSelectionList.removeAtIndex(self.randomSelectionList.indexOf((appDelegate.chordList?[indexPath.row])!)!)
-            cell.accessoryType = .None
-        }
-        else
-        {
-            self.randomSelectionList.append((appDelegate.chordList?[indexPath.row])!)
-            cell.accessoryType = .Checkmark
-        }
         
         tableView.reloadData()
     }
@@ -279,6 +324,13 @@ class ChordSelectionViewController: UIViewController, UITableViewDataSource, UIT
                 }
             }
             self.chordSelectionDelegate?.chordSequenceWasSelected(returnArray)
+        }
+        else if let recommendation = self.currentRecommendation
+        {
+            if let sequence = recommendation.getSequence()
+            {
+                self.chordSelectionDelegate?.chordSequenceWasSelected(sequence)
+            }
         }
         
         self.dismissViewControllerAnimated(true, completion: nil)
