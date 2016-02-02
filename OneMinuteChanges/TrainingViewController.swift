@@ -9,10 +9,11 @@
 import UIKit
 import AVFoundation
 
-class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelectionDelegate
+class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelectionDelegate, UIPopoverPresentationControllerDelegate
 {
     @IBOutlet var timerLabel: UILabel?
-    @IBOutlet var currentChordPairLabel: UILabel?
+    @IBOutlet var currentChordOneButton: UIButton?
+    @IBOutlet var currentChordTwoButton: UIButton?
     @IBOutlet var nextChordPairLabel: UILabel?
     @IBOutlet var numberOfAttemptsLabel: UILabel?
     @IBOutlet var previousMaximum: UILabel?
@@ -52,7 +53,8 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         }
         else
         {
-            self.currentChordPairLabel?.text = "--"
+            self.currentChordOneButton?.setTitle("--", forState: .Normal)
+            self.currentChordTwoButton?.setTitle("--", forState: .Normal)
             self.nextChordPairLabel?.text = "--"
         }
         
@@ -171,6 +173,20 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         }
     }
     
+    @IBAction func chordNameWasPresed(sender: UIButton)
+    {
+        let popover = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TabDisplayPopoverViewController") as! ChordListPopoverViewController
+        popover.modalPresentationStyle = .Popover
+        popover.popoverPresentationController?.delegate = self
+        popover.popoverPresentationController?.sourceView = sender
+        popover.popoverPresentationController?.sourceRect = sender.frame
+        popover.popoverPresentationController?.permittedArrowDirections = .Any
+        popover.preferredContentSize = CGSizeMake(400, 600)
+        
+        self.presentViewController(popover, animated: true, completion: nil)
+
+    }
+    
     func skipNextLogic()
     {
         //We've finished a minute; this is "next" not "skip"
@@ -255,6 +271,18 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
             NSLog("Weird segue from training controller")
         }
     }
+    
+    // MARK: - PopoverControllerDelegate
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle
+    {
+        return UIModalPresentationStyle.None
+    }
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle
+    {
+        return UIModalPresentationStyle.None
+    }
+
     
     //MARK: - Chord Selection Delegate
     func randomChordsWereSelected(chordList: [Chord])
