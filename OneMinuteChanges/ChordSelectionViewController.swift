@@ -250,15 +250,15 @@ class ChordSelectionViewController: UIViewController, UITableViewDataSource, UIT
         case 1:
             NSLog("Do nothing")
         case 2:
-            if let recommendation = self.currentRecommendation
+            if let _ = self.currentRecommendation
             {
-                if recommendation == Recommendation(rawValue: indexPath.row)
+                if self.currentRecommendation! == Recommendation(rawValue: indexPath.row)
                 {
                     self.currentRecommendation = nil
                 }
                 else
                 {
-                    self.currentRecommendation = recommendation
+                    self.currentRecommendation = Recommendation(rawValue: indexPath.row)
                 }
             }
             else

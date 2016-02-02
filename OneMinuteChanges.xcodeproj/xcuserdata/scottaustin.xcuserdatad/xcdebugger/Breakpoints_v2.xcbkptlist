@@ -29,22 +29,6 @@
             timestampString = "476118631.196363"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "292"
-            endingLineNumber = "292"
-            landmarkName = "chordSequenceWasSelected(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OneMinuteChanges/TrainingViewController.swift"
-            timestampString = "476118631.196363"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
             startingLineNumber = "262"
             endingLineNumber = "262"
             landmarkName = "randomChordsWereSelected(_:)"
@@ -57,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "OneMinuteChanges/TrainingViewController.swift"
-            timestampString = "476118631.196363"
+            filePath = "OneMinuteChanges/Constants.swift"
+            timestampString = "476119428.577059"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "301"
-            endingLineNumber = "301"
-            landmarkName = "singleChordWasSelected(_:)"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "getSequence()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

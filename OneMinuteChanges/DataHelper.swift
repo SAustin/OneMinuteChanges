@@ -225,7 +225,7 @@ class DataHelper
         chord11.sortNumber = 10
         
         let chord12 = NSEntityDescription.insertNewObjectForEntityForName("Chord", inManagedObjectContext: context) as! Chord
-        chord12.name = "Fmaj7"
+        chord12.name = "FMaj7"
         chord12.sortNumber = 11
         
         let chord13 = NSEntityDescription.insertNewObjectForEntityForName("Chord", inManagedObjectContext: context) as! Chord
