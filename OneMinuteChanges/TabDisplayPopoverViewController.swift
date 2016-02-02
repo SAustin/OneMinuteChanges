@@ -16,9 +16,11 @@ class TabDisplayPopoverViewController: UIViewController
     
     override func viewDidLoad()
     {
-        let imagePath = NSBundle.mainBundle().pathForResource(chordToDisplay?.fileName, ofType: "png")!
+        let imagePath = NSBundle.mainBundle().pathForResource(chordToDisplay?.fileName, ofType: "png")
         
-        self.tabImage?.image = UIImage(contentsOfFile: imagePath)
+        if let path = imagePath
+        {
+            self.tabImage?.image = UIImage(contentsOfFile: path)
+        }
     }
-    
 }

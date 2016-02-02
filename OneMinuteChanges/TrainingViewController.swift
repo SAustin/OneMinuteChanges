@@ -175,13 +175,15 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
     
     @IBAction func chordNameWasPresed(sender: UIButton)
     {
-        let popover = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TabDisplayPopoverViewController") as! ChordListPopoverViewController
+        let popover = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TabDisplayPopoverViewController") as! TabDisplayPopoverViewController
         popover.modalPresentationStyle = .Popover
         popover.popoverPresentationController?.delegate = self
         popover.popoverPresentationController?.sourceView = sender
         popover.popoverPresentationController?.sourceRect = sender.frame
         popover.popoverPresentationController?.permittedArrowDirections = .Any
         popover.preferredContentSize = CGSizeMake(400, 600)
+        
+        popover.chordToDisplay = (UIApplication.sharedApplication().delegate as! AppDelegate).dataHelper.getChord(sender.titleLabel!.text!)
         
         self.presentViewController(popover, animated: true, completion: nil)
 
@@ -225,7 +227,8 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
     func updateChordLabels()
     {
         var (chord1, chord2) = (self.chordSequence?[self.currentChord])!
-        self.currentChordPairLabel?.text = "\(chord1.name!) - \(chord2.name!)"
+        self.currentChordOneButton?.setTitle(chord1.name!, forState: .Normal)
+        self.currentChordTwoButton?.setTitle(chord2.name!, forState: .Normal)
         
         var nextChord = self.currentChord + 1
         if nextChord == self.chordSequence?.count

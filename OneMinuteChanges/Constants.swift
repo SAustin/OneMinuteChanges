@@ -117,13 +117,13 @@ enum Recommendation: Int
                 (dataHelper.getChord("G"), dataHelper.getChord("D"))]
         case .BeginnerFour:
             return [(dataHelper.getChord("C"), dataHelper.getChord("G7")),
-                (dataHelper.getChord("C7"), dataHelper.getChord("FMaj7")),
+                (dataHelper.getChord("C7"), dataHelper.getChord("Fmaj7")),
                 (dataHelper.getChord("E"), dataHelper.getChord("B7")),
                 (dataHelper.getChord("C7"), dataHelper.getChord("G7")),
                 (dataHelper.getChord("D"), dataHelper.getChord("A")),
                 (dataHelper.getChord("D"), dataHelper.getChord("A")),
                 (dataHelper.getChord("E7"), dataHelper.getChord("A")),
-                (dataHelper.getChord("FMaj7"), dataHelper.getChord("A"))]
+                (dataHelper.getChord("Fmaj7"), dataHelper.getChord("A"))]
         case .BeginnerFive:
             return nil
         case .BeginnerSix:
