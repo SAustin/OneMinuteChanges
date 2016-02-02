@@ -51,7 +51,8 @@ func countdown(seconds: Int,
 
 enum Recommendation: Int
 {
-    case BeginnerOne = 0
+    case ProblemChords = 0
+    case BeginnerOne
     case BeginnerTwo
     case BeginnerThree
     case BeginnerFour
@@ -66,6 +67,8 @@ enum Recommendation: Int
     {
         switch self
         {
+        case .ProblemChords:
+            return "Problem Chords"
         case .BeginnerOne:
             return "Beginner Week One"
         case .BeginnerTwo:
@@ -96,6 +99,8 @@ enum Recommendation: Int
 
         switch self
         {
+        case .ProblemChords:
+            return (UIApplication.sharedApplication().delegate as! AppDelegate).dataHelper.selectProblemChordCombos()
         case .BeginnerOne:
             return [(dataHelper.getChord("D"), dataHelper.getChord("A")), (dataHelper.getChord("D"), dataHelper.getChord("E")), (dataHelper.getChord("A"), dataHelper.getChord("E"))]
         case .BeginnerTwo:

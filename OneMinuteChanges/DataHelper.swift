@@ -34,6 +34,39 @@ class DataHelper
         return result
     }
     
+    func selectProblemChordCombos() -> [(Chord, Chord)]
+    {
+        var returnList = [(Chord, Chord)]()
+        let allResultList = self.getAllResults()
+        
+        if let resultList = allResultList
+        {
+            if resultList.count > 0
+            {
+                var total = 0
+                var count = 0
+                for result in resultList
+                {
+                    total += result.score!.integerValue
+                    count++
+                }
+                let average = Int(total/count) + 1
+                
+                for result in resultList
+                {
+                    if result.score!.integerValue < average
+                    {
+                        let chordArray = Array(result.chords!) as! [Chord]
+                        returnList.append((chordArray[0], chordArray[1]))
+                    }
+                }
+            }
+            
+        }
+        
+        return returnList
+    }
+    
     func getEntity(className: String, withKey key: String, andValue value: String) -> NSManagedObject?
     {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate

@@ -257,12 +257,12 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ePD-cY-TP6">
                                 <rect key="frame" x="0.0" y="85" width="600" height="515"/>
                                 <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="260" verticalHuggingPriority="260" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="QiM-ea-CQo">
-                                        <rect key="frame" x="94" y="0.0" width="413" height="29"/>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="260" verticalHuggingPriority="260" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="QiM-ea-CQo">
+                                        <rect key="frame" x="109" y="0.0" width="383" height="29"/>
                                         <segments>
                                             <segment title="Random"/>
                                             <segment title="Targeted"/>
-                                            <segment title="Justin Recommends"/>
+                                            <segment title="Recommendations"/>
                                         </segments>
                                         <connections>
                                             <action selector="segmentWasChanged:" destination="qVL-Eq-3nc" eventType="valueChanged" id="xC3-up-dxB"/>

@@ -242,8 +242,6 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
             self.previousMaximum?.text = "--"
         }
         self.previousMaximum?.textColor = labelColor
-        
-        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
@@ -282,7 +280,16 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
     
     func chordSequenceWasSelected(chordSequence: [(Chord, Chord)])
     {
-        self.chordSequence = chordSequence.shuffle()
+        if chordSequence.count == 0
+        {
+            let dataHelper = (UIApplication.sharedApplication().delegate as! AppDelegate).dataHelper
+            self.chordSequence = [(dataHelper.getChord("--"), dataHelper.getChord("--"))]
+        }
+        else
+        {
+            self.chordSequence = chordSequence.shuffle()
+        }
+        
         self.currentChord = 0
         self.updateChordLabels()
         
