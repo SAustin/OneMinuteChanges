@@ -144,3 +144,17 @@ enum Recommendation: Int
     }
 }
 
+func getScoreColor(score: Int) -> UIColor
+{
+    switch score
+    {
+    case 0...29:
+        return UIColor.redColor()
+    case 30...49:
+        return UIColor.orangeColor()
+    default:
+        return UIColor.greenColor()
+        
+    }
+}
+

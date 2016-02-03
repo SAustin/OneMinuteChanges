@@ -20,12 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     {
         // Override point for customization after application launch.
         
-        self.chordList = self.dataHelper.getAllChords("sortOrder")
+        self.chordList = self.dataHelper.getAllChords("sortNumber")
         
         if self.chordList!.count == 0
         {
             self.dataHelper.initData()
-            self.chordList = self.dataHelper.getAllChords("sortOrder")
+            self.chordList = self.dataHelper.getAllChords("sortNumber")
         }
         
         return true

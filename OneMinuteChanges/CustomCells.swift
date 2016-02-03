@@ -25,3 +25,15 @@ class ChordDictionaryCell: UITableViewCell
     @IBOutlet var chordName: UILabel?
     @IBOutlet var chordTab: UIImageView?
 }
+
+class TopScoreListCell: UITableViewCell
+{
+    @IBOutlet var chordName: UILabel?
+}
+
+class ResultListCell: UITableViewCell
+{
+    @IBOutlet var firstChordLabel: UILabel?
+    @IBOutlet var secondChordLabel: UILabel?
+    @IBOutlet var scoreLabel: UILabel?
+}

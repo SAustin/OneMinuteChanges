@@ -244,15 +244,8 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         var labelColor: UIColor
         if let result = bestResult
         {
-            switch result.score!.integerValue
-            {
-            case 0...29:
-                labelColor = UIColor.redColor()
-            case 30...49:
-                labelColor = UIColor.yellowColor()
-            default:
-                labelColor = UIColor.greenColor()
-            }
+            labelColor = getScoreColor(result.score!.integerValue)
+
             self.previousMaximum?.text = "\(result.score!)"
         }
         else
