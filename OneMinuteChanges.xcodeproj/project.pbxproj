@@ -106,6 +106,9 @@
 		61A268FD1C5F0BB80010ADBD /* nextButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268FC1C5F0BB80010ADBD /* nextButton.png */; };
 		61A268FE1C5F0BB80010ADBD /* nextButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268FC1C5F0BB80010ADBD /* nextButton.png */; };
 		61A268FF1C5F0BB80010ADBD /* nextButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A268FC1C5F0BB80010ADBD /* nextButton.png */; };
+		61A269211C61ADC30010ADBD /* ChordDictionaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A269201C61ADC30010ADBD /* ChordDictionaryViewController.swift */; };
+		61A269221C61ADC30010ADBD /* ChordDictionaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A269201C61ADC30010ADBD /* ChordDictionaryViewController.swift */; };
+		61A269231C61ADC30010ADBD /* ChordDictionaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A269201C61ADC30010ADBD /* ChordDictionaryViewController.swift */; };
 		61F8C9631C56A64200816939 /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F8C9621C56A64200816939 /* TimerLabel.swift */; };
 		61F8C9641C57BCE800816939 /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F8C9621C56A64200816939 /* TimerLabel.swift */; };
 		61F8C9651C57BCE800816939 /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F8C9621C56A64200816939 /* TimerLabel.swift */; };
@@ -193,6 +196,7 @@
 		61A269001C5F19E40010ADBD /* OneMinuteChanges-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OneMinuteChanges-Bridging-Header.h"; sourceTree = "<group>"; };
 		61A269011C5F19E40010ADBD /* OneMinuteChangesTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OneMinuteChangesTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		61A269021C5F19E40010ADBD /* OneMinuteChangesUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OneMinuteChangesUITests-Bridging-Header.h"; sourceTree = "<group>"; };
+		61A269201C61ADC30010ADBD /* ChordDictionaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordDictionaryViewController.swift; sourceTree = "<group>"; };
 		61BA4B831C5FACC6008563D0 /* OneMinuteChanges.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = OneMinuteChanges.entitlements; sourceTree = "<group>"; };
 		61F8C9621C56A64200816939 /* TimerLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerLabel.swift; sourceTree = "<group>"; };
 		61F8C9691C5A6D0E00816939 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -293,6 +297,7 @@
 				61A268391C53DBD00010ADBD /* TrainingViewController.swift */,
 				61A2689E1C588DF10010ADBD /* ChordSelectionViewController.swift */,
 				6156EBAD1C5BF16200F2D78F /* ChordListPopoverViewController.swift */,
+				61A269201C61ADC30010ADBD /* ChordDictionaryViewController.swift */,
 				61A268A21C5891880010ADBD /* CustomCells.swift */,
 				61A269081C5F1A120010ADBD /* Supporting Files */,
 				E11E8B2A1C612F0D00E53BDB /* TabDisplayPopoverViewController.swift */,
@@ -596,6 +601,7 @@
 				61A268381C53DBD00010ADBD /* AppDelegate.swift in Sources */,
 				61A268CD1C5D62470010ADBD /* Chord+CoreDataProperties.swift in Sources */,
 				61A2689F1C588DF10010ADBD /* ChordSelectionViewController.swift in Sources */,
+				61A269211C61ADC30010ADBD /* ChordDictionaryViewController.swift in Sources */,
 				6156EBAE1C5BF16200F2D78F /* ChordListPopoverViewController.swift in Sources */,
 				E11E8B2B1C612F0D00E53BDB /* TabDisplayPopoverViewController.swift in Sources */,
 				61A268BE1C5D5F9B0010ADBD /* DataHelper.swift in Sources */,
@@ -618,6 +624,7 @@
 				61A268A41C5891880010ADBD /* CustomCells.swift in Sources */,
 				61A268CE1C5D62470010ADBD /* Chord+CoreDataProperties.swift in Sources */,
 				6156EBAF1C5BF16200F2D78F /* ChordListPopoverViewController.swift in Sources */,
+				61A269221C61ADC30010ADBD /* ChordDictionaryViewController.swift in Sources */,
 				61A268BF1C5D5F9B0010ADBD /* DataHelper.swift in Sources */,
 				E11E8B2C1C612F0D00E53BDB /* TabDisplayPopoverViewController.swift in Sources */,
 				61A2689C1C588BD70010ADBD /* Constants.swift in Sources */,
@@ -640,6 +647,7 @@
 				61A268A51C5891880010ADBD /* CustomCells.swift in Sources */,
 				61A268CF1C5D62470010ADBD /* Chord+CoreDataProperties.swift in Sources */,
 				6156EBB01C5BF16200F2D78F /* ChordListPopoverViewController.swift in Sources */,
+				61A269231C61ADC30010ADBD /* ChordDictionaryViewController.swift in Sources */,
 				61A268C01C5D5F9B0010ADBD /* DataHelper.swift in Sources */,
 				E11E8B2D1C612F0D00E53BDB /* TabDisplayPopoverViewController.swift in Sources */,
 				61A2689D1C588BD70010ADBD /* Constants.swift in Sources */,

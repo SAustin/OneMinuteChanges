@@ -19,3 +19,9 @@ class SpecificPairCell: UITableViewCell
     @IBOutlet var firstChord: UIButton?
     @IBOutlet var secondChord: UIButton?
 }
+
+class ChordDictionaryCell: UITableViewCell
+{
+    @IBOutlet var chordName: UILabel?
+    @IBOutlet var chordTab: UIImageView?
+}

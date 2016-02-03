@@ -102,7 +102,7 @@ class DataHelper
         return self.getEntity("Chord", withKey: "name", andValue: name) as! Chord
     }
     
-    func getAllChords() -> [Chord]?
+    func getAllChords(sortKey: String?) -> [Chord]?
     {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let assetEntity = NSEntityDescription.entityForName("Chord", inManagedObjectContext: appDelegate.managedObjectContext)
@@ -113,8 +113,17 @@ class DataHelper
         let predicate = NSPredicate(format: "name != %@", argumentArray: ["--"])
         fetch.predicate = predicate
 
-        let sortDescriptor = NSSortDescriptor(key: "sortNumber", ascending: true)
-        fetch.sortDescriptors = [sortDescriptor]
+        if let sort = sortKey
+        {
+            let sortDescriptor = NSSortDescriptor(key: sort, ascending: true)
+            fetch.sortDescriptors = [sortDescriptor]
+            
+        }
+        else
+        {
+            let sortDescriptor = NSSortDescriptor(key: "sortNumber", ascending: true)
+            fetch.sortDescriptors = [sortDescriptor]
+        }
 
         
         var fetchedResults: [AnyObject]?
