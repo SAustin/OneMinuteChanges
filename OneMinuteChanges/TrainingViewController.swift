@@ -113,6 +113,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
                 {
                     prepareAlertController.dismissViewControllerAnimated(true, completion: nil)
                     
+                    self.playBeeps(2)
                     self.timer?.start()
                     self.timerButton?.setBackgroundImage(UIImage(contentsOfFile: NSBundle.mainBundle().pathForResource("pauseButton", ofType: "png")!), forState: .Normal)
                     self.resetButton?.hidden = false
@@ -235,12 +236,14 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         {
             nextChord = 0
         }
-        (chord1, chord2) = (self.chordSequence?[nextChord])!
-        self.nextChordPairLabel?.text = "\(chord1.name!) - \(chord2.name!)"
         
         self.currentAttemptTextField?.text = ""
         
         let bestResult = (UIApplication.sharedApplication().delegate as! AppDelegate).dataHelper.getBestResultFor(chord1, chord2: chord2)
+
+        (chord1, chord2) = (self.chordSequence?[nextChord])!
+        self.nextChordPairLabel?.text = "\(chord1.name!) - \(chord2.name!)"
+
         var labelColor: UIColor
         if let result = bestResult
         {

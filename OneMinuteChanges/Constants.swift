@@ -149,11 +149,17 @@ func getScoreColor(score: Int) -> UIColor
     switch score
     {
     case 0...29:
-        return UIColor.redColor()
-    case 30...49:
-        return UIColor.orangeColor()
+        return kRedColor
+    case 30...39:
+        return kLightOrangeColor
+    case 40...49:
+        return kLightGreenColor
+    case 50...59:
+        return kMidGreenColor
+    case 60...200:
+        return kDarkGreenColor
     default:
-        return UIColor.greenColor()
+        return kLightGreyColor
         
     }
 }
