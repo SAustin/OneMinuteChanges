@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelectionDelegate, UIPopoverPresentationControllerDelegate
+class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelectionDelegate, UIPopoverPresentationControllerDelegate, EZMicrophoneDelegate
 {
     @IBOutlet var timerLabel: UILabel?
     @IBOutlet var currentChordOneButton: UIButton?
@@ -29,9 +29,40 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
     
     var soundPlayer: AVAudioPlayer?
     
+    @IBOutlet var audioPlot: EZAudioPlotGL?
+    var microphone: EZMicrophone?
+    
+    //Not sure I need this?
+    var inputs: [AnyObject]?
+    
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        //Set up audio session
+        let session = AVAudioSession.sharedInstance()
+        do
+        {
+            try session.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            
+        }
+        catch
+        {
+            NSLog("\(error)")
+        }
+        
+        //Set up audio plot look
+        self.audioPlot?.backgroundColor = kLightTealColor
+        self.audioPlot?.color = UIColor(colorLiteralRed: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        
+        self.audioPlot?.plotType = .Rolling
+        
+        //Create microphone
+        self.microphone = EZMicrophone(delegate: self)
+        
+        self.inputs = EZAudioDevice.inputDevices()
+        
         // Do any additional setup after loading the view, typically from a nib.
         
         self.timer = TimerLabel(label: self.timerLabel, timerType: .Timer)
@@ -85,6 +116,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         }
         else if self.timer!.counting
         {
+            self.microphone?.stopFetchingAudio()
             self.timer?.pause()
             self.timerButton?.setBackgroundImage(UIImage(contentsOfFile: NSBundle.mainBundle().pathForResource("startButton", ofType: "png")!), forState: .Normal)
         }
@@ -114,6 +146,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
                     prepareAlertController.dismissViewControllerAnimated(true, completion: nil)
                     
                     self.playBeeps(2)
+                    self.microphone?.startFetchingAudio()
                     self.timer?.start()
                     self.timerButton?.setBackgroundImage(UIImage(contentsOfFile: NSBundle.mainBundle().pathForResource("pauseButton", ofType: "png")!), forState: .Normal)
                     self.resetButton?.hidden = false
@@ -282,6 +315,61 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         return UIModalPresentationStyle.None
     }
 
+    //MARK: - EZAudio delegate stuff
+    func drawRollingPlot()
+    {
+        self.audioPlot?.plotType = .Rolling
+        self.audioPlot?.shouldFill = true
+        self.audioPlot?.shouldMirror = true
+    }
+    
+    //
+    // Note that any callback that provides streamed audio data (like streaming
+    // microphone input) happens on a separate audio thread that should not be
+    // blocked. When we feed audio data into any of the UI components we need to
+    // explicity create a GCD block on the main thread to properly get the UI
+    // to work.
+    //
+    func microphone(microphone: EZMicrophone!, hasAudioReceived buffer: UnsafeMutablePointer<UnsafeMutablePointer<Float>>,
+        withBufferSize bufferSize: UInt32, withNumberOfChannels numberOfChannels: UInt32)
+    {
+        //
+        // Getting audio data as an array of float buffer arrays. What does that mean?
+        // Because the audio is coming in as a stereo signal the data is split into
+        // a left and right channel. So buffer[0] corresponds to the float* data
+        // for the left channel while buffer[1] corresponds to the float* data
+        // for the right channel.
+        //
+        
+        //
+        // See the Thread Safety warning above, but in a nutshell these callbacks
+        // happen on a separate audio thread. We wrap any UI updating in a GCD block
+        // on the main thread to avoid blocking that audio flow.
+        //
+        
+        dispatch_async(dispatch_get_main_queue())
+        {
+            self.audioPlot?.updateBuffer(buffer[0], withBufferSize: bufferSize)
+        }
+    }
+    
+    func microphone(microphone: EZMicrophone!, hasAudioStreamBasicDescription audioStreamBasicDescription: AudioStreamBasicDescription)
+    {
+        EZAudioUtilities.printASBD(audioStreamBasicDescription)
+    }
+    
+    func microphone(microphone: EZMicrophone!, hasBufferList bufferList: UnsafeMutablePointer<AudioBufferList>, withBufferSize bufferSize: UInt32, withNumberOfChannels numberOfChannels: UInt32)
+    {
+        //
+        // Getting audio data as a buffer list that can be directly fed into the
+        // EZRecorder or EZOutput. Say whattt...
+        //
+        
+    }
+    
+    func microphone(microphone: EZMicrophone!, changedDevice device: EZAudioDevice!)
+    {
+    }
     
     //MARK: - Chord Selection Delegate
     func randomChordsWereSelected(chordList: [Chord])
@@ -357,8 +445,9 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
     
     func timerLabel(timerLabel: TimerLabel, finishedCountDownTimerWithTime countTime: NSTimeInterval)
     {
-        self.playBeeps(3)
+        self.microphone?.stopFetchingAudio()
         
+        self.playBeeps(3)
         let nextPath = NSBundle.mainBundle().pathForResource("nextButton", ofType: "png")
         self.skipButton?.setBackgroundImage(UIImage(contentsOfFile: nextPath!)!, forState: .Normal)
 

@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "741E2B8A27817BC944F995A604449C128FB65961",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "9D6FF97A89F512CD81EAE1A971A1D2EB03E03F7C" : 0,
+    "741E2B8A27817BC944F995A604449C128FB65961" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "DD190E0F-B277-4ACA-B369-0C3603854B9C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "9D6FF97A89F512CD81EAE1A971A1D2EB03E03F7C" : "..\/Projects%20Library\/EZAudio",
+    "741E2B8A27817BC944F995A604449C128FB65961" : "OneMinuteChanges\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "OneMinuteChanges",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "OneMinuteChanges.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:SAustin\/OneMinuteChanges.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "741E2B8A27817BC944F995A604449C128FB65961"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/syedhali\/EZAudio.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9D6FF97A89F512CD81EAE1A971A1D2EB03E03F7C"
+    }
+  ]
+}

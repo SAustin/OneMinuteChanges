@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6136F8E81C63E08D007568C5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6136F8E71C63E08D007568C5 /* AVFoundation.framework */; };
+		6136F8EA1C63E09C007568C5 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6136F8E91C63E09C007568C5 /* Accelerate.framework */; };
+		6136F8EC1C63E0A0007568C5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6136F8EB1C63E0A0007568C5 /* AudioToolbox.framework */; };
+		6136F8EE1C63E0A7007568C5 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6136F8ED1C63E0A7007568C5 /* GLKit.framework */; };
 		614AFB971C6150ED009ED3F2 /* A7tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 614AFB921C6150ED009ED3F2 /* A7tab.png */; };
 		614AFB981C6150ED009ED3F2 /* Amintab.png in Resources */ = {isa = PBXBuildFile; fileRef = 614AFB931C6150ED009ED3F2 /* Amintab.png */; };
 		614AFB991C6150ED009ED3F2 /* Atab.png in Resources */ = {isa = PBXBuildFile; fileRef = 614AFB941C6150ED009ED3F2 /* Atab.png */; };
@@ -118,6 +122,7 @@
 		61F8C9661C57BCEE00816939 /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A268391C53DBD00010ADBD /* TrainingViewController.swift */; };
 		61F8C9671C57BCEE00816939 /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A268391C53DBD00010ADBD /* TrainingViewController.swift */; };
 		61F8C96A1C5A6D0E00816939 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F8C9691C5A6D0E00816939 /* Extensions.swift */; };
+		6D9FB784B907ABAFFF5D359A /* Pods_OneMinuteChanges.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67F5B06A95074CB309B99A86 /* Pods_OneMinuteChanges.framework */; };
 		E10B88B51C62789300F569A5 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10B88B41C62789300F569A5 /* ScoreViewController.swift */; };
 		E10B88B61C62789300F569A5 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10B88B41C62789300F569A5 /* ScoreViewController.swift */; };
 		E10B88B71C62789300F569A5 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10B88B41C62789300F569A5 /* ScoreViewController.swift */; };
@@ -147,6 +152,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6136F8E71C63E08D007568C5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		6136F8E91C63E09C007568C5 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		6136F8EB1C63E0A0007568C5 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		6136F8ED1C63E0A7007568C5 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		614AFB921C6150ED009ED3F2 /* A7tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = A7tab.png; path = Images/A7tab.png; sourceTree = "<group>"; };
 		614AFB931C6150ED009ED3F2 /* Amintab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Amintab.png; path = Images/Amintab.png; sourceTree = "<group>"; };
 		614AFB941C6150ED009ED3F2 /* Atab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Atab.png; path = Images/Atab.png; sourceTree = "<group>"; };
@@ -210,6 +219,9 @@
 		61BA4B831C5FACC6008563D0 /* OneMinuteChanges.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = OneMinuteChanges.entitlements; sourceTree = "<group>"; };
 		61F8C9621C56A64200816939 /* TimerLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerLabel.swift; sourceTree = "<group>"; };
 		61F8C9691C5A6D0E00816939 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		67F5B06A95074CB309B99A86 /* Pods_OneMinuteChanges.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneMinuteChanges.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CDAFCDDD8BF4CA9DF8CABC5 /* Pods-OneMinuteChanges.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneMinuteChanges.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneMinuteChanges/Pods-OneMinuteChanges.release.xcconfig"; sourceTree = "<group>"; };
+		90CE54279A22C7AC2E99662E /* Pods-OneMinuteChanges.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneMinuteChanges.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneMinuteChanges/Pods-OneMinuteChanges.debug.xcconfig"; sourceTree = "<group>"; };
 		E10B88B41C62789300F569A5 /* ScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		E10B88B81C627B3500F569A5 /* BestResultListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BestResultListViewController.swift; sourceTree = "<group>"; };
 		E11E8B2A1C612F0D00E53BDB /* TabDisplayPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabDisplayPopoverViewController.swift; sourceTree = "<group>"; };
@@ -220,6 +232,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6136F8EE1C63E0A7007568C5 /* GLKit.framework in Frameworks */,
+				6136F8EC1C63E0A0007568C5 /* AudioToolbox.framework in Frameworks */,
+				6136F8EA1C63E09C007568C5 /* Accelerate.framework in Frameworks */,
+				6136F8E81C63E08D007568C5 /* AVFoundation.framework in Frameworks */,
+				6D9FB784B907ABAFFF5D359A /* Pods_OneMinuteChanges.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +257,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F63310307C00A9C1834EF15 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				90CE54279A22C7AC2E99662E /* Pods-OneMinuteChanges.debug.xcconfig */,
+				7CDAFCDDD8BF4CA9DF8CABC5 /* Pods-OneMinuteChanges.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		614AFB911C6150E0009ED3F2 /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +297,20 @@
 			name = Sounds;
 			sourceTree = "<group>";
 		};
+		6167E73C1C63CE950012EE71 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				61A268391C53DBD00010ADBD /* TrainingViewController.swift */,
+				61A2689E1C588DF10010ADBD /* ChordSelectionViewController.swift */,
+				6156EBAD1C5BF16200F2D78F /* ChordListPopoverViewController.swift */,
+				61A269201C61ADC30010ADBD /* ChordDictionaryViewController.swift */,
+				E11E8B2A1C612F0D00E53BDB /* TabDisplayPopoverViewController.swift */,
+				E10B88B41C62789300F569A5 /* ScoreViewController.swift */,
+				E10B88B81C627B3500F569A5 /* BestResultListViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
 		61A2682B1C53DBD00010ADBD = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +318,8 @@
 				61A2684E1C53DBD00010ADBD /* OneMinuteChangesTests */,
 				61A268591C53DBD00010ADBD /* OneMinuteChangesUITests */,
 				61A268351C53DBD00010ADBD /* Products */,
+				2F63310307C00A9C1834EF15 /* Pods */,
+				7C68F7EB2FE8D9AE32A75AF7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -299,23 +341,17 @@
 				61F8C9681C5A6D0400816939 /* Extensions */,
 				61A268681C5881D60010ADBD /* Images */,
 				61F8C9611C569FEA00816939 /* Timer */,
-				61A268371C53DBD00010ADBD /* AppDelegate.swift */,
 				61A268B41C5D5F6A0010ADBD /* Data */,
+				6167E73C1C63CE950012EE71 /* View Controllers */,
 				61A2683B1C53DBD00010ADBD /* Main.storyboard */,
 				61A268411C53DBD00010ADBD /* Assets.xcassets */,
 				61A268431C53DBD00010ADBD /* LaunchScreen.storyboard */,
 				61A268461C53DBD00010ADBD /* Info.plist */,
+				61A268371C53DBD00010ADBD /* AppDelegate.swift */,
 				61A2689A1C588A930010ADBD /* Constants.swift */,
 				61A269241C632FD00010ADBD /* Color.swift */,
-				61A268391C53DBD00010ADBD /* TrainingViewController.swift */,
-				61A2689E1C588DF10010ADBD /* ChordSelectionViewController.swift */,
-				6156EBAD1C5BF16200F2D78F /* ChordListPopoverViewController.swift */,
-				61A269201C61ADC30010ADBD /* ChordDictionaryViewController.swift */,
 				61A268A21C5891880010ADBD /* CustomCells.swift */,
 				61A269081C5F1A120010ADBD /* Supporting Files */,
-				E11E8B2A1C612F0D00E53BDB /* TabDisplayPopoverViewController.swift */,
-				E10B88B41C62789300F569A5 /* ScoreViewController.swift */,
-				E10B88B81C627B3500F569A5 /* BestResultListViewController.swift */,
 			);
 			path = OneMinuteChanges;
 			sourceTree = "<group>";
@@ -408,6 +444,18 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		7C68F7EB2FE8D9AE32A75AF7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6136F8ED1C63E0A7007568C5 /* GLKit.framework */,
+				6136F8EB1C63E0A0007568C5 /* AudioToolbox.framework */,
+				6136F8E91C63E09C007568C5 /* Accelerate.framework */,
+				6136F8E71C63E08D007568C5 /* AVFoundation.framework */,
+				67F5B06A95074CB309B99A86 /* Pods_OneMinuteChanges.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -415,9 +463,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 61A2685F1C53DBD00010ADBD /* Build configuration list for PBXNativeTarget "OneMinuteChanges" */;
 			buildPhases = (
+				8E53EC9A3BAB815DAA4545D7 /* Check Pods Manifest.lock */,
 				61A268301C53DBD00010ADBD /* Sources */,
 				61A268311C53DBD00010ADBD /* Frameworks */,
 				61A268321C53DBD00010ADBD /* Resources */,
+				FCF09F5D0BEABAFB4D727B6C /* Embed Pods Frameworks */,
+				B4EDA034AD96DD7D2159F4AA /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -599,6 +650,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8E53EC9A3BAB815DAA4545D7 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B4EDA034AD96DD7D2159F4AA /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OneMinuteChanges/Pods-OneMinuteChanges-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FCF09F5D0BEABAFB4D727B6C /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OneMinuteChanges/Pods-OneMinuteChanges-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		61A268301C53DBD00010ADBD /* Sources */ = {
@@ -799,12 +898,14 @@
 		};
 		61A268601C53DBD00010ADBD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90CE54279A22C7AC2E99662E /* Pods-OneMinuteChanges.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = OneMinuteChanges/OneMinuteChanges.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Pods/Headers\"/**";
 				INFOPLIST_FILE = OneMinuteChanges/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -818,12 +919,14 @@
 		};
 		61A268611C53DBD00010ADBD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7CDAFCDDD8BF4CA9DF8CABC5 /* Pods-OneMinuteChanges.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = OneMinuteChanges/OneMinuteChanges.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Pods/Headers\"/**";
 				INFOPLIST_FILE = OneMinuteChanges/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
