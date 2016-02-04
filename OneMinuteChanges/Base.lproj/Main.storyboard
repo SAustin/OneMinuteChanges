@@ -649,18 +649,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ogE-hT-xfV">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ogE-hT-xfV">
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <items>
                                     <navigationItem title="Dictionary" id="8gw-Dc-Ktf"/>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8FN-KL-TGv">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8FN-KL-TGv">
                                 <rect key="frame" x="20" y="72" width="560" height="479"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8FN-KL-TGv" firstAttribute="top" secondItem="ogE-hT-xfV" secondAttribute="bottom" id="8pE-Hj-0CX"/>
+                            <constraint firstItem="ogE-hT-xfV" firstAttribute="top" secondItem="NvI-2E-xhE" secondAttribute="bottom" constant="8" id="Ehx-yU-u1p"/>
+                            <constraint firstItem="qeK-6L-Moa" firstAttribute="top" secondItem="8FN-KL-TGv" secondAttribute="bottom" id="Fv6-LG-rtW"/>
+                            <constraint firstItem="ogE-hT-xfV" firstAttribute="leading" secondItem="raf-Cn-xo2" secondAttribute="leadingMargin" constant="-20" id="Ie8-7z-ZVo"/>
+                            <constraint firstItem="8FN-KL-TGv" firstAttribute="leading" secondItem="raf-Cn-xo2" secondAttribute="leadingMargin" id="b4g-5E-hh1"/>
+                            <constraint firstItem="8FN-KL-TGv" firstAttribute="top" secondItem="ogE-hT-xfV" secondAttribute="bottom" id="dg0-Ec-W7d"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ogE-hT-xfV" secondAttribute="trailing" constant="-20" id="gv7-yC-f18"/>
+                            <constraint firstItem="8FN-KL-TGv" firstAttribute="trailing" secondItem="raf-Cn-xo2" secondAttribute="trailingMargin" id="jqd-cy-xnG"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Chords" image="tabIcon.png" id="evL-Ii-yac"/>
                 </viewController>
