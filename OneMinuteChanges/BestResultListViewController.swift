@@ -16,7 +16,8 @@ class BestResultListViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewDidLoad()
     {
-        //TODO: Create full list of chords
+        self.navigationItem.title = self.baseChord!.name! + " Top Scores"
+        
         let dataHelper = (UIApplication.sharedApplication().delegate as! AppDelegate).dataHelper
         let allChords = dataHelper.getAllChords("name")
         
@@ -27,9 +28,9 @@ class BestResultListViewController: UIViewController, UITableViewDelegate, UITab
             {
                 resultList.append((self.baseChord!, secondChord, result!.score!.integerValue))
             }
-            else
+            else if secondChord != self.baseChord
             {
-                resultList.append((self.baseChord!, secondChord, 0))
+                resultList.append((self.baseChord!, secondChord, -1))
             }
         }
         
@@ -45,7 +46,7 @@ class BestResultListViewController: UIViewController, UITableViewDelegate, UITab
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return ((UIApplication.sharedApplication().delegate as! AppDelegate).chordList?.count)!
+        return ((UIApplication.sharedApplication().delegate as! AppDelegate).chordList?.count)! - 1
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
@@ -60,9 +61,9 @@ class BestResultListViewController: UIViewController, UITableViewDelegate, UITab
 
         cell.firstChordLabel?.text = self.baseChord?.name
         cell.secondChordLabel?.text = secondChord.name
-        cell.scoreLabel?.text = "\(score)"
+        cell.scoreLabel?.text = score >= 0 ? "\(score)" : "--"
     
-        cell.backgroundColor = getScoreColor(score)
+        cell.backgroundColor = score >= 0 ? getScoreColor(score) : UIColor.lightGrayColor()
         
         return cell
     }

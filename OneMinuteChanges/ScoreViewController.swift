@@ -27,6 +27,11 @@ class ScoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     // MARK: - Table View
     
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
+    {
+        return 0
+    }
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
         return 1
@@ -44,10 +49,10 @@ class ScoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func configureCell(tableView: UITableView, atIndexPath: NSIndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ChordListPopoverCell")
-        cell?.textLabel?.text = (UIApplication.sharedApplication().delegate as! AppDelegate).chordList?[atIndexPath.row].name
+        let cell = tableView.dequeueReusableCellWithIdentifier("TopScoreListCell") as! TopScoreListCell
+        cell.chordName?.text = (UIApplication.sharedApplication().delegate as! AppDelegate).chordList?[atIndexPath.row].name
         
-        return cell!
+        return cell
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
@@ -59,6 +64,7 @@ class ScoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
         self.chordToDisplay = (UIApplication.sharedApplication().delegate as! AppDelegate).chordList?[indexPath.row]
+        self.performSegueWithIdentifier("ResultListSegue", sender: self)
     }
 
 }
