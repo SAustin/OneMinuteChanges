@@ -61,6 +61,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         self.audioPlot?.shouldMirror = true
         self.audioPlot?.shouldFill = true
         self.audioPlot?.plotType = .Rolling
+        self.audioPlot?.gain = 0.8
         
         //Create microphone
         self.microphone = EZMicrophone(delegate: self)
@@ -170,19 +171,14 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
     
     func playBeeps(numberOfBeeps: Int)
     {
-        dispatch_async(dispatch_get_main_queue())
+        for index in 0...numberOfBeeps - 1
         {
-            for index in 0...numberOfBeeps - 1
-            {
-                delay(Double(index)*0.2)
+            delay(Double(index)*0.2)
                 {
                     self.soundPlayer?.play()
                     return
-                }
             }
-            
         }
-        
     }
     
     @IBAction func viewTapped(sender: AnyObject)
@@ -227,10 +223,11 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         let popover = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TabDisplayPopoverViewController") as! TabDisplayPopoverViewController
         popover.modalPresentationStyle = .Popover
         popover.popoverPresentationController?.delegate = self
-        popover.popoverPresentationController?.sourceView = sender
-        popover.popoverPresentationController?.sourceRect = sender.frame
-        popover.popoverPresentationController?.permittedArrowDirections = .Any
-        popover.preferredContentSize = CGSizeMake(400, 600)
+        popover.popoverPresentationController?.sourceView = sender.titleLabel
+        popover.popoverPresentationController?.sourceRect = sender.titleLabel!.frame
+        popover.popoverPresentationController?.permittedArrowDirections = .Up
+        let width = self.view.frame.size.width * 0.8
+        popover.preferredContentSize = CGSizeMake(width, width*1.5)
         
         popover.chordToDisplay = (UIApplication.sharedApplication().delegate as! AppDelegate).dataHelper.getChord(sender.titleLabel!.text!)
         
@@ -396,6 +393,9 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         let maxFrequency = fft.maxFrequency
         let noteName = EZAudioUtilities.noteNameStringForFrequency(maxFrequency, includeOctave: true)
         
+        //TODO: Remove this, or make a new label, or something.
+        self.numberOfAttemptsLabel?.text = noteName
+        
     }
     
     //MARK: - Chord Selection Delegate
@@ -476,14 +476,18 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
     func timerLabel(timerLabel: TimerLabel, finishedCountDownTimerWithTime countTime: NSTimeInterval)
     {
         self.microphone?.stopFetchingAudio()
+        let nextPath = NSBundle.mainBundle().pathForResource("nextButton", ofType: "png")
+        
+        self.timerEnded = true
+        
+        delay(0.2)
+        {
+            self.resetButton?.hidden = true
+            self.timerButton?.setBackgroundImage(UIImage(contentsOfFile: NSBundle.mainBundle().pathForResource("startButton", ofType: "png")!), forState: .Normal)
+            self.skipButton?.setBackgroundImage(UIImage(contentsOfFile: nextPath!)!, forState: .Normal)
+        }
         
         self.playBeeps(3)
-        let nextPath = NSBundle.mainBundle().pathForResource("nextButton", ofType: "png")
-        self.skipButton?.setBackgroundImage(UIImage(contentsOfFile: nextPath!)!, forState: .Normal)
-
-        self.resetButton?.hidden = true
-        self.timerEnded = true
-        self.timerButton?.setBackgroundImage(UIImage(contentsOfFile: NSBundle.mainBundle().pathForResource("startButton", ofType: "png")!), forState: .Normal)
     }
     
     func convertSequenceToArray() -> [String]?
