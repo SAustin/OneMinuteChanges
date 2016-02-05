@@ -55,7 +55,8 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         //Set up audio plot look
         self.audioPlot?.backgroundColor = kLightTealColor
         self.audioPlot?.color = UIColor(colorLiteralRed: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        
+        self.audioPlot?.shouldMirror = true
+        self.audioPlot?.shouldFill = true
         self.audioPlot?.plotType = .Rolling
         
         //Create microphone
@@ -350,6 +351,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         dispatch_async(dispatch_get_main_queue())
         {
             self.audioPlot?.updateBuffer(buffer[0], withBufferSize: bufferSize)
+            
         }
     }
     
@@ -364,6 +366,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         // Getting audio data as a buffer list that can be directly fed into the
         // EZRecorder or EZOutput. Say whattt...
         //
+        
         
     }
     
