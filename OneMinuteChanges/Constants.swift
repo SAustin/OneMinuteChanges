@@ -12,6 +12,7 @@ import UIKit
 let kCountdownTime: NSTimeInterval = 60
 let kPrepareTime = 3
 let kCurrentChordSequence = "OneMinuteChangesCurrentChordSequence"
+let kFFTViewControllerFFTWindowSize: vDSP_Length = 4096
 
 /*
 * Delay

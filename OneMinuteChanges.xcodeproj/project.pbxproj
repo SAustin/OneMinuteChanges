@@ -217,6 +217,7 @@
 		61A269201C61ADC30010ADBD /* ChordDictionaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordDictionaryViewController.swift; sourceTree = "<group>"; };
 		61A269241C632FD00010ADBD /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		61BA4B831C5FACC6008563D0 /* OneMinuteChanges.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = OneMinuteChanges.entitlements; sourceTree = "<group>"; };
+		61C702CD1C65079A004571E3 /* OneMinuteChanges 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OneMinuteChanges 2.xcdatamodel"; sourceTree = "<group>"; };
 		61F8C9621C56A64200816939 /* TimerLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerLabel.swift; sourceTree = "<group>"; };
 		61F8C9691C5A6D0E00816939 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		67F5B06A95074CB309B99A86 /* Pods_OneMinuteChanges.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneMinuteChanges.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1044,6 +1045,7 @@
 		61A2683E1C53DBD00010ADBD /* OneMinuteChanges.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				61C702CD1C65079A004571E3 /* OneMinuteChanges 2.xcdatamodel */,
 				61A2683F1C53DBD00010ADBD /* OneMinuteChanges.xcdatamodel */,
 			);
 			currentVersion = 61A2683F1C53DBD00010ADBD /* OneMinuteChanges.xcdatamodel */;

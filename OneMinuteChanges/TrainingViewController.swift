@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelectionDelegate, UIPopoverPresentationControllerDelegate, EZMicrophoneDelegate
+class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelectionDelegate, UIPopoverPresentationControllerDelegate, EZMicrophoneDelegate, EZAudioFFTDelegate
 {
     @IBOutlet var timerLabel: UILabel?
     @IBOutlet var currentChordOneButton: UIButton?
@@ -21,16 +21,19 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
     @IBOutlet var skipButton: UIButton?
     @IBOutlet var timerButton: UIButton?
     @IBOutlet var resetButton: UIButton?
+    
     var timer: TimerLabel?
     var timerEnded = false
     
     var currentChord = 0
     var chordSequence: [(Chord, Chord)]?
+    var chordCount: [Int]?
     
     var soundPlayer: AVAudioPlayer?
     
     @IBOutlet var audioPlot: EZAudioPlotGL?
     var microphone: EZMicrophone?
+    var fft: EZAudioFFTRolling?
     
     //Not sure I need this?
     var inputs: [AnyObject]?
@@ -62,6 +65,9 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         //Create microphone
         self.microphone = EZMicrophone(delegate: self)
         
+        //Create FFT to keep track of incoming audio and calculate FFT
+        self.fft = EZAudioFFTRolling(windowSize: kFFTViewControllerFFTWindowSize, sampleRate: Float(self.microphone!.audioStreamBasicDescription().mSampleRate), delegate: self)
+        
         self.inputs = EZAudioDevice.inputDevices()
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -77,6 +83,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         {
             self.chordSequence = self.convertArrayToSequence(savedSequence as! [String])
             self.chordSequence?.shuffleInPlace()
+            self.chordCount = Array<Int>(count: (self.chordSequence?.count)!, repeatedValue: 0)
         }
 
         if let _ = self.chordSequence
@@ -146,6 +153,9 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
                 {
                     prepareAlertController.dismissViewControllerAnimated(true, completion: nil)
                     
+                    self.chordCount?[self.currentChord] = (self.chordCount?[self.currentChord])! + 1
+                    self.numberOfAttemptsLabel?.text = "\(self.chordCount?[self.currentChord])"
+                    
                     self.playBeeps(2)
                     self.microphone?.startFetchingAudio()
                     self.timer?.start()
@@ -160,13 +170,17 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
     
     func playBeeps(numberOfBeeps: Int)
     {
-        for index in 0...numberOfBeeps - 1
+        dispatch_async(dispatch_get_main_queue())
         {
-            delay(Double(index)*0.2)
+            for index in 0...numberOfBeeps - 1
             {
-                self.soundPlayer?.play()
-                return
+                delay(Double(index)*0.2)
+                {
+                    self.soundPlayer?.play()
+                    return
+                }
             }
+            
         }
         
     }
@@ -348,10 +362,12 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         // on the main thread to avoid blocking that audio flow.
         //
         
+        //Calculate the FFT
+        self.fft?.computeFFTWithBuffer(buffer[0], withBufferSize: bufferSize)
+        
         dispatch_async(dispatch_get_main_queue())
         {
             self.audioPlot?.updateBuffer(buffer[0], withBufferSize: bufferSize)
-            
         }
     }
     
@@ -374,6 +390,14 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
     {
     }
     
+    //MARK: - EZAudioFFT Delegate 
+    func fft(fft: EZAudioFFT!, updatedWithFFTData fftData: UnsafeMutablePointer<Float>, bufferSize: vDSP_Length)
+    {
+        let maxFrequency = fft.maxFrequency
+        let noteName = EZAudioUtilities.noteNameStringForFrequency(maxFrequency, includeOctave: true)
+        
+    }
+    
     //MARK: - Chord Selection Delegate
     func randomChordsWereSelected(chordList: [Chord])
     {
@@ -390,6 +414,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         }
         
         self.chordSequence = fullList.shuffle()
+        self.chordCount = Array<Int>(count: (self.chordSequence?.count)!, repeatedValue: 0)
         self.currentChord = 0
         self.updateChordLabels()
         
@@ -408,6 +433,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
             self.chordSequence = chordSequence.shuffle()
         }
         
+        self.chordCount = Array<Int>(count: (self.chordSequence?.count)!, repeatedValue: 0)
         self.currentChord = 0
         self.updateChordLabels()
         
@@ -428,6 +454,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         }
         
         self.chordSequence = fullList.shuffle()
+        self.chordCount = Array<Int>(count: (self.chordSequence?.count)!, repeatedValue: 0)
         self.currentChord = 0
         self.updateChordLabels()
         
