@@ -56,7 +56,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         }
         
         //Set up audio plot look
-        self.audioPlot?.backgroundColor = kLightTealColor
+        self.audioPlot?.backgroundColor = kLightBlueColor
         self.audioPlot?.color = UIColor(colorLiteralRed: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         self.audioPlot?.shouldMirror = true
         self.audioPlot?.shouldFill = true
@@ -98,7 +98,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
             self.nextChordPairLabel?.text = "--"
         }
         
-        self.previousMaximum?.text = "--"
+        self.currentAttemptTextField?.text = "0"
     }
 
     override func didReceiveMemoryWarning()
@@ -155,7 +155,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
                     prepareAlertController.dismissViewControllerAnimated(true, completion: nil)
                     
                     self.chordCount?[self.currentChord] = (self.chordCount?[self.currentChord])! + 1
-                    self.numberOfAttemptsLabel?.text = "\(self.chordCount?[self.currentChord])"
+                    self.numberOfAttemptsLabel?.text = "\((self.chordCount?[self.currentChord])!)"
                     
                     self.playBeeps(2)
                     self.microphone?.startFetchingAudio()
@@ -248,6 +248,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         {
             self.startWasPressed(self.timerButton!)
         }
+        
         self.timer!.reset()
         self.timer!.setCountDownTime(kCountdownTime)
         self.nextChord()
@@ -282,7 +283,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
             nextChord = 0
         }
         
-        self.currentAttemptTextField?.text = ""
+        self.currentAttemptTextField?.text = "0"
         
         let bestResult = (UIApplication.sharedApplication().delegate as! AppDelegate).dataHelper.getBestResultFor(chord1, chord2: chord2)
 
@@ -393,9 +394,11 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         let maxFrequency = fft.maxFrequency
         let noteName = EZAudioUtilities.noteNameStringForFrequency(maxFrequency, includeOctave: true)
         
-        //TODO: Remove this, or make a new label, or something.
-        self.numberOfAttemptsLabel?.text = noteName
-        
+        //TODO: If noteName = chord1.max or chord2.max, or something, then
+        if let _ = noteName
+        {
+            //self.currentAttemptTextField?.text = "\(((self.currentAttemptTextField?.text)! as NSString).integerValue + 1)"
+        }
     }
     
     //MARK: - Chord Selection Delegate
