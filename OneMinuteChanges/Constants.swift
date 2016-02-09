@@ -8,11 +8,23 @@
 
 import Foundation
 import UIKit
+import StoreKit
 
 let kCountdownTime: NSTimeInterval = 60
 let kPrepareTime = 3
 let kCurrentChordSequence = "OneMinuteChangesCurrentChordSequence"
 let kFFTViewControllerFFTWindowSize: vDSP_Length = 4096
+
+/// Notification that is generated when a product is purchased.
+let IAPHelperProductPurchasedNotification = "IAPHelperProductPurchasedNotification"
+
+/// Product identifiers are unique strings registered on the app store.
+typealias ProductIdentifier = String
+
+/// Completion handler called when products are fetched.
+typealias RequestProductsCompletionHandler = (success: Bool, products: [SKProduct]) -> ()
+
+
 
 /*
 * Delay

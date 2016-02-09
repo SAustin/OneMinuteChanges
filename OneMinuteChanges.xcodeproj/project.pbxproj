@@ -116,6 +116,9 @@
 		61A269251C632FD00010ADBD /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A269241C632FD00010ADBD /* Color.swift */; };
 		61A269261C6330150010ADBD /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A269241C632FD00010ADBD /* Color.swift */; };
 		61A269271C6330150010ADBD /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A269241C632FD00010ADBD /* Color.swift */; };
+		61C702CF1C693A67004571E3 /* IPAHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C702CE1C693A67004571E3 /* IPAHelper.swift */; };
+		61C702D01C693A67004571E3 /* IPAHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C702CE1C693A67004571E3 /* IPAHelper.swift */; };
+		61C702D11C693A67004571E3 /* IPAHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C702CE1C693A67004571E3 /* IPAHelper.swift */; };
 		61F8C9631C56A64200816939 /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F8C9621C56A64200816939 /* TimerLabel.swift */; };
 		61F8C9641C57BCE800816939 /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F8C9621C56A64200816939 /* TimerLabel.swift */; };
 		61F8C9651C57BCE800816939 /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F8C9621C56A64200816939 /* TimerLabel.swift */; };
@@ -224,6 +227,7 @@
 		61A269241C632FD00010ADBD /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		61BA4B831C5FACC6008563D0 /* OneMinuteChanges.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = OneMinuteChanges.entitlements; sourceTree = "<group>"; };
 		61C702CD1C65079A004571E3 /* OneMinuteChanges 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OneMinuteChanges 2.xcdatamodel"; sourceTree = "<group>"; };
+		61C702CE1C693A67004571E3 /* IPAHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPAHelper.swift; sourceTree = "<group>"; };
 		61F8C9621C56A64200816939 /* TimerLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerLabel.swift; sourceTree = "<group>"; };
 		61F8C9691C5A6D0E00816939 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		67F5B06A95074CB309B99A86 /* Pods_OneMinuteChanges.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneMinuteChanges.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -320,6 +324,7 @@
 				E11E8B2A1C612F0D00E53BDB /* TabDisplayPopoverViewController.swift */,
 				E10B88B41C62789300F569A5 /* ScoreViewController.swift */,
 				E10B88B81C627B3500F569A5 /* BestResultListViewController.swift */,
+				61C702CE1C693A67004571E3 /* IPAHelper.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -755,6 +760,7 @@
 				E10B88B51C62789300F569A5 /* ScoreViewController.swift in Sources */,
 				E11E8B2B1C612F0D00E53BDB /* TabDisplayPopoverViewController.swift in Sources */,
 				61A268BE1C5D5F9B0010ADBD /* DataHelper.swift in Sources */,
+				61C702CF1C693A67004571E3 /* IPAHelper.swift in Sources */,
 				61A268401C53DBD00010ADBD /* OneMinuteChanges.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -781,6 +787,7 @@
 				E10B88B61C62789300F569A5 /* ScoreViewController.swift in Sources */,
 				E11E8B2C1C612F0D00E53BDB /* TabDisplayPopoverViewController.swift in Sources */,
 				61A2689C1C588BD70010ADBD /* Constants.swift in Sources */,
+				61C702D01C693A67004571E3 /* IPAHelper.swift in Sources */,
 				61A268B21C5B2BC70010ADBD /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -807,6 +814,7 @@
 				E10B88B71C62789300F569A5 /* ScoreViewController.swift in Sources */,
 				E11E8B2D1C612F0D00E53BDB /* TabDisplayPopoverViewController.swift in Sources */,
 				61A2689D1C588BD70010ADBD /* Constants.swift in Sources */,
+				61C702D11C693A67004571E3 /* IPAHelper.swift in Sources */,
 				61A268B31C5B2BC80010ADBD /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
