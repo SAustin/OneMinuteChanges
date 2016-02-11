@@ -141,6 +141,7 @@
 		E17347871C65571D0006FACE /* icon180.png in Resources */ = {isa = PBXBuildFile; fileRef = E17347811C65571D0006FACE /* icon180.png */; };
 		E17347881C65571D0006FACE /* icon512.png in Resources */ = {isa = PBXBuildFile; fileRef = E17347821C65571D0006FACE /* icon512.png */; };
 		E17347891C65571D0006FACE /* icon1024.png in Resources */ = {isa = PBXBuildFile; fileRef = E17347831C65571D0006FACE /* icon1024.png */; };
+		E1A835DF1C6A577500C179C3 /* G5tab.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A835DE1C6A577500C179C3 /* G5tab.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -242,6 +243,7 @@
 		E17347811C65571D0006FACE /* icon180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon180.png; path = Images/icon180.png; sourceTree = "<group>"; };
 		E17347821C65571D0006FACE /* icon512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon512.png; path = Images/icon512.png; sourceTree = "<group>"; };
 		E17347831C65571D0006FACE /* icon1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon1024.png; path = Images/icon1024.png; sourceTree = "<group>"; };
+		E1A835DE1C6A577500C179C3 /* G5tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = G5tab.png; path = Images/G5tab.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +288,7 @@
 		614AFB911C6150E0009ED3F2 /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
+				E1A835DE1C6A577500C179C3 /* G5tab.png */,
 				614AFB9C1C6150FF009ED3F2 /* Ctab.png */,
 				614AFB9D1C6150FF009ED3F2 /* D7tab.png */,
 				614AFB9E1C6150FF009ED3F2 /* DminTab.png */,
@@ -604,6 +607,7 @@
 				61A268AF1C58A58B0010ADBD /* skipButton.png in Resources */,
 				E17347891C65571D0006FACE /* icon1024.png in Resources */,
 				61A268A71C589D230010ADBD /* startButton.png in Resources */,
+				E1A835DF1C6A577500C179C3 /* G5tab.png in Resources */,
 				614AFBA71C6150FF009ED3F2 /* Ctab.png in Resources */,
 				614AFB9A1C6150ED009ED3F2 /* B7tab.png in Resources */,
 				61A268D51C5EFFE50010ADBD /* timer@2x.png in Resources */,
