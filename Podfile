@@ -3,5 +3,6 @@ use_frameworks!
 
 target 'OneMinuteChanges' do
 	pod 'EZAudio/Core', '~> 1.1.5'
+	pod ‘CorePlot’, ‘~> 2.0’
 end
 

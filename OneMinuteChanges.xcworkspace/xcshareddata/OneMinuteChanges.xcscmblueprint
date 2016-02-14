@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "741E2B8A27817BC944F995A604449C128FB65961",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "8B3D884E5CB77CFCF2CE65E14C999AAC1DC843A5" : 0,
+    "741E2B8A27817BC944F995A604449C128FB65961" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "D7C3BDE1-7D23-4A83-9016-B8F89D6F218E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "8B3D884E5CB77CFCF2CE65E14C999AAC1DC843A5" : "..\/Projects%20Library\/core-plot",
+    "741E2B8A27817BC944F995A604449C128FB65961" : "OneMinuteChanges\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "OneMinuteChanges",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "OneMinuteChanges.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:SAustin\/OneMinuteChanges.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "741E2B8A27817BC944F995A604449C128FB65961"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/core-plot\/core-plot.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8B3D884E5CB77CFCF2CE65E14C999AAC1DC843A5"
+    }
+  ]
+}

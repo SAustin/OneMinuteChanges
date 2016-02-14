@@ -3,3 +3,4 @@
 //
 
 #import <EZAudio/EZAudio.h>
+#import <CorePlot/CorePlot.h>

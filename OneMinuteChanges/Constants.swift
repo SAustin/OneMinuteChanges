@@ -65,6 +65,7 @@ func countdown(seconds: Int,
 enum Recommendation: Int
 {
     case ProblemChords = 0
+    case Power5Chords
     case BeginnerOne
     case BeginnerTwo
     case BeginnerThree
@@ -82,6 +83,8 @@ enum Recommendation: Int
         {
         case .ProblemChords:
             return "Problem Chords"
+        case .Power5Chords:
+            return "Power 5 Chords"
         case .BeginnerOne:
             return "Beginner Week One"
         case .BeginnerTwo:
@@ -114,6 +117,18 @@ enum Recommendation: Int
         {
         case .ProblemChords:
             return (UIApplication.sharedApplication().delegate as! AppDelegate).dataHelper.selectProblemChordCombos()
+        case .Power5Chords:
+            var power5Chords = [dataHelper.getChord("A5"), dataHelper.getChord("B5"), dataHelper.getChord("C5"), dataHelper.getChord("D5"), dataHelper.getChord("E5"), dataHelper.getChord("F5"), dataHelper.getChord("G5")]
+            var returnArray = [(Chord, Chord)]()
+            
+            for index in 0...power5Chords.count - 1
+            {
+                for index2 in index...power5Chords.count - 1
+                {
+                    returnArray.append((power5Chords[index], power5Chords[index2]))
+                }
+            }
+            return returnArray
         case .BeginnerOne:
             return [(dataHelper.getChord("D"), dataHelper.getChord("A")), (dataHelper.getChord("D"), dataHelper.getChord("E")), (dataHelper.getChord("A"), dataHelper.getChord("E"))]
         case .BeginnerTwo:

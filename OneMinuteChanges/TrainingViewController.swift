@@ -27,6 +27,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
     
     var currentChord = 0
     var chordSequence: [(Chord, Chord)]?
+    var longerSequence: [(Chord, Chord)]?
     var chordCount: [Int]?
     
     var soundPlayer: AVAudioPlayer?
@@ -249,6 +250,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
             self.startWasPressed(self.timerButton!)
         }
         
+        self.resetButton?.hidden = true
         self.timer!.reset()
         self.timer!.setCountDownTime(kCountdownTime)
         self.nextChord()
@@ -283,7 +285,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
             nextChord = 0
         }
         
-        self.currentAttemptTextField?.text = "0"
+        self.currentAttemptTextField?.text = ""
         
         let bestResult = (UIApplication.sharedApplication().delegate as! AppDelegate).dataHelper.getBestResultFor(chord1, chord2: chord2)
 

@@ -1,10 +1,13 @@
 PODS:
+  - CorePlot (2.0)
   - EZAudio/Core (1.1.5)
 
 DEPENDENCIES:
+  - CorePlot (~> 2.0)
   - EZAudio/Core (~> 1.1.5)
 
 SPEC CHECKSUMS:
+  CorePlot: b7f422ad363f2b0e48152471d6da45ce232eb8c6
   EZAudio: 3b1cb4b6d7ebca68f0c2478576d75940aad4aa99
 
 COCOAPODS: 0.39.0
