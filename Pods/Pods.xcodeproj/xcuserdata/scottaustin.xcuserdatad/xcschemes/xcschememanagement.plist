@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>CorePlot.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 		<key>EZAudio.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,6 +32,16 @@
 			<true/>
 		</dict>
 		<key>B1D7C61E8A01AE4D542106BC9A735B57</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B68640687A79759BEA08A3B327CFD816</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D9AF64515263CE392DA29BAFED688DE1</key>
 		<dict>
 			<key>primary</key>
 			<true/>

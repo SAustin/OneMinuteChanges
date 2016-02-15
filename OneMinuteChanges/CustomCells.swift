@@ -37,3 +37,21 @@ class ResultListCell: UITableViewCell
     @IBOutlet var secondChordLabel: UILabel?
     @IBOutlet var scoreLabel: UILabel?
 }
+
+class SettingsTrueFalseCell: UITableViewCell
+{
+    @IBOutlet var settingText: UILabel?
+    @IBOutlet var settingValue: UISwitch?
+}
+
+class SettingsActionCell: UITableViewCell
+{
+    @IBOutlet var settingText: UILabel?
+    @IBOutlet var additionalInfoText: UILabel?
+}
+
+class SettingsNumericCell: UITableViewCell
+{
+    @IBOutlet var settingText: UILabel?
+    @IBOutlet var settingValue: UITextField?
+}

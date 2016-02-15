@@ -187,6 +187,20 @@ class DataHelper
     
     func initData()
     {
+        //Set App Defaults
+        var settingsOptions = [ [("iCloud Sync", CellType.TrueFalse), ("Unlock Extra Features", CellType.Action), ("Restore Purhases", CellType.Action)],
+            [("Allow Rotation", CellType.TrueFalse), ("Timer Length", CellType.NumericChoice), ("Practice Reminders", CellType.TrueFalse), ("Automatic Counting", CellType.TrueFalse)],
+            [("Send Feedback", CellType.Action), ("Rate the App", CellType.Action), ("About", CellType.Action)]]
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        defaults.setBool(false, forKey: kSettingsiCloudSync)
+        defaults.setBool(false, forKey: kSettingsAdditionalFeaturesUnlocked)
+        defaults.setBool(true, forKey: kSettingsAllowRotation)
+        defaults.setInteger(1, forKey: kSettingsTimerLength)
+        defaults.setBool(false, forKey: kSettingsReminder)
+        defaults.setBool(false, forKey: kSettingsAutomaticCounting)
+        
+        //Generate chord database
         let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         
         let chord1 = NSEntityDescription.insertNewObjectForEntityForName("Chord", inManagedObjectContext: context) as! Chord

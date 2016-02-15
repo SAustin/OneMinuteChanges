@@ -10,7 +10,6 @@ import StoreKit
 /// purchase products, and restore purchases.  Uses NSUserDefaults to cache if a product has been purchased.
 public class IAPHelper : NSObject
 {
-
     /// MARK: - Private Properties
     
     // Used to keep track of the possible products and which ones have been purchased.
@@ -121,9 +120,9 @@ extension IAPHelper: SKPaymentTransactionObserver
     /// This is a function called by the payment queue, not to be called directly.
     /// For each transaction act accordingly, save in the purchased cache, issue notifications,
     /// mark the transaction as complete.
-    public func paymentQueue(queue: SKPaymentQueue!, updatedTransactions transactions: [AnyObject]!)
+    public func paymentQueue(queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction])
     {
-        for transaction in transactions as! [SKPaymentTransaction]
+        for transaction in transactions
         {
             switch (transaction.transactionState)
             {
@@ -142,6 +141,27 @@ extension IAPHelper: SKPaymentTransactionObserver
                 break
             }
         }
+        
+    }
+
+    public func paymentQueue(queue: SKPaymentQueue, removedTransactions transactions: [SKPaymentTransaction])
+    {
+        
+    }
+    
+    public func paymentQueue(queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: NSError)
+    {
+        
+    }
+    
+    public func paymentQueue(queue: SKPaymentQueue, updatedDownloads downloads: [SKDownload])
+    {
+        
+    }
+    
+    public func paymentQueueRestoreCompletedTransactionsFinished(queue: SKPaymentQueue)
+    {
+        
     }
     
     private func completeTransaction(transaction: SKPaymentTransaction)

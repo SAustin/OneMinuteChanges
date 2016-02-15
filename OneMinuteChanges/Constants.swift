@@ -15,6 +15,16 @@ let kPrepareTime = 3
 let kCurrentChordSequence = "OneMinuteChangesCurrentChordSequence"
 let kFFTViewControllerFFTWindowSize: vDSP_Length = 4096
 
+let kSettingsiCloudSync = "OneMinuteSettingsiCloudSync"
+let kSettingsAdditionalFeaturesUnlocked = "OneMinuteSettingsAdditionalFeaturesUnlocked"
+let kSettingsAllowRotation = "OneMinuteSettingsAllowRotation"
+let kSettingsTimerLength = "OneMinuteSettingsTimerLength"
+let kSettingsReminder = "OneMinuteSettingsReminder"
+let kSettingsReminderSchedule = "OneMinuteSettingsReminderSchedule"
+let kSettingsAutomaticCounting = "OneMinuteSettingsAutomaticCounting"
+
+
+
 /// Notification that is generated when a product is purchased.
 let IAPHelperProductPurchasedNotification = "IAPHelperProductPurchasedNotification"
 

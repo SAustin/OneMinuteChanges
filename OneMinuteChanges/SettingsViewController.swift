@@ -10,7 +10,27 @@ import Foundation
 import UIKit
 import StoreKit
 
-class SettingsViewController: UITableViewController
+enum CellType: Int
+{
+    case TrueFalse = 0
+    case Action
+    case NumericChoice
+    
+    func cellIdentifier() -> String
+    {
+        switch self
+        {
+        case .TrueFalse:
+            return "SettingsTrueFalseCell"
+        case .Action:
+            return "SettingsActionCell"
+        case .NumericChoice:
+            return "SettingsNumericCell"
+        }
+    }
+}
+
+class SettingsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
 {
     /*TODO:
      * iCloud sync Yes/No
@@ -34,23 +54,27 @@ class SettingsViewController: UITableViewController
         return pf
     }()
     
+    @IBOutlet var tableView: UITableView?
     var products = [SKProduct]()
+    
+    var settingsOptions = [ [("iCloud Sync", CellType.TrueFalse), ("Unlock Extra Features", CellType.Action), ("Restore Purhases", CellType.Action)],
+                            [("Allow Rotation", CellType.TrueFalse), ("Timer Length", CellType.NumericChoice), ("Practice Reminders", CellType.TrueFalse), ("Automatic Counting", CellType.TrueFalse)],
+                            [("Send Feedback", CellType.Action), ("Rate the App", CellType.Action), ("About", CellType.Action)]]
     
     override func viewDidLoad()
     {
-        // Set up a refresh control, call reload to start things up
-        refreshControl = UIRefreshControl()
-        refreshControl?.addTarget(self, action: "reload", forControlEvents: .ValueChanged)
-        reload()
-        refreshControl?.beginRefreshing()
-
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "productPurchased:", name: IAPHelperProductPurchasedNotification, object: nil)
+    }
+    
+    @IBAction func doneWasPressed(sender: UIBarButtonItem)
+    {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 
     func reload()
     {
         products = []
-        tableView.reloadData()
+        self.tableView!.reloadData()
         Products.store.requestProductsWithCompletionHandler
         {
             success, products in
@@ -58,10 +82,9 @@ class SettingsViewController: UITableViewController
             if success
             {
                 self.products = products
-                self.tableView.reloadData()
+                self.tableView!.reloadData()
             }
             
-            self.refreshControl?.endRefreshing()
         }
     }
 
@@ -88,4 +111,71 @@ class SettingsViewController: UITableViewController
             }
         }
     }
+    
+    // MARK: - Table View
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    {
+        return self.settingsOptions.count
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return self.settingsOptions[section].count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    {
+        return self.configureCell(tableView, atIndexPath: indexPath)
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    {
+        switch section
+        {
+        case 0:
+            return ""
+        case 1:
+            return "Behavior"
+        case 2:
+            return "Feedback"
+        default:
+            return ""
+        }
+    }
+    
+    func configureCell(tableView: UITableView, atIndexPath: NSIndexPath) -> UITableViewCell
+    {
+        let (cellText, cellType) = self.settingsOptions[atIndexPath.section][atIndexPath.row]
+        
+        let cell = self.tableView!.dequeueReusableCellWithIdentifier(cellType.cellIdentifier())
+
+        switch cellType
+        {
+        case .TrueFalse:
+            (cell as! SettingsTrueFalseCell).settingText?.text = cellText
+            (cell as! SettingsTrueFalseCell).settingValue?.setOn(NSUserDefaults.standardUserDefaults().boolForKey(kSettingsAutomaticCounting), animated: false)
+        case .Action:
+            (cell as! SettingsActionCell).settingText?.text = cellText
+            (cell as! SettingsActionCell).additionalInfoText?.text = ""
+            cell?.accessoryType = .DisclosureIndicator
+        case .NumericChoice:
+            (cell as! SettingsNumericCell).settingText?.text = cellText
+            (cell as! SettingsNumericCell).settingValue?.text = "\(NSUserDefaults.standardUserDefaults().integerForKey(kSettingsTimerLength))"
+        }
+        
+        return cell!
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
+    {
+        // Return false if you do not want the specified item to be editable.
+        return false
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
+        
+    }
+
 }
