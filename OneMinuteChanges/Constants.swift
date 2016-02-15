@@ -112,7 +112,7 @@ enum Recommendation: Int
     func getSequence() -> [(Chord, Chord)]?
     {
         let dataHelper = (UIApplication.sharedApplication().delegate as! AppDelegate).dataHelper
-
+        
         switch self
         {
         case .ProblemChords:
@@ -190,5 +190,23 @@ func getScoreColor(score: Int) -> UIColor
         return kLightGreyColor
         
     }
+}
+
+public enum Products
+{
+    public static let Prefix = "com.europaSoftware."
+    
+    //MARK: - Supported Product Identifiers
+    public static let Unlock = Prefix + "OneMinuteChordsEnhancedFeatures"
+    
+    private static let productIdentifiers: Set<ProductIdentifier> = [Products.Unlock]
+    
+    public static let store = IAPHelper(productIdentifiers: Products.productIdentifiers)
+}
+
+/// Return the resourcename for the product identifier.
+func resourceNameForProductIdentifier(productIdentifier: String) -> String?
+{
+    return productIdentifier.componentsSeparatedByString(".").last
 }
 

@@ -87,7 +87,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
             self.chordSequence?.shuffleInPlace()
             self.chordCount = Array<Int>(count: (self.chordSequence?.count)!, repeatedValue: 0)
         }
-
+        
         if let _ = self.chordSequence
         {
             self.updateChordLabels()
@@ -101,7 +101,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         
         self.currentAttemptTextField?.text = "0"
     }
-
+    
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
@@ -166,7 +166,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
             })
             
         }
-            
+        
         
     }
     
@@ -209,7 +209,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
                     alertAction in
                     self.skipNextLogic()
                 })
-
+            
             self.presentViewController(alertController, animated: true, completion: nil)
             
         }
@@ -233,7 +233,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         popover.chordToDisplay = (UIApplication.sharedApplication().delegate as! AppDelegate).dataHelper.getChord(sender.titleLabel!.text!)
         
         self.presentViewController(popover, animated: true, completion: nil)
-
+        
     }
     
     func skipNextLogic()
@@ -288,15 +288,15 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         self.currentAttemptTextField?.text = ""
         
         let bestResult = (UIApplication.sharedApplication().delegate as! AppDelegate).dataHelper.getBestResultFor(chord1, chord2: chord2)
-
+        
         (chord1, chord2) = (self.chordSequence?[nextChord])!
         self.nextChordPairLabel?.text = "\(chord1.name!) - \(chord2.name!)"
-
+        
         var labelColor: UIColor
         if let result = bestResult
         {
             labelColor = getScoreColor(result.score!.integerValue)
-
+            
             self.previousMaximum?.text = "\(result.score!)"
         }
         else
@@ -329,7 +329,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
     {
         return UIModalPresentationStyle.None
     }
-
+    
     //MARK: - EZAudio delegate stuff
     func drawRollingPlot()
     {
@@ -366,8 +366,8 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         self.fft?.computeFFTWithBuffer(buffer[0], withBufferSize: bufferSize)
         
         dispatch_async(dispatch_get_main_queue())
-        {
-            self.audioPlot?.updateBuffer(buffer[0], withBufferSize: bufferSize)
+            {
+                self.audioPlot?.updateBuffer(buffer[0], withBufferSize: bufferSize)
         }
     }
     
@@ -390,7 +390,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
     {
     }
     
-    //MARK: - EZAudioFFT Delegate 
+    //MARK: - EZAudioFFT Delegate
     func fft(fft: EZAudioFFT!, updatedWithFFTData fftData: UnsafeMutablePointer<Float>, bufferSize: vDSP_Length)
     {
         let maxFrequency = fft.maxFrequency
@@ -467,7 +467,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
     }
     
     //MARK: - Timer Delegate
-
+    
     func timerLabel(timerLabel: TimerLabel, countingTo time: NSTimeInterval, timerType: TimerLabelType)
     {
         
@@ -486,10 +486,10 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         self.timerEnded = true
         
         delay(0.2)
-        {
-            self.resetButton?.hidden = true
-            self.timerButton?.setBackgroundImage(UIImage(contentsOfFile: NSBundle.mainBundle().pathForResource("startButton", ofType: "png")!), forState: .Normal)
-            self.skipButton?.setBackgroundImage(UIImage(contentsOfFile: nextPath!)!, forState: .Normal)
+            {
+                self.resetButton?.hidden = true
+                self.timerButton?.setBackgroundImage(UIImage(contentsOfFile: NSBundle.mainBundle().pathForResource("startButton", ofType: "png")!), forState: .Normal)
+                self.skipButton?.setBackgroundImage(UIImage(contentsOfFile: nextPath!)!, forState: .Normal)
         }
         
         self.playBeeps(3)
@@ -532,5 +532,6 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         }
         return returnSequence
     }
+
 }
 
