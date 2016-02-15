@@ -154,6 +154,7 @@
 		E156D44E1C70FFC200D58214 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E156D44D1C70FFC200D58214 /* IAPHelper.swift */; };
 		E156D44F1C70FFC200D58214 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E156D44D1C70FFC200D58214 /* IAPHelper.swift */; };
 		E156D4501C70FFC200D58214 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E156D44D1C70FFC200D58214 /* IAPHelper.swift */; };
+		E1E184BC1C72599F001A70DF /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1E184BB1C72599F001A70DF /* StoreKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -268,6 +269,7 @@
 		E11E8B2A1C612F0D00E53BDB /* TabDisplayPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabDisplayPopoverViewController.swift; sourceTree = "<group>"; };
 		E156D44B1C70FD9300D58214 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E156D44D1C70FFC200D58214 /* IAPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
+		E1E184BB1C72599F001A70DF /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +280,7 @@
 				6136F8EE1C63E0A7007568C5 /* GLKit.framework in Frameworks */,
 				6136F8EC1C63E0A0007568C5 /* AudioToolbox.framework in Frameworks */,
 				6136F8EA1C63E09C007568C5 /* Accelerate.framework in Frameworks */,
+				E1E184BC1C72599F001A70DF /* StoreKit.framework in Frameworks */,
 				6136F8E81C63E08D007568C5 /* AVFoundation.framework in Frameworks */,
 				6D9FB784B907ABAFFF5D359A /* Pods_OneMinuteChanges.framework in Frameworks */,
 			);
@@ -493,6 +496,7 @@
 		7C68F7EB2FE8D9AE32A75AF7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E1E184BB1C72599F001A70DF /* StoreKit.framework */,
 				6136F8ED1C63E0A7007568C5 /* GLKit.framework */,
 				6136F8EB1C63E0A0007568C5 /* AudioToolbox.framework */,
 				6136F8E91C63E09C007568C5 /* Accelerate.framework */,
@@ -600,6 +604,9 @@
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = YMJJF4LH5P;
 						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
 							com.apple.iCloud = {
 								enabled = 1;
 							};

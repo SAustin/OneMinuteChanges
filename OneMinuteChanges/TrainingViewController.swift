@@ -74,11 +74,6 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.timer = TimerLabel(label: self.timerLabel, timerType: .Timer)
-        self.timer?.timeFormat = "mm:ss"
-        self.timer?.timerDelegate = self
-        self.timer?.setCountDownTime(kCountdownTime)
-        
         self.resetButton?.hidden = true
         
         if let savedSequence = NSUserDefaults.standardUserDefaults().objectForKey(kCurrentChordSequence)
@@ -87,6 +82,8 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
             self.chordSequence?.shuffleInPlace()
             self.chordCount = Array<Int>(count: (self.chordSequence?.count)!, repeatedValue: 0)
         }
+        
+        self.setUpTimer()
         
         if let _ = self.chordSequence
         {
@@ -100,6 +97,15 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         }
         
         self.currentAttemptTextField?.text = "0"
+    }
+    
+    func setUpTimer()
+    {
+        self.timer = TimerLabel(label: self.timerLabel, timerType: .Timer)
+        self.timer?.timeFormat = "mm:ss"
+        self.timer?.timerDelegate = self
+        self.timer?.setCountDownTime(NSTimeInterval(NSUserDefaults.standardUserDefaults().integerForKey(kSettingsTimerLength)*60))
+
     }
     
     override func didReceiveMemoryWarning()
@@ -190,7 +196,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
     @IBAction func resetWasPresed(sender: UIButton)
     {
         self.timer?.reset()
-        self.timer!.setCountDownTime(kCountdownTime)
+        self.timer!.setCountDownTime(NSTimeInterval(NSUserDefaults.standardUserDefaults().integerForKey(kSettingsTimerLength)*60))
     }
     
     @IBAction func skipWasPressed(sender: UIButton)
@@ -252,7 +258,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         
         self.resetButton?.hidden = true
         self.timer!.reset()
-        self.timer!.setCountDownTime(kCountdownTime)
+        self.timer!.setCountDownTime(NSTimeInterval(NSUserDefaults.standardUserDefaults().integerForKey(kSettingsTimerLength)*60))
         self.nextChord()
         
     }
@@ -314,6 +320,14 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         case "chordSelectionSegue":
             let controller = segue.destinationViewController as! ChordSelectionViewController
             controller.chordSelectionDelegate = self
+        case "settingsModalSegue":
+            let controller = segue.destinationViewController as! SettingsViewController
+            controller.settingsViewControllerDelegate = self
+            
+            if self.timer!.counting
+            {
+                self.startWasPressed(self.timerButton!)
+            }
         default:
             NSLog("Weird segue from training controller")
         }
@@ -533,5 +547,16 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         return returnSequence
     }
 
+}
+
+extension TrainingViewController: SettingsViewControllerDelegate
+{
+    func settingsWereUpdated(settingsWereUpdated: Bool)
+    {
+        if settingsWereUpdated
+        {
+            self.setUpTimer()
+        }
+    }
 }
 

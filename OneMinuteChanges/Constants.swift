@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 import StoreKit
 
-let kCountdownTime: NSTimeInterval = 60
 let kPrepareTime = 3
 let kCurrentChordSequence = "OneMinuteChangesCurrentChordSequence"
 let kFFTViewControllerFFTWindowSize: vDSP_Length = 4096
@@ -207,7 +206,7 @@ public enum Products
     public static let Prefix = "com.europaSoftware."
     
     //MARK: - Supported Product Identifiers
-    public static let Unlock = Prefix + "OneMinuteChordsEnhancedFeatures"
+    public static let Unlock = "OneMinuteChordsEnhancedFeatures"
     
     private static let productIdentifiers: Set<ProductIdentifier> = [Products.Unlock]
     
