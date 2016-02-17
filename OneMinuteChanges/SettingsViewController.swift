@@ -47,13 +47,13 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     }()
     
     @IBOutlet var tableView: UITableView?
-    @IBOutlet var tapGestureRecognizer: UITapGestureRecognizer?
+    @IBOutlet var tapButton: UIButton?
     var activeTextField: UITextField?
     var currentIndexPath: NSIndexPath?
     
     var settingsViewControllerDelegate: SettingsViewControllerDelegate?
     
-    var settingsOptions = [ [/*("iCloud Sync", CellType.TrueFalse, kSettingsiCloudSync), */ ("Unlock Extra Features", CellType.Action, kSettingsAdditionalFeaturesUnlocked), ("Restore Purchases", CellType.Action, "")],
+    var settingsOptions = [ /*[/*("iCloud Sync", CellType.TrueFalse, kSettingsiCloudSync), */ ("Unlock Extra Features", CellType.Action, kSettingsAdditionalFeaturesUnlocked), ("Restore Purchases", CellType.Action, "")], */
                             [("Allow Rotation", CellType.TrueFalse, kSettingsAllowRotation), ("Timer Length", CellType.NumericChoice, kSettingsTimerLength), ("Practice Reminders", CellType.TrueFalse, kSettingsReminder), /*("Automatic Counting", CellType.TrueFalse, kSettingsAutomaticCounting) */],
                             [("Send Feedback", CellType.Action, ""), ("Please Rate 1MinuteChanges", CellType.Action, ""), ("About", CellType.Action, "")]]
     
@@ -65,7 +65,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             reload()
         }
         
-        self.tapGestureRecognizer?.enabled = false
+        self.view.sendSubviewToBack(self.tapButton!)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "productPurchased:", name: IAPHelperProductPurchasedNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "purchaseFailed:", name: IAPHelperTransactionFailedNotification, object: nil)
@@ -154,10 +154,10 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        if section == 0 && NSUserDefaults.standardUserDefaults().boolForKey(kSettingsAdditionalFeaturesUnlocked)
-        {
-            return self.settingsOptions[section].count - 1
-        }
+//        if section == 0 && NSUserDefaults.standardUserDefaults().boolForKey(kSettingsAdditionalFeaturesUnlocked)
+//        {
+//            return self.settingsOptions[section].count - 1
+//        }
         return self.settingsOptions[section].count
     }
     
@@ -290,11 +290,11 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     {
         switch section
         {
+//        case 0:
+//            return "General"
         case 0:
-            return "General"
-        case 1:
             return "Behavior"
-        case 2:
+        case 1:
             return "Feedback"
         default:
             return ""
@@ -382,12 +382,12 @@ extension SettingsViewController: UITextFieldDelegate
     func textFieldDidBeginEditing(textField: UITextField)
     {
         self.activeTextField = textField
-        self.tapGestureRecognizer?.enabled = true
+        self.view.bringSubviewToFront(self.tapButton!)
     }
     
     func textFieldDidEndEditing(textField: UITextField)
     {
-        self.tapGestureRecognizer?.enabled = false
+        self.view.sendSubviewToBack(self.tapButton!)
         NSUserDefaults.standardUserDefaults().setInteger((Int(textField.text!)!), forKey: kSettingsTimerLength)
     }
 }

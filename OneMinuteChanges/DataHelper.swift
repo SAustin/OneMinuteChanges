@@ -191,7 +191,7 @@ class DataHelper
         let defaults = NSUserDefaults.standardUserDefaults()
         
         defaults.setBool(false, forKey: kSettingsiCloudSync)
-        defaults.setBool(false, forKey: kSettingsAdditionalFeaturesUnlocked)
+        defaults.setBool(true, forKey: kSettingsAdditionalFeaturesUnlocked)
         defaults.setBool(true, forKey: kSettingsAllowRotation)
         defaults.setInteger(1, forKey: kSettingsTimerLength)
         defaults.setBool(false, forKey: kSettingsReminder)
