@@ -255,13 +255,13 @@
                                                                 <rect key="frame" x="0.0" y="23" width="200" height="59"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Previous Best" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ef4-6c-mAi">
-                                                                        <rect key="frame" x="52" y="0.0" width="97" height="24"/>
+                                                                        <rect key="frame" x="52" y="0.0" width="97" height="21"/>
                                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="53" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wGp-kk-I6M">
-                                                                        <rect key="frame" x="88" y="32" width="25" height="27"/>
+                                                                        <rect key="frame" x="88" y="29" width="25" height="30"/>
                                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
                                                                         <color key="textColor" red="0.2396689967" green="0.75159333880000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
@@ -965,25 +965,6 @@
             </objects>
             <point key="canvasLocation" x="1037" y="1623"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="sgq-gk-nwh">
-            <objects>
-                <viewController id="Fz3-2d-JJm" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="g2R-ED-T7D"/>
-                        <viewControllerLayoutGuide type="bottom" id="pkq-Fi-188"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="yFF-Te-ROx">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="" image="more.png" id="vUC-is-2LO"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="d0L-Z5-7g0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1037" y="2309"/>
-        </scene>
         <!--Minute Tab Bar Controller-->
         <scene sceneID="1lo-KP-r99">
             <objects>
@@ -1007,7 +988,6 @@
     <resources>
         <image name="A7tab.png" width="400" height="600"/>
         <image name="C7tab.png" width="400" height="600"/>
-        <image name="more.png" width="32" height="32"/>
         <image name="pickTabIcon.png" width="40" height="40"/>
         <image name="resetButton.png" width="200" height="200"/>
         <image name="skipButton.png" width="200" height="200"/>

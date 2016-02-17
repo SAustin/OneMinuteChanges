@@ -59,12 +59,12 @@ func countdown(seconds: Int,
     eachSecondAction countdownClosure: (timeIndex: Int) -> (),
     finalAction finalClosure: () -> ())
 {
-    for index in 1...(seconds - 1)
+    for index in 0...(seconds - 1)
     {
         delay(Double(index))
             {
                 countdownClosure(timeIndex: index)
-        }
+            }
     }
     delay(Double(seconds))
         {

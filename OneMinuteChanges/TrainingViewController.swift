@@ -185,12 +185,13 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
                 },
                 finalAction:
                 {
+                    self.playBeeps(2)
+                    
                     prepareAlertController.dismissViewControllerAnimated(true, completion: nil)
                     
                     self.chordCount?[self.currentChord] = (self.chordCount?[self.currentChord])! + 1
                     self.numberOfAttemptsLabel?.text = "\((self.chordCount?[self.currentChord])!)"
-                    
-                    self.playBeeps(2)
+
                     self.microphone?.startFetchingAudio()
                     self.timer?.start()
                     self.timerButton?.setBackgroundImage(UIImage(contentsOfFile: NSBundle.mainBundle().pathForResource("pauseButton", ofType: "png")!), forState: .Normal)
@@ -206,10 +207,9 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
     {
         for index in 0...numberOfBeeps - 1
         {
-            delay(Double(index)*0.2)
+            delay(Double(index)*0.25)
                 {
                     self.soundPlayer?.play()
-                    return
             }
         }
     }
