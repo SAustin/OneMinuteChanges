@@ -28,6 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.chordList = self.dataHelper.getAllChords("sortNumber")
         }
         
+        
+        let mySettings = UIUserNotificationSettings(forTypes: [.Badge, .Sound, .Alert], categories: nil)
+        UIApplication.sharedApplication().registerUserNotificationSettings(mySettings)
+        
         return true
     }
 
@@ -53,6 +57,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
+    }
+    
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification)
+    {
+        
     }
 
     // MARK: - Core Data stack

@@ -230,6 +230,15 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         
         switch defaultsValue
         {
+        case kSettingsAllowRotation:
+            if sender.on
+            {
+                NSUserDefaults.standardUserDefaults().setBool(true, forKey: kSettingsAllowRotation)
+            }
+            else
+            {
+                NSUserDefaults.standardUserDefaults().setBool(false, forKey: kSettingsAllowRotation)
+            }
         case kSettingsReminder:
             if sender.on
             {
@@ -239,7 +248,8 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
                 notification.alertBody = "Don't forget to practice chord changes today!"
                 
                 notification.soundName = UILocalNotificationDefaultSoundName
-                notification.fireDate = NSDate().dateByAddingTimeInterval(20)
+                let date = NSDate()
+                notification.fireDate = NSDate().dateByAddingTimeInterval(60)
                 notification.repeatInterval = NSCalendarUnit.Day
                 notification.category = "OneMinuteChanges"
                 

@@ -150,6 +150,7 @@
 		E11E8B2B1C612F0D00E53BDB /* TabDisplayPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11E8B2A1C612F0D00E53BDB /* TabDisplayPopoverViewController.swift */; };
 		E11E8B2C1C612F0D00E53BDB /* TabDisplayPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11E8B2A1C612F0D00E53BDB /* TabDisplayPopoverViewController.swift */; };
 		E11E8B2D1C612F0D00E53BDB /* TabDisplayPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11E8B2A1C612F0D00E53BDB /* TabDisplayPopoverViewController.swift */; };
+		E1336BC51C74EDD40019ED09 /* pickTabIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E1336BC41C74EDD40019ED09 /* pickTabIcon.png */; };
 		E156D44C1C70FD9300D58214 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E156D44B1C70FD9300D58214 /* SettingsViewController.swift */; };
 		E156D44E1C70FFC200D58214 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E156D44D1C70FFC200D58214 /* IAPHelper.swift */; };
 		E156D44F1C70FFC200D58214 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E156D44D1C70FFC200D58214 /* IAPHelper.swift */; };
@@ -270,6 +271,7 @@
 		E10B88B41C62789300F569A5 /* ScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		E10B88B81C627B3500F569A5 /* BestResultListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BestResultListViewController.swift; sourceTree = "<group>"; };
 		E11E8B2A1C612F0D00E53BDB /* TabDisplayPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabDisplayPopoverViewController.swift; sourceTree = "<group>"; };
+		E1336BC41C74EDD40019ED09 /* pickTabIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pickTabIcon.png; path = Images/pickTabIcon.png; sourceTree = "<group>"; };
 		E156D44B1C70FD9300D58214 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E156D44D1C70FFC200D58214 /* IAPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
 		E1E184BB1C72599F001A70DF /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -430,6 +432,7 @@
 		61A268681C5881D60010ADBD /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E1336BC41C74EDD40019ED09 /* pickTabIcon.png */,
 				E173477D1C65570E0006FACE /* App Icon */,
 				614AFB911C6150E0009ED3F2 /* Tabs */,
 				61A268FC1C5F0BB80010ADBD /* nextButton.png */,
@@ -677,6 +680,7 @@
 				61A268E11C5F00550010ADBD /* top_charts@3x.png in Resources */,
 				61A269461C658ABE0010ADBD /* Icon-60.png in Resources */,
 				61A268F51C5F00CF0010ADBD /* top_charts.png in Resources */,
+				E1336BC51C74EDD40019ED09 /* pickTabIcon.png in Resources */,
 				61A268F21C5F00CF0010ADBD /* timer.png in Resources */,
 				61A2694B1C658ABE0010ADBD /* Icon-76.png in Resources */,
 				614AFBAF1C6150FF009ED3F2 /* Ftab.png in Resources */,

@@ -100,7 +100,8 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
             self.nextChordPairLabel?.text = "--"
         }
         
-        self.currentAttemptTextField?.text = "0"
+        self.currentAttemptTextField?.text = ""
+        self.numberOfAttemptsLabel?.text = "0"
     }
     
     override func shouldAutorotate() -> Bool
@@ -290,12 +291,9 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
     
     func nextChord()
     {
-        //TODO: Update 'next' button to skip, if necessary
-        if self.timerEnded
-        {
-            let skipPath = NSBundle.mainBundle().pathForResource("skipButton", ofType: "png")
-            self.skipButton?.setBackgroundImage(UIImage(contentsOfFile: skipPath!)!, forState: .Normal)
-        }
+        let skipPath = NSBundle.mainBundle().pathForResource("skipButton", ofType: "png")
+        self.skipButton?.setBackgroundImage(UIImage(contentsOfFile: skipPath!)!, forState: .Normal)
+
         if ++self.currentChord == self.chordSequence?.count
         {
             self.currentChord = 0
