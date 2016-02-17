@@ -1,13 +1,25 @@
 PODS:
   - CorePlot (2.0)
   - EZAudio/Core (1.1.5)
+  - SVProgressHUD (2.0-beta8)
 
 DEPENDENCIES:
   - CorePlot (~> 2.0)
   - EZAudio/Core (~> 1.1.5)
+  - SVProgressHUD (from `https://github.com/SVProgressHUD/SVProgressHUD.git`)
+
+EXTERNAL SOURCES:
+  SVProgressHUD:
+    :git: https://github.com/SVProgressHUD/SVProgressHUD.git
+
+CHECKOUT OPTIONS:
+  SVProgressHUD:
+    :commit: 8d25b659df56ef86ce8b03e532c2278cfc3cb294
+    :git: https://github.com/SVProgressHUD/SVProgressHUD.git
 
 SPEC CHECKSUMS:
   CorePlot: b7f422ad363f2b0e48152471d6da45ce232eb8c6
   EZAudio: 3b1cb4b6d7ebca68f0c2478576d75940aad4aa99
+  SVProgressHUD: 6e48a1dda09ce3b58adc41d013baed3a8e8980ff
 
 COCOAPODS: 0.39.0

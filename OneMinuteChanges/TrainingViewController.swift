@@ -39,7 +39,6 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
     //Not sure I need this?
     var inputs: [AnyObject]?
     
-    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -55,6 +54,9 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         {
             NSLog("\(error)")
         }
+        
+        //Background in app purchase stuff
+        self.reload()
         
         //Set up audio plot look
         self.audioPlot?.backgroundColor = kLightBlueColor
@@ -93,10 +95,33 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         {
             self.currentChordOneButton?.setTitle("--", forState: .Normal)
             self.currentChordTwoButton?.setTitle("--", forState: .Normal)
+            self.previousMaximum?.textColor = getScoreColor(-1)
+            self.previousMaximum?.text = "--"
             self.nextChordPairLabel?.text = "--"
         }
         
         self.currentAttemptTextField?.text = "0"
+    }
+    
+    override func shouldAutorotate() -> Bool
+    {
+        return NSUserDefaults.standardUserDefaults().boolForKey(kSettingsAllowRotation)
+    }
+    
+    func reload()
+    {
+        globalProducts = []
+
+        Products.store.requestProductsWithCompletionHandler
+            {
+                success, products in
+                
+                if success
+                {
+                    globalProducts = products
+                }
+                
+        }
     }
     
     func setUpTimer()

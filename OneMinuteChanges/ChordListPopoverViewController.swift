@@ -33,6 +33,11 @@ class ChordListPopoverViewController: UITableViewController, UIPopoverPresentati
 
     }
     
+    override func shouldAutorotate() -> Bool
+    {
+        return NSUserDefaults.standardUserDefaults().boolForKey(kSettingsAllowRotation)
+    }
+    
     // MARK: - Table View
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int

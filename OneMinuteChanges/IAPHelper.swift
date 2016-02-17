@@ -151,7 +151,7 @@ extension IAPHelper: SKPaymentTransactionObserver
     
     public func paymentQueue(queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: NSError)
     {
-        
+        NSNotificationCenter.defaultCenter().postNotificationName(IAPHelperTransactionFailedNotification, object: error)
     }
     
     public func paymentQueue(queue: SKPaymentQueue, updatedDownloads downloads: [SKDownload])
@@ -193,6 +193,7 @@ extension IAPHelper: SKPaymentTransactionObserver
         NSLog("failedTransaction...")
         if transaction.error?.code != SKErrorPaymentCancelled
         {
+            NSNotificationCenter.defaultCenter().postNotificationName(IAPHelperTransactionFailedNotification, object: nil)
             NSLog("Transaction error: \(transaction.error!.localizedDescription)")
         }
         SKPaymentQueue.defaultQueue().finishTransaction(transaction)

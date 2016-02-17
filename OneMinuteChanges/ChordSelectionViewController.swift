@@ -38,6 +38,14 @@ class ChordSelectionViewController: UIViewController, UITableViewDataSource, UIT
     override func viewDidLoad()
     {
         self.blankChord = (UIApplication.sharedApplication().delegate as! AppDelegate).dataHelper.getEntity("Chord", withKey: "name", andValue: "--") as? Chord
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "productPurchased:", name: IAPHelperProductPurchasedNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "purchaseFailed:", name: IAPHelperTransactionFailedNotification, object: nil)
+    }
+    
+    override func shouldAutorotate() -> Bool
+    {
+        return NSUserDefaults.standardUserDefaults().boolForKey(kSettingsAllowRotation)
     }
     
     func chordSelectionWasPressed(sender: UIButton)
@@ -102,13 +110,55 @@ class ChordSelectionViewController: UIViewController, UITableViewDataSource, UIT
     // MARK: - UISegmentedControl
     @IBAction func segmentWasChanged(sender: UISegmentedControl)
     {
-        dispatch_async(dispatch_get_main_queue())
+        if NSUserDefaults.standardUserDefaults().boolForKey(kSettingsAdditionalFeaturesUnlocked)
         {
-            self.chordListTable?.reloadData()
+            dispatch_async(dispatch_get_main_queue())
+                {
+                    self.chordListTable?.reloadData()
+            }
+        }
+        else
+        {
+            sender.selectedSegmentIndex = 0
+            let alert = UIAlertController(title: "Feature Locked!", message: "This feature is currently locked, but, for a small fee (to cover development costs), you can have it in seconds!", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "Not Now.", style: .Destructive, handler: nil))
+            alert.addAction(UIAlertAction(title: "Purchase", style: .Default, handler:
+                {
+                    action in
+                    
+                    self.purchaseProduct()
+                }))
+            self.presentViewController(alert, animated: true, completion: nil)
         }
         
     }
     
+    func purchaseProduct()
+    {
+        SVProgressHUD.show()
+        dispatch_async(dispatch_get_main_queue())
+            {
+                let product = globalProducts[0]
+                Products.store.purchaseProduct(product)
+        }
+    }
+    
+    func purchaseFailed(notification: NSNotification)
+    {
+        SVProgressHUD.dismiss()
+        let alert = UIAlertController(title: "Transaction Failed", message: "The in app purchased failed - please try again.", preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+
+
+    func productPurchased(notification: NSNotification)
+    {
+        //let productIdentifier = notification.object as! String
+        SVProgressHUD.dismiss()
+        NSUserDefaults.standardUserDefaults().setBool(true, forKey: kSettingsAdditionalFeaturesUnlocked)
+    }
+
     // MARK: - Table View
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int

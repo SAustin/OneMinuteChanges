@@ -4,3 +4,4 @@
 
 #import <EZAudio/EZAudio.h>
 #import <CorePlot/CorePlot.h>
+#import <SVProgressHUD/SVProgressHUD.h>

@@ -41,6 +41,11 @@ class BestResultListViewController: UIViewController, UITableViewDelegate, UITab
         
     }
     
+    override func shouldAutorotate() -> Bool
+    {
+        return NSUserDefaults.standardUserDefaults().boolForKey(kSettingsAllowRotation)
+    }
+    
     @IBAction func backWasPressed(sender: UIBarButtonItem)
     {
         self.dismissViewControllerAnimated(true, completion: nil)

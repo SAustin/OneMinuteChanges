@@ -22,10 +22,11 @@ let kSettingsReminder = "OneMinuteSettingsReminder"
 let kSettingsReminderSchedule = "OneMinuteSettingsReminderSchedule"
 let kSettingsAutomaticCounting = "OneMinuteSettingsAutomaticCounting"
 
-
+var globalProducts = [SKProduct]()
 
 /// Notification that is generated when a product is purchased.
 let IAPHelperProductPurchasedNotification = "IAPHelperProductPurchasedNotification"
+let IAPHelperTransactionFailedNotification = "IAPHelperTransactionFailedNotification"
 
 /// Product identifiers are unique strings registered on the app store.
 typealias ProductIdentifier = String

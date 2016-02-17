@@ -188,9 +188,6 @@ class DataHelper
     func initData()
     {
         //Set App Defaults
-        var settingsOptions = [ [("iCloud Sync", CellType.TrueFalse), ("Unlock Extra Features", CellType.Action), ("Restore Purhases", CellType.Action)],
-            [("Allow Rotation", CellType.TrueFalse), ("Timer Length", CellType.NumericChoice), ("Practice Reminders", CellType.TrueFalse), ("Automatic Counting", CellType.TrueFalse)],
-            [("Send Feedback", CellType.Action), ("Rate the App", CellType.Action), ("About", CellType.Action)]]
         let defaults = NSUserDefaults.standardUserDefaults()
         
         defaults.setBool(false, forKey: kSettingsiCloudSync)

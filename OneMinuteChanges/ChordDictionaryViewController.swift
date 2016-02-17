@@ -18,6 +18,11 @@ class ChordDictionaryViewController: UIViewController, UITableViewDelegate, UITa
         self.allChordList = (UIApplication.sharedApplication().delegate as! AppDelegate).dataHelper.getAllChords("name")
     }
     
+    override func shouldAutorotate() -> Bool
+    {
+        return NSUserDefaults.standardUserDefaults().boolForKey(kSettingsAllowRotation)
+    }
+    
     // MARK: - Table View
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int

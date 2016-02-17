@@ -23,4 +23,10 @@ class TabDisplayPopoverViewController: UIViewController
             self.tabImage?.image = UIImage(contentsOfFile: path)
         }
     }
+
+    override func shouldAutorotate() -> Bool
+    {
+        return NSUserDefaults.standardUserDefaults().boolForKey(kSettingsAllowRotation)
+    }
+
 }

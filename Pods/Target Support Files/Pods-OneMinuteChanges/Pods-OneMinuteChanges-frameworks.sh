@@ -86,8 +86,10 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-OneMinuteChanges/CorePlot.framework"
   install_framework "Pods-OneMinuteChanges/EZAudio.framework"
+  install_framework "Pods-OneMinuteChanges/SVProgressHUD.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-OneMinuteChanges/CorePlot.framework"
   install_framework "Pods-OneMinuteChanges/EZAudio.framework"
+  install_framework "Pods-OneMinuteChanges/SVProgressHUD.framework"
 fi

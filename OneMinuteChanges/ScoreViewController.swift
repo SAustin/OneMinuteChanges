@@ -25,6 +25,11 @@ class ScoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
+    override func shouldAutorotate() -> Bool
+    {
+        return NSUserDefaults.standardUserDefaults().boolForKey(kSettingsAllowRotation)
+    }
+    
     // MARK: - Table View
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat

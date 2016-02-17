@@ -47,19 +47,33 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     }()
     
     @IBOutlet var tableView: UITableView?
+    @IBOutlet var tapGestureRecognizer: UITapGestureRecognizer?
     var activeTextField: UITextField?
-    var products = [SKProduct]()
+    var currentIndexPath: NSIndexPath?
     
     var settingsViewControllerDelegate: SettingsViewControllerDelegate?
     
-    var settingsOptions = [ [("iCloud Sync", CellType.TrueFalse, kSettingsiCloudSync), ("Unlock Extra Features", CellType.Action, kSettingsAdditionalFeaturesUnlocked), ("Restore Purchases", CellType.Action, "")],
-                            [("Allow Rotation", CellType.TrueFalse, kSettingsAllowRotation), ("Timer Length", CellType.NumericChoice, kSettingsTimerLength), ("Practice Reminders", CellType.TrueFalse, kSettingsReminder), ("Automatic Counting", CellType.TrueFalse, kSettingsAutomaticCounting)],
-                            [("Send Feedback", CellType.Action, ""), ("Rate the App", CellType.Action, ""), ("About", CellType.Action, "")]]
+    var settingsOptions = [ [/*("iCloud Sync", CellType.TrueFalse, kSettingsiCloudSync), */ ("Unlock Extra Features", CellType.Action, kSettingsAdditionalFeaturesUnlocked), ("Restore Purchases", CellType.Action, "")],
+                            [("Allow Rotation", CellType.TrueFalse, kSettingsAllowRotation), ("Timer Length", CellType.NumericChoice, kSettingsTimerLength), ("Practice Reminders", CellType.TrueFalse, kSettingsReminder), /*("Automatic Counting", CellType.TrueFalse, kSettingsAutomaticCounting) */],
+                            [("Send Feedback", CellType.Action, ""), ("Please Rate 1MinuteChanges", CellType.Action, ""), ("About", CellType.Action, "")]]
     
     override func viewDidLoad()
     {
-        reload()
+        if !NSUserDefaults.standardUserDefaults().boolForKey(kSettingsAdditionalFeaturesUnlocked) &&
+           (globalProducts.count == 0)
+        {
+            reload()
+        }
+        
+        self.tapGestureRecognizer?.enabled = false
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "productPurchased:", name: IAPHelperProductPurchasedNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "purchaseFailed:", name: IAPHelperTransactionFailedNotification, object: nil)
+    }
+    
+    override func shouldAutorotate() -> Bool
+    {
+        return NSUserDefaults.standardUserDefaults().boolForKey(kSettingsAllowRotation)
     }
     
     @IBAction func viewTapped(sender: AnyObject)
@@ -81,7 +95,9 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
 
     func reload()
     {
-        products = []
+        SVProgressHUD.show()
+        
+        globalProducts = []
         self.tableView!.reloadData()
         Products.store.requestProductsWithCompletionHandler
         {
@@ -89,7 +105,8 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             
             if success
             {
-                self.products = products
+                SVProgressHUD.dismiss()
+                globalProducts = products
                 self.tableView!.reloadData()
             }
             
@@ -102,17 +119,30 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         Products.store.restoreCompletedTransactions()
     }
     
-    @IBAction func purchaseProduct()
+    func purchaseProduct()
     {
-        let product = self.products[0]
-        Products.store.purchaseProduct(product)
+        SVProgressHUD.show()
+        dispatch_async(dispatch_get_main_queue())
+        {
+            let product = globalProducts[0]
+            Products.store.purchaseProduct(product)
+        }
     }
     
     func productPurchased(notification: NSNotification)
     {
         //let productIdentifier = notification.object as! String
+        SVProgressHUD.dismiss()
         NSUserDefaults.standardUserDefaults().setBool(true, forKey: kSettingsAdditionalFeaturesUnlocked)
         self.tableView?.reloadData()
+    }
+    
+    func purchaseFailed(notification: NSNotification)
+    {
+        SVProgressHUD.dismiss()
+        let alert = UIAlertController(title: "Transaction Failed", message: "The in app purchased failed - please try again.", preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     // MARK: - Table View
@@ -124,6 +154,10 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
+        if section == 0 && NSUserDefaults.standardUserDefaults().boolForKey(kSettingsAdditionalFeaturesUnlocked)
+        {
+            return self.settingsOptions[section].count - 1
+        }
         return self.settingsOptions[section].count
     }
     
@@ -149,9 +183,9 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
                 if !NSUserDefaults.standardUserDefaults().boolForKey(kSettingsAdditionalFeaturesUnlocked) && SKPaymentQueue.canMakePayments()
                 {
                     //TODO: Localize.
-                    if self.products.count > 0
+                    if globalProducts.count > 0
                     {
-                        (cell as! SettingsActionCell).additionalInfoText?.text = priceFormatter.stringFromNumber(self.products[0].price)
+                        (cell as! SettingsActionCell).additionalInfoText?.text = priceFormatter.stringFromNumber(globalProducts[0].price)
                     }
                     else
                     {
@@ -210,9 +244,12 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
                 notification.category = "OneMinuteChanges"
                 
                 UIApplication.sharedApplication().scheduleLocalNotification(notification)
+                
+                NSUserDefaults.standardUserDefaults().setBool(true, forKey: kSettingsReminder)
             }
             else
             {
+                NSUserDefaults.standardUserDefaults().setBool(false, forKey: kSettingsReminder)
                 UIApplication.sharedApplication().cancelAllLocalNotifications()
             }
 
@@ -222,12 +259,29 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         
     }
     
+    func openStoreProductWithiTunesItemIdentifier(identifier: String)
+    {
+        let storeViewController = SKStoreProductViewController()
+        storeViewController.delegate = self
+    
+        let parameters = [ SKStoreProductParameterITunesItemIdentifier : identifier]
+        storeViewController.loadProductWithParameters(parameters)
+            {
+                [weak self] (loaded, error) -> Void in
+                if loaded
+                {
+                    // Parent class of self is UIViewContorller
+                    self?.presentViewController(storeViewController, animated: true, completion: nil)
+                }
+            }
+        }
+    
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
         switch section
         {
         case 0:
-            return ""
+            return "General"
         case 1:
             return "Behavior"
         case 2:
@@ -245,6 +299,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
+        self.currentIndexPath = indexPath
         let (cellText, _, defaultsValue) = self.settingsOptions[indexPath.section][indexPath.row]
         
         if defaultsValue == kSettingsAdditionalFeaturesUnlocked
@@ -290,7 +345,10 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
                 self.presentViewController(composeViewer, animated: true, completion: nil)
             }
             
-            
+        }
+        else if cellText == "Please Rate 1MinuteChanges"
+        {
+            openStoreProductWithiTunesItemIdentifier("1082484217")
         }
         else
         {
@@ -304,6 +362,7 @@ extension SettingsViewController: MFMailComposeViewControllerDelegate
 {
     func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?)
     {
+        self.tableView?.deselectRowAtIndexPath(self.currentIndexPath!, animated: true)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 }
@@ -313,10 +372,20 @@ extension SettingsViewController: UITextFieldDelegate
     func textFieldDidBeginEditing(textField: UITextField)
     {
         self.activeTextField = textField
+        self.tapGestureRecognizer?.enabled = true
     }
     
     func textFieldDidEndEditing(textField: UITextField)
     {
+        self.tapGestureRecognizer?.enabled = false
         NSUserDefaults.standardUserDefaults().setInteger((Int(textField.text!)!), forKey: kSettingsTimerLength)
+    }
+}
+
+extension SettingsViewController: SKStoreProductViewControllerDelegate
+{
+    func productViewControllerDidFinish(viewController: SKStoreProductViewController)
+    {
+        viewController.dismissViewControllerAnimated(true, completion: nil)
     }
 }
