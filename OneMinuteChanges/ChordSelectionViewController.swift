@@ -224,11 +224,13 @@ class ChordSelectionViewController: UIViewController, UITableViewDataSource, UIT
             cell = tableView.dequeueReusableCellWithIdentifier("SpecificPairCell", forIndexPath: atIndexPath)
             (cell as! SpecificPairCell).firstChord?.layer.cornerRadius = 5
             (cell as! SpecificPairCell).firstChord?.layer.borderWidth = 1
+            (cell as! SpecificPairCell).firstChord?.layer.borderColor = kLightGreyColor.CGColor
             (cell as! SpecificPairCell).firstChord?.tag = atIndexPath.row * 100
             (cell as! SpecificPairCell).firstChord?.addTarget(self, action: "chordSelectionWasPressed:", forControlEvents: .TouchUpInside)
             
             (cell as! SpecificPairCell).secondChord?.layer.cornerRadius = 5
             (cell as! SpecificPairCell).secondChord?.layer.borderWidth = 1
+            (cell as! SpecificPairCell).secondChord?.layer.borderColor = kLightGreyColor.CGColor
             (cell as! SpecificPairCell).secondChord?.tag = atIndexPath.row * 100 + 1
             (cell as! SpecificPairCell).secondChord?.addTarget(self, action: "chordSelectionWasPressed:", forControlEvents: .TouchUpInside)
             

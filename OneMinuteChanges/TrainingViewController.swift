@@ -76,8 +76,6 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.resetButton?.hidden = true
-        
         if let savedSequence = NSUserDefaults.standardUserDefaults().objectForKey(kCurrentChordSequence)
         {
             self.chordSequence = self.convertArrayToSequence(savedSequence as! [String])
@@ -195,7 +193,6 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
                     self.microphone?.startFetchingAudio()
                     self.timer?.start()
                     self.timerButton?.setBackgroundImage(UIImage(contentsOfFile: NSBundle.mainBundle().pathForResource("pauseButton", ofType: "png")!), forState: .Normal)
-                    self.resetButton?.hidden = false
             })
             
         }
@@ -282,7 +279,6 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
             self.startWasPressed(self.timerButton!)
         }
         
-        self.resetButton?.hidden = true
         self.timer!.reset()
         self.timer!.setCountDownTime(NSTimeInterval(NSUserDefaults.standardUserDefaults().integerForKey(kSettingsTimerLength)*60))
         self.nextChord()
@@ -524,7 +520,6 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         
         delay(0.2)
             {
-                self.resetButton?.hidden = true
                 self.timerButton?.setBackgroundImage(UIImage(contentsOfFile: NSBundle.mainBundle().pathForResource("startButton", ofType: "png")!), forState: .Normal)
                 self.skipButton?.setBackgroundImage(UIImage(contentsOfFile: nextPath!)!, forState: .Normal)
         }

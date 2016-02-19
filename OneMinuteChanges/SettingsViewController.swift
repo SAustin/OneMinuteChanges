@@ -248,7 +248,6 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
                 notification.alertBody = "Don't forget to practice chord changes today!"
                 
                 notification.soundName = UILocalNotificationDefaultSoundName
-                let date = NSDate()
                 notification.fireDate = NSDate().dateByAddingTimeInterval(60)
                 notification.repeatInterval = NSCalendarUnit.Day
                 notification.category = "OneMinuteChanges"
@@ -274,7 +273,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         let storeViewController = SKStoreProductViewController()
         storeViewController.delegate = self
     
-        let parameters = [ SKStoreProductParameterITunesItemIdentifier : identifier]
+        let parameters = [ SKStoreProductParameterITunesItemIdentifier : "778908544"]//identifier]
         storeViewController.loadProductWithParameters(parameters)
             {
                 [weak self] (loaded, error) -> Void in
@@ -282,6 +281,10 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
                 {
                     // Parent class of self is UIViewContorller
                     self?.presentViewController(storeViewController, animated: true, completion: nil)
+                }
+                else
+                {
+                    NSLog("\(error)")
                 }
             }
         }
@@ -359,6 +362,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         else if cellText == "Please Rate 1MinuteChanges"
         {
             openStoreProductWithiTunesItemIdentifier("1082484217")
+            tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
         else
         {
