@@ -13,6 +13,7 @@
 		6136F8EE1C63E0A7007568C5 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6136F8ED1C63E0A7007568C5 /* GLKit.framework */; };
 		614357341C8492F1001E35D6 /* Abarretab.png in Resources */ = {isa = PBXBuildFile; fileRef = 614357331C8492F1001E35D6 /* Abarretab.png */; };
 		614357361C84942D001E35D6 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 614357351C84942D001E35D6 /* settings.png */; };
+		6143573A1C84A559001E35D6 /* Icon167.png in Resources */ = {isa = PBXBuildFile; fileRef = 614357391C84A559001E35D6 /* Icon167.png */; };
 		614AFB971C6150ED009ED3F2 /* A7tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 614AFB921C6150ED009ED3F2 /* A7tab.png */; };
 		614AFB981C6150ED009ED3F2 /* Amintab.png in Resources */ = {isa = PBXBuildFile; fileRef = 614AFB931C6150ED009ED3F2 /* Amintab.png */; };
 		614AFB991C6150ED009ED3F2 /* Atab.png in Resources */ = {isa = PBXBuildFile; fileRef = 614AFB941C6150ED009ED3F2 /* Atab.png */; };
@@ -187,6 +188,7 @@
 		6136F8ED1C63E0A7007568C5 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		614357331C8492F1001E35D6 /* Abarretab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Abarretab.png; path = Images/Abarretab.png; sourceTree = "<group>"; };
 		614357351C84942D001E35D6 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings.png; path = Images/settings.png; sourceTree = "<group>"; };
+		614357391C84A559001E35D6 /* Icon167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon167.png; path = "Images/App Icon [Squared]/Icon167.png"; sourceTree = "<group>"; };
 		614AFB921C6150ED009ED3F2 /* A7tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = A7tab.png; path = Images/A7tab.png; sourceTree = "<group>"; };
 		614AFB931C6150ED009ED3F2 /* Amintab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Amintab.png; path = Images/Amintab.png; sourceTree = "<group>"; };
 		614AFB941C6150ED009ED3F2 /* Atab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Atab.png; path = Images/Atab.png; sourceTree = "<group>"; };
@@ -523,6 +525,7 @@
 		E173477D1C65570E0006FACE /* App Icon */ = {
 			isa = PBXGroup;
 			children = (
+				614357391C84A559001E35D6 /* Icon167.png */,
 				61A269341C658ABE0010ADBD /* Icon-60.png */,
 				61A269351C658ABE0010ADBD /* Icon-60@2x.png */,
 				61A269361C658ABE0010ADBD /* Icon-60@3x.png */,
@@ -669,6 +672,7 @@
 				61A2694A1C658ABE0010ADBD /* Icon-72@2x.png in Resources */,
 				61A269511C658ABE0010ADBD /* Icon-Small-50@2x.png in Resources */,
 				61A268A71C589D230010ADBD /* startButton.png in Resources */,
+				6143573A1C84A559001E35D6 /* Icon167.png in Resources */,
 				614357361C84942D001E35D6 /* settings.png in Resources */,
 				61A2694C1C658ABE0010ADBD /* Icon-76@2x.png in Resources */,
 				61A2694E1C658ABE0010ADBD /* Icon-Small-40@2x.png in Resources */,
