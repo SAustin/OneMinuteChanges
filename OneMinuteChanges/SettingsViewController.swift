@@ -55,7 +55,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     var settingsOptions = [ /*[/*("iCloud Sync", CellType.TrueFalse, kSettingsiCloudSync), */ ("Unlock Extra Features", CellType.Action, kSettingsAdditionalFeaturesUnlocked), ("Restore Purchases", CellType.Action, "")], */
                             [("Allow Rotation", CellType.TrueFalse, kSettingsAllowRotation), ("Timer Length", CellType.NumericChoice, kSettingsTimerLength), ("Practice Reminders", CellType.TrueFalse, kSettingsReminder), /*("Automatic Counting", CellType.TrueFalse, kSettingsAutomaticCounting) */],
-                            [("Send Feedback", CellType.Action, ""), ("Please Rate 1MinuteChanges", CellType.Action, ""), ("About", CellType.Action, "")]]
+                            [("Send Feedback", CellType.Action, ""), ("Please Rate 1MinuteChanges", CellType.Action, "")/*, ("About", CellType.Action, "")*/]]
     
     override func viewDidLoad()
     {
@@ -270,6 +270,8 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func openStoreProductWithiTunesItemIdentifier(identifier: String)
     {
+        SVProgressHUD.show()
+        
         let storeViewController = SKStoreProductViewController()
         storeViewController.delegate = self
     
@@ -279,6 +281,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
                 [weak self] (loaded, error) -> Void in
                 if loaded
                 {
+                    SVProgressHUD.dismiss()
                     // Parent class of self is UIViewContorller
                     self?.presentViewController(storeViewController, animated: true, completion: nil)
                 }

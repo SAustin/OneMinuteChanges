@@ -321,40 +321,40 @@ class DataHelper
         chord24.sortNumber = 22
         
 
-        let chord25 = NSEntityDescription.insertNewObjectForEntityForName("Chord", inManagedObjectContext: context) as! Chord
-        chord25.name = "B5"
-        chord25.fileName = "G5tab"
-        chord25.sortNumber = 24
-
-        let chord26 = NSEntityDescription.insertNewObjectForEntityForName("Chord", inManagedObjectContext: context) as! Chord
-        chord26.name = "C5"
-        chord26.fileName = "G5tab"
-        chord26.sortNumber = 25
-
-        let chord27 = NSEntityDescription.insertNewObjectForEntityForName("Chord", inManagedObjectContext: context) as! Chord
-        chord27.name = "D5"
-        chord27.fileName = "G5tab"
-        chord27.sortNumber = 26
-
-        let chord28 = NSEntityDescription.insertNewObjectForEntityForName("Chord", inManagedObjectContext: context) as! Chord
-        chord28.name = "E5"
-        chord28.fileName = "G5tab"
-        chord28.sortNumber = 27
-
-        let chord29 = NSEntityDescription.insertNewObjectForEntityForName("Chord", inManagedObjectContext: context) as! Chord
-        chord29.name = "F5"
-        chord29.fileName = "G5tab"
-        chord29.sortNumber = 28
-
-        let chord31 = NSEntityDescription.insertNewObjectForEntityForName("Chord", inManagedObjectContext: context) as! Chord
-        chord31.name = "G5"
-        chord31.fileName = "G5tab"
-        chord31.sortNumber = 29
-
-        let chord30 = NSEntityDescription.insertNewObjectForEntityForName("Chord", inManagedObjectContext: context) as! Chord
-        chord30.name = "A5"
-        chord30.fileName = "G5tab"
-        chord30.sortNumber = 23
+//        let chord25 = NSEntityDescription.insertNewObjectForEntityForName("Chord", inManagedObjectContext: context) as! Chord
+//        chord25.name = "B5"
+//        chord25.fileName = "G5tab"
+//        chord25.sortNumber = 24
+//
+//        let chord26 = NSEntityDescription.insertNewObjectForEntityForName("Chord", inManagedObjectContext: context) as! Chord
+//        chord26.name = "C5"
+//        chord26.fileName = "G5tab"
+//        chord26.sortNumber = 25
+//
+//        let chord27 = NSEntityDescription.insertNewObjectForEntityForName("Chord", inManagedObjectContext: context) as! Chord
+//        chord27.name = "D5"
+//        chord27.fileName = "G5tab"
+//        chord27.sortNumber = 26
+//
+//        let chord28 = NSEntityDescription.insertNewObjectForEntityForName("Chord", inManagedObjectContext: context) as! Chord
+//        chord28.name = "E5"
+//        chord28.fileName = "G5tab"
+//        chord28.sortNumber = 27
+//
+//        let chord29 = NSEntityDescription.insertNewObjectForEntityForName("Chord", inManagedObjectContext: context) as! Chord
+//        chord29.name = "F5"
+//        chord29.fileName = "G5tab"
+//        chord29.sortNumber = 28
+//
+//        let chord31 = NSEntityDescription.insertNewObjectForEntityForName("Chord", inManagedObjectContext: context) as! Chord
+//        chord31.name = "G5"
+//        chord31.fileName = "G5tab"
+//        chord31.sortNumber = 29
+//
+//        let chord30 = NSEntityDescription.insertNewObjectForEntityForName("Chord", inManagedObjectContext: context) as! Chord
+//        chord30.name = "A5"
+//        chord30.fileName = "G5tab"
+//        chord30.sortNumber = 23
         
         
         
