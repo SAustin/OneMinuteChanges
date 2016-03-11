@@ -35,6 +35,9 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
     @IBOutlet var audioPlot: EZAudioPlotGL?
     var microphone: EZMicrophone?
     var fft: EZAudioFFTRolling?
+    var currentBuffer = [Float]()
+    var previousIndex = 0
+    var previousTime: NSDate?
     
     //Not sure I need this?
     var inputs: [AnyObject]?
@@ -171,6 +174,8 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
             let prepareAlertController = UIAlertController(title: "Countdown", message: "Preparing to start!", preferredStyle: .Alert)
             self.presentViewController(prepareAlertController, animated: true, completion: nil)
             
+            currentAttemptTextField?.text = ""
+            
             countdown(kPrepareTime, eachSecondAction:
                 {
                     timeIndex in
@@ -220,6 +225,8 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
     {
         self.timer?.reset()
         self.timer!.setCountDownTime(NSTimeInterval(NSUserDefaults.standardUserDefaults().integerForKey(kSettingsTimerLength)*60))
+        currentAttemptTextField?.text = ""
+        resetBuffer()
     }
     
     @IBAction func skipWasPressed(sender: UIButton)
@@ -295,6 +302,8 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
             self.currentChord = 0
         }
         
+        resetBuffer()
+        
         self.updateChordLabels()
     }
     
@@ -352,6 +361,47 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         }
     }
     
+    func countChordHits(fromPrevious: Bool) -> Int
+    {
+        var chordHitCount = 0
+        if previousTime == nil
+        {
+            previousTime = NSDate().dateByAddingTimeInterval(0.2)
+        }
+        
+        if currentBuffer.count > 0
+        {
+            var underMin = true
+            
+            let startIndex = fromPrevious ? previousIndex : 0
+            
+            for index in startIndex...currentBuffer.count - 1
+            {
+                if underMin && currentBuffer[index] > kMinimumSoundValue && previousTime?.timeIntervalSinceNow < kMinimumTimeBetweenChords
+                {
+                    chordHitCount++
+                    previousTime = NSDate()
+                    underMin = false
+                }
+                else if !underMin && currentBuffer[index] < kMinimumSoundValue
+                {
+                    underMin = true
+                }
+            }
+            previousIndex = currentBuffer.count
+        }
+
+        
+        return chordHitCount
+    }
+    
+    func resetBuffer()
+    {
+        currentBuffer = [Float]()
+        previousTime = nil
+        previousIndex = 0
+    }
+    
     // MARK: - PopoverControllerDelegate
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle
     {
@@ -398,6 +448,9 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         //Calculate the FFT
         self.fft?.computeFFTWithBuffer(buffer[0], withBufferSize: bufferSize)
         
+        //Update your own buffer
+        currentBuffer.append(EZAudioUtilities.RMS(buffer[0], length: Int32(bufferSize)))
+        
         dispatch_async(dispatch_get_main_queue())
             {
                 self.audioPlot?.updateBuffer(buffer[0], withBufferSize: bufferSize)
@@ -421,6 +474,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
     
     func microphone(microphone: EZMicrophone!, changedDevice device: EZAudioDevice!)
     {
+        
     }
     
     //MARK: - EZAudioFFT Delegate
@@ -517,6 +571,12 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         let nextPath = NSBundle.mainBundle().pathForResource("nextButton", ofType: "png")
         
         self.timerEnded = true
+        resetBuffer()
+        
+        if NSUserDefaults.standardUserDefaults().boolForKey(kSettingsAutomaticCounting)
+        {
+            currentAttemptTextField?.text =  "\((currentAttemptTextField!.text! as NSString).integerValue + countChordHits(true))"
+        }
         
         delay(0.2)
             {
@@ -525,6 +585,14 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         }
         
         self.playBeeps(3)
+    }
+    
+    func timerLabelDidUpdateLabel()
+    {
+        if timer!.counting && NSUserDefaults.standardUserDefaults().boolForKey(kSettingsAutomaticCounting)
+        {
+            currentAttemptTextField?.text = "\((currentAttemptTextField!.text! as NSString).integerValue + countChordHits(true))"
+        }
     }
     
     func convertSequenceToArray() -> [String]?
@@ -564,7 +632,6 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         }
         return returnSequence
     }
-
 }
 
 extension TrainingViewController: SettingsViewControllerDelegate

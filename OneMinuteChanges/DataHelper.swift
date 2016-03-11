@@ -195,7 +195,7 @@ class DataHelper
         defaults.setBool(true, forKey: kSettingsAllowRotation)
         defaults.setInteger(1, forKey: kSettingsTimerLength)
         defaults.setBool(false, forKey: kSettingsReminder)
-        defaults.setBool(false, forKey: kSettingsAutomaticCounting)
+        defaults.setBool(true, forKey: kSettingsAutomaticCounting)
         
         //Generate chord database
         let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext

@@ -29,9 +29,10 @@ enum TimerLabelType: Int
 
 protocol TimerLabelDelegate
 {
-    func timerLabel(timerLabel: TimerLabel, finishedCountDownTimerWithTime countTime: NSTimeInterval);
-    func timerLabel(timerLabel: TimerLabel, countingTo time:NSTimeInterval, timerType: TimerLabelType);
-    func timerLabel(timerLabel: TimerLabel, customTextToDisplayAtTime time:NSTimeInterval) -> String?;
+    func timerLabel(timerLabel: TimerLabel, finishedCountDownTimerWithTime countTime: NSTimeInterval)
+    func timerLabel(timerLabel: TimerLabel, countingTo time:NSTimeInterval, timerType: TimerLabelType)
+    func timerLabel(timerLabel: TimerLabel, customTextToDisplayAtTime time:NSTimeInterval) -> String?
+    func timerLabelDidUpdateLabel()
 }
 
 class TimerLabel: UILabel
@@ -467,6 +468,8 @@ class TimerLabel: UILabel
                     self.timeLabel?.text = self.dateFormatter.stringFromDate(timeToShow)
                 }
             }
+            
+            timerDelegate?.timerLabelDidUpdateLabel()
         }
         
         

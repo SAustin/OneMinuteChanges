@@ -21,6 +21,8 @@ let kSettingsTimerLength = "OneMinuteSettingsTimerLength"
 let kSettingsReminder = "OneMinuteSettingsReminder"
 let kSettingsReminderSchedule = "OneMinuteSettingsReminderSchedule"
 let kSettingsAutomaticCounting = "OneMinuteSettingsAutomaticCounting"
+let kMinimumSoundValue:Float = 0.15
+let kMinimumTimeBetweenChords = -0.2
 
 var globalProducts = [SKProduct]()
 
