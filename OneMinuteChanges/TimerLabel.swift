@@ -276,11 +276,11 @@ class TimerLabel: UILabel
         
         if (self.timeFormat.rangeOfString("SS") != nil)
         {
-            self.timer = NSTimer(timeInterval: kDefaultFireIntervalHighUse, target: self, selector: "updateLabel", userInfo: nil, repeats: true)
+            self.timer = NSTimer(timeInterval: kDefaultFireIntervalHighUse, target: self, selector: #selector(TimerLabel.updateLabel), userInfo: nil, repeats: true)
         }
         else
         {
-            self.timer = NSTimer(timeInterval: kDefaultFireIntervalNormal, target: self, selector: "updateLabel", userInfo: nil, repeats: true)
+            self.timer = NSTimer(timeInterval: kDefaultFireIntervalNormal, target: self, selector: #selector(TimerLabel.updateLabel), userInfo: nil, repeats: true)
         }
 
         NSRunLoop.currentRunLoop().addTimer(self.timer!, forMode: NSRunLoopCommonModes)

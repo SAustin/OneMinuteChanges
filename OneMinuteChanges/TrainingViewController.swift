@@ -297,7 +297,6 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
         let skipPath = NSBundle.mainBundle().pathForResource("skipButton", ofType: "png")
         skipButton?.setBackgroundImage(UIImage(contentsOfFile: skipPath!)!, forState: .Normal)
         
-        
         currentChord = currentChord + 1
         if currentChord == chordSequence?.count
         {
@@ -379,7 +378,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
             
             for index in startIndex...currentBuffer.count - 1
             {
-                if underMin && currentBuffer[index] > kMinimumSoundValue && previousTime?.timeIntervalSinceNow < kMinimumTimeBetweenChords
+                if underMin && currentBuffer[index] > kMinimumSoundValue && previousTime?.timeIntervalSinceNow > kMinimumTimeBetweenChords
                 {
                     chordHitCount += 1
                     previousTime = NSDate()

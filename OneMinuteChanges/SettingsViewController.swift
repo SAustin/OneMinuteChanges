@@ -67,8 +67,8 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         
         self.view.sendSubviewToBack(self.tapButton!)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "productPurchased:", name: IAPHelperProductPurchasedNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "purchaseFailed:", name: IAPHelperTransactionFailedNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SettingsViewController.productPurchased(_:)), name: IAPHelperProductPurchasedNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SettingsViewController.purchaseFailed(_:)), name: IAPHelperTransactionFailedNotification, object: nil)
     }
     
     override func shouldAutorotate() -> Bool
@@ -174,7 +174,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             (cell as! SettingsTrueFalseCell).settingText?.text = cellText
             (cell as! SettingsTrueFalseCell).settingValue?.setOn(NSUserDefaults.standardUserDefaults().boolForKey(defaultsValue), animated: false)
             (cell as! SettingsTrueFalseCell).settingValue?.tag = tagValue
-            (cell as! SettingsTrueFalseCell).settingValue?.addTarget(self, action: "switchWasFlipped:", forControlEvents: .ValueChanged)
+            (cell as! SettingsTrueFalseCell).settingValue?.addTarget(self, action: #selector(SettingsViewController.switchWasFlipped(_:)), forControlEvents: .ValueChanged)
         case .Action:
             (cell as! SettingsActionCell).settingText?.text = cellText
             

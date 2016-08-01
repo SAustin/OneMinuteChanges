@@ -39,8 +39,8 @@ class ChordSelectionViewController: UIViewController, UITableViewDataSource, UIT
     {
         self.blankChord = (UIApplication.sharedApplication().delegate as! AppDelegate).dataHelper.getEntity("Chord", withKey: "name", andValue: "--") as? Chord
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "productPurchased:", name: IAPHelperProductPurchasedNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "purchaseFailed:", name: IAPHelperTransactionFailedNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ChordSelectionViewController.productPurchased(_:)), name: IAPHelperProductPurchasedNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ChordSelectionViewController.purchaseFailed(_:)), name: IAPHelperTransactionFailedNotification, object: nil)
     }
     
     override func shouldAutorotate() -> Bool
@@ -226,13 +226,13 @@ class ChordSelectionViewController: UIViewController, UITableViewDataSource, UIT
             (cell as! SpecificPairCell).firstChord?.layer.borderWidth = 1
             (cell as! SpecificPairCell).firstChord?.layer.borderColor = kLightGreyColor.CGColor
             (cell as! SpecificPairCell).firstChord?.tag = atIndexPath.row * 100
-            (cell as! SpecificPairCell).firstChord?.addTarget(self, action: "chordSelectionWasPressed:", forControlEvents: .TouchUpInside)
+            (cell as! SpecificPairCell).firstChord?.addTarget(self, action: #selector(ChordSelectionViewController.chordSelectionWasPressed(_:)), forControlEvents: .TouchUpInside)
             
             (cell as! SpecificPairCell).secondChord?.layer.cornerRadius = 5
             (cell as! SpecificPairCell).secondChord?.layer.borderWidth = 1
             (cell as! SpecificPairCell).secondChord?.layer.borderColor = kLightGreyColor.CGColor
             (cell as! SpecificPairCell).secondChord?.tag = atIndexPath.row * 100 + 1
-            (cell as! SpecificPairCell).secondChord?.addTarget(self, action: "chordSelectionWasPressed:", forControlEvents: .TouchUpInside)
+            (cell as! SpecificPairCell).secondChord?.addTarget(self, action: #selector(ChordSelectionViewController.chordSelectionWasPressed(_:)), forControlEvents: .TouchUpInside)
             
             if atIndexPath.row == self.selectedSelectionList.count
             {
