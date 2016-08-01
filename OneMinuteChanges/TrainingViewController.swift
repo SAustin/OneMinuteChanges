@@ -295,16 +295,18 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
     func nextChord()
     {
         let skipPath = NSBundle.mainBundle().pathForResource("skipButton", ofType: "png")
-        self.skipButton?.setBackgroundImage(UIImage(contentsOfFile: skipPath!)!, forState: .Normal)
-
-        if ++self.currentChord == self.chordSequence?.count
+        skipButton?.setBackgroundImage(UIImage(contentsOfFile: skipPath!)!, forState: .Normal)
+        
+        
+        currentChord = currentChord + 1
+        if currentChord == chordSequence?.count
         {
-            self.currentChord = 0
+            currentChord = 0
         }
         
         resetBuffer()
         
-        self.updateChordLabels()
+        updateChordLabels()
     }
     
     func updateChordLabels()
@@ -379,7 +381,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
             {
                 if underMin && currentBuffer[index] > kMinimumSoundValue && previousTime?.timeIntervalSinceNow < kMinimumTimeBetweenChords
                 {
-                    chordHitCount++
+                    chordHitCount += 1
                     previousTime = NSDate()
                     underMin = false
                 }
@@ -501,7 +503,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
             while j < chordList.count
             {
                 fullList.append((chordList[i], chordList[j]))
-                j++
+                j += 1
             }
         }
         

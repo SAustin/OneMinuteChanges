@@ -48,7 +48,7 @@ class DataHelper
                 for result in resultList
                 {
                     total += result.score!.integerValue
-                    count++
+                    count += 1
                 }
                 let average = Int(total/count) + 1
                 

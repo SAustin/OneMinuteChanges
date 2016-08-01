@@ -190,13 +190,13 @@ extension IAPHelper: SKPaymentTransactionObserver
     
     private func failedTransaction(transaction: SKPaymentTransaction)
     {
-        NSLog("failedTransaction...")
-        if transaction.error?.code != SKErrorPaymentCancelled
-        {
-            NSNotificationCenter.defaultCenter().postNotificationName(IAPHelperTransactionFailedNotification, object: nil)
-            NSLog("Transaction error: \(transaction.error!.localizedDescription)")
-        }
-        SKPaymentQueue.defaultQueue().finishTransaction(transaction)
+//        NSLog("failedTransaction...")
+//        if transaction.error?.code != SKErrorCode.PaymentCancelled
+//        {
+//            NSNotificationCenter.defaultCenter().postNotificationName(IAPHelperTransactionFailedNotification, object: nil)
+//            NSLog("Transaction error: \(transaction.error!.localizedDescription)")
+//        }
+//        SKPaymentQueue.defaultQueue().finishTransaction(transaction)
     }
 }
 
