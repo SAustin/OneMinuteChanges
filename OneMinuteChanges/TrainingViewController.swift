@@ -378,7 +378,7 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
             
             for index in startIndex...currentBuffer.count - 1
             {
-                if underMin && currentBuffer[index] > kMinimumSoundValue && previousTime?.timeIntervalSinceNow > kMinimumTimeBetweenChords
+                if underMin && currentBuffer[index] > kMinimumSoundValue && fabs(previousTime!.timeIntervalSinceNow) > kMinimumTimeBetweenChords
                 {
                     chordHitCount += 1
                     previousTime = NSDate()
