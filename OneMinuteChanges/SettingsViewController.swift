@@ -54,6 +54,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     var settingsViewControllerDelegate: SettingsViewControllerDelegate?
     
     var settingsOptions = [ /*[/*("iCloud Sync", CellType.TrueFalse, kSettingsiCloudSync), */ ("Unlock Extra Features", CellType.Action, kSettingsAdditionalFeaturesUnlocked), ("Restore Purchases", CellType.Action, "")], */
+                            [("One Time Donation", CellType.Action, kSettingsSupportJustin)],
                             [("Allow Rotation", CellType.TrueFalse, kSettingsAllowRotation), ("Timer Length", CellType.NumericChoice, kSettingsTimerLength), ("Practice Reminders", CellType.TrueFalse, kSettingsReminder), ("Automatic Counting", CellType.TrueFalse, kSettingsAutomaticCounting)],
                             [("Send Feedback", CellType.Action, ""), ("Please Rate 1MinuteChanges", CellType.Action, "")/*, ("About", CellType.Action, "")*/]]
     
@@ -121,12 +122,19 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func purchaseProduct()
     {
+        let product = globalProducts[0]
+        purchaseProduct(product)
+    }
+    
+    func purchaseProduct(product: SKProduct)
+    {
         SVProgressHUD.show()
+        
         dispatch_async(dispatch_get_main_queue())
         {
-            let product = globalProducts[0]
             Products.store.purchaseProduct(product)
         }
+        
     }
     
     func productPurchased(notification: NSNotification)
@@ -204,6 +212,19 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
                     (cell as! SettingsActionCell).additionalInfoText?.text = "Unlocked"
                     (cell as! SettingsActionCell).accessoryType = .None
                 }
+            }
+            else if defaultsValue == kSettingsSupportJustin
+            {
+                if SKPaymentQueue.canMakePayments()
+                {
+                    (cell as! SettingsActionCell).additionalInfoText?.text = ""
+                    cell?.accessoryType = .DisclosureIndicator
+                }
+                else
+                {
+                    (cell as! SettingsActionCell).additionalInfoText?.text = "Unavailable"
+                }
+                
             }
             else
             {
@@ -299,7 +320,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
 //        case 0:
 //            return "General"
         case 0:
-            return "Behavior"
+            return "Support Justin"
         case 1:
             return "Feedback"
         default:
@@ -336,6 +357,31 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
                 self.tableView?.deselectRowAtIndexPath(indexPath, animated: true)
             }
 
+        }
+        else if defaultsValue == kSettingsSupportJustin
+        {
+            //get list of donation amounts
+            var donations = [SKProduct]()
+            for product in globalProducts
+            {
+                if product.productIdentifier.containsString("SupportJustin")
+                {
+                    donations.append(product)
+                }
+            }
+            
+            //if you can make a purchase
+            let alert = UIAlertController(title: "Donate to Justin", message: "Thanks for your donation! Choose an amount below to donate.", preferredStyle: .Alert)
+            
+            for product in donations
+            {
+                alert.addAction(UIAlertAction(title: "\(product.price.floatValue)", style: .Default, handler: {
+                    action in
+                    self.purchaseProduct(product)
+                }))
+            }
+            alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+            presentViewController(alert, animated: true, completion: nil)
         }
         else if cellText == "Restore Purchases"
         {

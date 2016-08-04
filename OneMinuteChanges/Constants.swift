@@ -16,6 +16,7 @@ let kFFTViewControllerFFTWindowSize: vDSP_Length = 4096
 
 let kSettingsiCloudSync = "OneMinuteSettingsiCloudSync"
 let kSettingsAdditionalFeaturesUnlocked = "OneMinuteSettingsAdditionalFeaturesUnlocked"
+let kSettingsSupportJustin = "OneMinuteSettingsSupportJustin"
 let kSettingsAllowRotation = "OneMinuteSettingsAllowRotation"
 let kSettingsTimerLength = "OneMinuteSettingsTimerLength"
 let kSettingsReminder = "OneMinuteSettingsReminder"

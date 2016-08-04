@@ -9,22 +9,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "OneMinuteChanges/SettingsViewController.swift"
-            timestampString = "477288206.108006"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
-            landmarkName = "purchaseProduct()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "OneMinuteChanges/TrainingViewController.swift"
             timestampString = "477601867.551834"
             startingColumnNumber = "9223372036854775807"
@@ -42,13 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OneMinuteChanges/SettingsViewController.swift"
-            timestampString = "477601393.458892"
+            timestampString = "491958190.571169"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "388"
-            endingLineNumber = "388"
-            landmarkName = "SettingsViewController"
-            landmarkType = "3">
+            startingLineNumber = "434"
+            endingLineNumber = "434">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -58,13 +40,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OneMinuteChanges/SettingsViewController.swift"
-            timestampString = "477333047.546089"
+            timestampString = "491958190.571169"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "228"
-            endingLineNumber = "228"
-            landmarkName = "switchWasFlipped(_:)"
-            landmarkType = "5">
+            startingLineNumber = "249"
+            endingLineNumber = "249">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -74,13 +54,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OneMinuteChanges/SettingsViewController.swift"
-            timestampString = "477601393.458892"
+            timestampString = "491958190.571169"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "277"
-            endingLineNumber = "277"
-            landmarkName = "openStoreProductWithiTunesItemIdentifier(_:)"
-            landmarkType = "5">
+            startingLineNumber = "298"
+            endingLineNumber = "298">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -90,13 +68,57 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OneMinuteChanges/SettingsViewController.swift"
-            timestampString = "477601393.458892"
+            timestampString = "491958190.571169"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "280"
-            endingLineNumber = "280"
-            landmarkName = "openStoreProductWithiTunesItemIdentifier(_:)"
-            landmarkType = "5">
+            startingLineNumber = "301"
+            endingLineNumber = "301">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OneMinuteChanges.SettingsViewController.openStoreProductWithiTunesItemIdentifier (Swift.String) -&gt; ()"
+                  moduleName = "OneMinuteChanges"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brittanyaustin/Projects/OneMinuteChanges/OneMinuteChanges/SettingsViewController.swift"
+                  timestampString = "491958197.456816"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "301"
+                  endingLineNumber = "301"
+                  offsetFromSymbolStart = "722">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OneMinuteChanges.SettingsViewController.(openStoreProductWithiTunesItemIdentifier (Swift.String) -&gt; ()).(closure #1)"
+                  moduleName = "OneMinuteChanges"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brittanyaustin/Projects/OneMinuteChanges/OneMinuteChanges/SettingsViewController.swift"
+                  timestampString = "491958197.456901"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "302"
+                  endingLineNumber = "302"
+                  offsetFromSymbolStart = "29">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OneMinuteChanges/SettingsViewController.swift"
+            timestampString = "491958249.220686"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "339"
+            endingLineNumber = "339">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
