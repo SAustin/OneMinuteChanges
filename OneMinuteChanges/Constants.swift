@@ -17,6 +17,7 @@ let kFFTViewControllerFFTWindowSize: vDSP_Length = 4096
 let kSettingsiCloudSync = "OneMinuteSettingsiCloudSync"
 let kSettingsAdditionalFeaturesUnlocked = "OneMinuteSettingsAdditionalFeaturesUnlocked"
 let kSettingsSupportJustin = "OneMinuteSettingsSupportJustin"
+let kSettingsSupportJustinMonthly = "OneMinuteSettingsSupportJustinMonthly"
 let kSettingsAllowRotation = "OneMinuteSettingsAllowRotation"
 let kSettingsTimerLength = "OneMinuteSettingsTimerLength"
 let kSettingsReminder = "OneMinuteSettingsReminder"
@@ -210,8 +211,13 @@ public enum Products
     
     //MARK: - Supported Product Identifiers
     public static let Unlock = "OneMinuteChordsEnhancedFeatures"
+    public static let Tier1 = "SupportJustinGuitarDotComT1"
+    public static let Tier2 = "SupportJustinGuitarDotComT2"
     
-    private static let productIdentifiers: Set<ProductIdentifier> = [Products.Unlock]
+    public static let Tier1Monthly = "RecurringMonthlyJustinT1"
+    public static let Tier5Monthly = "IDRecurringMonthlyJustinT5"
+    
+    private static let productIdentifiers: Set<ProductIdentifier> = [Products.Tier1, Products.Tier2, Products.Tier1Monthly, Products.Tier5Monthly]
     
     public static let store = IAPHelper(productIdentifiers: Products.productIdentifiers)
 }

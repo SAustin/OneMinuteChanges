@@ -54,14 +54,15 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     var settingsViewControllerDelegate: SettingsViewControllerDelegate?
     
     var settingsOptions = [ /*[/*("iCloud Sync", CellType.TrueFalse, kSettingsiCloudSync), */ ("Unlock Extra Features", CellType.Action, kSettingsAdditionalFeaturesUnlocked), ("Restore Purchases", CellType.Action, "")], */
-                            [("One Time Donation", CellType.Action, kSettingsSupportJustin)],
+                            [("One Time Donation", CellType.Action, kSettingsSupportJustin),
+                             ("Monthly Donations", CellType.Action, kSettingsSupportJustinMonthly)],
                             [("Allow Rotation", CellType.TrueFalse, kSettingsAllowRotation), ("Timer Length", CellType.NumericChoice, kSettingsTimerLength), ("Practice Reminders", CellType.TrueFalse, kSettingsReminder), ("Automatic Counting", CellType.TrueFalse, kSettingsAutomaticCounting)],
                             [("Send Feedback", CellType.Action, ""), ("Please Rate 1MinuteChanges", CellType.Action, "")/*, ("About", CellType.Action, "")*/]]
     
     override func viewDidLoad()
     {
-        if !NSUserDefaults.standardUserDefaults().boolForKey(kSettingsAdditionalFeaturesUnlocked) &&
-           (globalProducts.count == 0)
+        //if !NSUserDefaults.standardUserDefaults().boolForKey(kSettingsAdditionalFeaturesUnlocked) &&
+        if (globalProducts.count == 0)
         {
             reload()
         }
@@ -141,7 +142,6 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     {
         //let productIdentifier = notification.object as! String
         SVProgressHUD.dismiss()
-        NSUserDefaults.standardUserDefaults().setBool(true, forKey: kSettingsAdditionalFeaturesUnlocked)
         self.tableView?.reloadData()
     }
     
@@ -224,7 +224,36 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
                 {
                     (cell as! SettingsActionCell).additionalInfoText?.text = "Unavailable"
                 }
-                
+            }
+            else if defaultsValue == kSettingsSupportJustinMonthly
+            {
+                var purchased = false
+                if SKPaymentQueue.canMakePayments()
+                {
+                    for product in globalProducts
+                    {
+                        if product.productIdentifier.containsString("RecurringMonthlyJustin") &&
+                            Products.store.isProductPurchased(product.productIdentifier)
+                        {
+                            purchased = true
+                        }
+                    }
+                    
+                    if purchased
+                    {
+                        //Manage subscriptions at https://buy.itunes.apple.com/WebObjects/MZFinance.woa/wa/manageSubscriptions
+                        (cell as! SettingsActionCell).additionalInfoText?.text = "Purchased"
+                    }
+                    else
+                    {
+                        (cell as! SettingsActionCell).additionalInfoText?.text = ""
+                        cell?.accessoryType = .DisclosureIndicator
+                    }
+                }
+                else
+                {
+                    (cell as! SettingsActionCell).additionalInfoText?.text = "Unavailable"
+                }
             }
             else
             {
@@ -317,11 +346,11 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     {
         switch section
         {
-//        case 0:
-//            return "General"
         case 0:
             return "Support Justin"
         case 1:
+            return "Behavior"
+        case 2:
             return "Feedback"
         default:
             return ""
@@ -362,26 +391,73 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         {
             //get list of donation amounts
             var donations = [SKProduct]()
+            var purchased = false
             for product in globalProducts
             {
                 if product.productIdentifier.containsString("SupportJustin")
+                {
+                    if Products.store.isProductPurchased(product.productIdentifier)
+                    {
+                        purchased = true
+                    }
+                    donations.append(product)
+                }
+                donations.sortInPlace({$0.price.floatValue < $1.price.floatValue})
+            }
+            
+            //if you can make a purchase
+            if !purchased
+            {
+                let alert = UIAlertController(title: "Donate to Justin", message: "Thanks for your donation! Choose an amount below to donate.", preferredStyle: .Alert)
+                
+                for product in donations
+                {
+                    alert.addAction(UIAlertAction(title: "\(product.priceLocale.objectForKey(NSLocaleCurrencySymbol)!)\(product.price.floatValue)", style: .Default, handler: {
+                        action in
+                        self.purchaseProduct(product)
+                    }))
+                }
+                alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+                presentViewController(alert, animated: true, completion: nil)
+            }
+            else
+            {
+                let alert = UIAlertController(title: "Donate to Justin", message: "You've already purchased a recurring donation. Tap below to manage your subscription.", preferredStyle: .Alert)
+                alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+                alert.addAction(UIAlertAction(title: "Manage", style: .Default, handler: {
+                    action in
+                    UIApplication.sharedApplication().openURL(NSURL(string: "https://buy.itunes.apple.com/WebObjects/MZFinance.woa/wa/manageSubscriptions")!)
+                }))
+            }
+
+            self.tableView?.deselectRowAtIndexPath(indexPath, animated: true)
+        }
+        else if defaultsValue == kSettingsSupportJustinMonthly
+        {
+            //get list of donation amounts
+            var donations = [SKProduct]()
+            for product in globalProducts
+            {
+                if product.productIdentifier.containsString("RecurringMonthlyJustin")
                 {
                     donations.append(product)
                 }
             }
             
+            donations.sortInPlace({$0.price.floatValue < $1.price.floatValue})
             //if you can make a purchase
-            let alert = UIAlertController(title: "Donate to Justin", message: "Thanks for your donation! Choose an amount below to donate.", preferredStyle: .Alert)
+            let alert = UIAlertController(title: "Donate to Justin", message: "Thanks for your donation! Choose an amount below to donate each month. This donation will continue until cancelled.", preferredStyle: .Alert)
             
             for product in donations
             {
-                alert.addAction(UIAlertAction(title: "\(product.price.floatValue)", style: .Default, handler: {
+                alert.addAction(UIAlertAction(title: "\(product.priceLocale.objectForKey(NSLocaleCurrencySymbol)!)\(product.price.floatValue)", style: .Default, handler: {
                     action in
                     self.purchaseProduct(product)
                 }))
             }
             alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
             presentViewController(alert, animated: true, completion: nil)
+            self.tableView?.deselectRowAtIndexPath(indexPath, animated: true)
         }
         else if cellText == "Restore Purchases"
         {

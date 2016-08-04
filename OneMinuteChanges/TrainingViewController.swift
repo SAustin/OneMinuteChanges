@@ -257,19 +257,21 @@ class TrainingViewController: UIViewController, TimerLabelDelegate, ChordSelecti
     
     @IBAction func chordNameWasPresed(sender: UIButton)
     {
-        let popover = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TabDisplayPopoverViewController") as! TabDisplayPopoverViewController
-        popover.modalPresentationStyle = .Popover
-        popover.popoverPresentationController?.delegate = self
-        popover.popoverPresentationController?.sourceView = sender.titleLabel
-        popover.popoverPresentationController?.sourceRect = sender.titleLabel!.frame
-        popover.popoverPresentationController?.permittedArrowDirections = .Up
-        let width = self.view.frame.size.width * 0.8
-        popover.preferredContentSize = CGSizeMake(width, width*1.5)
-        
-        popover.chordToDisplay = (UIApplication.sharedApplication().delegate as! AppDelegate).dataHelper.getChord(sender.titleLabel!.text!)
-        
-        self.presentViewController(popover, animated: true, completion: nil)
-        
+        if sender.titleLabel?.text != "--"
+        {
+            let popover = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TabDisplayPopoverViewController") as! TabDisplayPopoverViewController
+            popover.modalPresentationStyle = .Popover
+            popover.popoverPresentationController?.delegate = self
+            popover.popoverPresentationController?.sourceView = sender.titleLabel
+            popover.popoverPresentationController?.sourceRect = sender.titleLabel!.frame
+            popover.popoverPresentationController?.permittedArrowDirections = .Up
+            let width = self.view.frame.size.width * 0.8
+            popover.preferredContentSize = CGSizeMake(width, width*1.5)
+            
+            popover.chordToDisplay = (UIApplication.sharedApplication().delegate as! AppDelegate).dataHelper.getChord(sender.titleLabel!.text!)
+            
+            self.presentViewController(popover, animated: true, completion: nil)            
+        }
     }
     
     func skipNextLogic()
