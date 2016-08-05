@@ -35,6 +35,7 @@ public class IAPHelper : NSObject
         for productIdentifier in productIdentifiers
         {
             let purchased = NSUserDefaults.standardUserDefaults().boolForKey(productIdentifier)
+            NSUserDefaults.standardUserDefaults().setBool(purchased, forKey: productIdentifier)
             
             if purchased
             {
@@ -43,6 +44,7 @@ public class IAPHelper : NSObject
             }
             else
             {
+                
                 NSLog("Not purchased: \(productIdentifier)")
             }
         }

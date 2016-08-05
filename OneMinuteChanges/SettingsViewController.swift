@@ -391,22 +391,17 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         {
             //get list of donation amounts
             var donations = [SKProduct]()
-            var purchased = false
             for product in globalProducts
             {
                 if product.productIdentifier.containsString("SupportJustin")
                 {
-                    if Products.store.isProductPurchased(product.productIdentifier)
-                    {
-                        purchased = true
-                    }
                     donations.append(product)
                 }
                 donations.sortInPlace({$0.price.floatValue < $1.price.floatValue})
             }
             
             //if you can make a purchase
-            if !purchased
+            if SKPaymentQueue.canMakePayments()
             {
                 let alert = UIAlertController(title: "Donate to Justin", message: "Thanks for your donation! Choose an amount below to donate.", preferredStyle: .Alert)
                 
@@ -419,6 +414,57 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
                 }
                 alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
                 presentViewController(alert, animated: true, completion: nil)
+
+            }
+            else
+            {
+                let alert = UIAlertController(title: "Donate to Justin", message: "You cannot currently make purchases.", preferredStyle: .Alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+                presentViewController(alert, animated: true, completion: nil)
+            }
+            self.tableView?.deselectRowAtIndexPath(indexPath, animated: true)
+        }
+        else if defaultsValue == kSettingsSupportJustinMonthly
+        {
+            //get list of donation amounts
+            var donations = [SKProduct]()
+            var purchased = false
+
+            for product in globalProducts
+            {
+                if product.productIdentifier.containsString("RecurringMonthlyJustin")
+                {
+                    if Products.store.isProductPurchased(product.productIdentifier)
+                    {
+                        purchased = true
+                    }
+
+                    donations.append(product)
+                }
+            }
+            
+            donations.sortInPlace({$0.price.floatValue < $1.price.floatValue})
+    
+            //if you have not already purchased this
+            if !purchased && SKPaymentQueue.canMakePayments()
+            {
+                let alert = UIAlertController(title: "Donate to Justin", message: "Thanks for your donation! Choose an amount below to donate each month. This donation will continue until cancelled.", preferredStyle: .Alert)
+                
+                for product in donations
+                {
+                    alert.addAction(UIAlertAction(title: "\(product.priceLocale.objectForKey(NSLocaleCurrencySymbol)!)\(product.price.floatValue)", style: .Default, handler: {
+                        action in
+                        self.purchaseProduct(product)
+                    }))
+                }
+                alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+                presentViewController(alert, animated: true, completion: nil)
+            }
+            else if !SKPaymentQueue.canMakePayments()
+            {
+                let alert = UIAlertController(title: "Donate to Justin", message: "You cannot currently make purchases.", preferredStyle: .Alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+                
             }
             else
             {
@@ -428,35 +474,8 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
                     action in
                     UIApplication.sharedApplication().openURL(NSURL(string: "https://buy.itunes.apple.com/WebObjects/MZFinance.woa/wa/manageSubscriptions")!)
                 }))
+                presentViewController(alert, animated: true, completion: nil)
             }
-
-            self.tableView?.deselectRowAtIndexPath(indexPath, animated: true)
-        }
-        else if defaultsValue == kSettingsSupportJustinMonthly
-        {
-            //get list of donation amounts
-            var donations = [SKProduct]()
-            for product in globalProducts
-            {
-                if product.productIdentifier.containsString("RecurringMonthlyJustin")
-                {
-                    donations.append(product)
-                }
-            }
-            
-            donations.sortInPlace({$0.price.floatValue < $1.price.floatValue})
-            //if you can make a purchase
-            let alert = UIAlertController(title: "Donate to Justin", message: "Thanks for your donation! Choose an amount below to donate each month. This donation will continue until cancelled.", preferredStyle: .Alert)
-            
-            for product in donations
-            {
-                alert.addAction(UIAlertAction(title: "\(product.priceLocale.objectForKey(NSLocaleCurrencySymbol)!)\(product.price.floatValue)", style: .Default, handler: {
-                    action in
-                    self.purchaseProduct(product)
-                }))
-            }
-            alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-            presentViewController(alert, animated: true, completion: nil)
             self.tableView?.deselectRowAtIndexPath(indexPath, animated: true)
         }
         else if cellText == "Restore Purchases"
