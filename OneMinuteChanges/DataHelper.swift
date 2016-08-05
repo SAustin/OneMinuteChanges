@@ -227,7 +227,7 @@ class DataHelper
         
         let chord6 = NSEntityDescription.insertNewObjectForEntityForName("Chord", inManagedObjectContext: context) as! Chord
         chord6.name = "Dmin"
-        chord6.fileName = "Dmintab"
+        chord6.fileName = "DminTab"
         chord6.sortNumber = 5
         
         let chord7 = NSEntityDescription.insertNewObjectForEntityForName("Chord", inManagedObjectContext: context) as! Chord
