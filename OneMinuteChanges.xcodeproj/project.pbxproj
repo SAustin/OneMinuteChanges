@@ -137,6 +137,12 @@
 		61A269551C658ABE0010ADBD /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A269431C658ABE0010ADBD /* Icon.png */; };
 		61A269561C658ABE0010ADBD /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A269441C658ABE0010ADBD /* Icon@2x.png */; };
 		61A269571C658ABE0010ADBD /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A269451C658ABE0010ADBD /* iTunesArtwork@2x.png */; };
+		61F2BA4E1D5BFFC5000BE7E3 /* Asus2tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 61F2BA481D5BFFC5000BE7E3 /* Asus2tab.png */; };
+		61F2BA4F1D5BFFC5000BE7E3 /* Asus4tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 61F2BA491D5BFFC5000BE7E3 /* Asus4tab.png */; };
+		61F2BA501D5BFFC5000BE7E3 /* Dsus2tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 61F2BA4A1D5BFFC5000BE7E3 /* Dsus2tab.png */; };
+		61F2BA511D5BFFC5000BE7E3 /* Dsus4tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 61F2BA4B1D5BFFC5000BE7E3 /* Dsus4tab.png */; };
+		61F2BA521D5BFFC5000BE7E3 /* Esus2tab.png in Resources */ = {isa = PBXBuildFile; fileRef = 61F2BA4C1D5BFFC5000BE7E3 /* Esus2tab.png */; };
+		61F2BA531D5BFFC5000BE7E3 /* Esus4.png in Resources */ = {isa = PBXBuildFile; fileRef = 61F2BA4D1D5BFFC5000BE7E3 /* Esus4.png */; };
 		61F8C9631C56A64200816939 /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F8C9621C56A64200816939 /* TimerLabel.swift */; };
 		61F8C9641C57BCE800816939 /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F8C9621C56A64200816939 /* TimerLabel.swift */; };
 		61F8C9651C57BCE800816939 /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F8C9621C56A64200816939 /* TimerLabel.swift */; };
@@ -269,6 +275,12 @@
 		61A269451C658ABE0010ADBD /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iTunesArtwork@2x.png"; path = "Images/App Icon [Squared]/iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		61BA4B831C5FACC6008563D0 /* OneMinuteChanges.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = OneMinuteChanges.entitlements; sourceTree = "<group>"; };
 		61C702CD1C65079A004571E3 /* OneMinuteChanges 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OneMinuteChanges 2.xcdatamodel"; sourceTree = "<group>"; };
+		61F2BA481D5BFFC5000BE7E3 /* Asus2tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Asus2tab.png; path = Images/Asus2tab.png; sourceTree = "<group>"; };
+		61F2BA491D5BFFC5000BE7E3 /* Asus4tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Asus4tab.png; path = Images/Asus4tab.png; sourceTree = "<group>"; };
+		61F2BA4A1D5BFFC5000BE7E3 /* Dsus2tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Dsus2tab.png; path = Images/Dsus2tab.png; sourceTree = "<group>"; };
+		61F2BA4B1D5BFFC5000BE7E3 /* Dsus4tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Dsus4tab.png; path = Images/Dsus4tab.png; sourceTree = "<group>"; };
+		61F2BA4C1D5BFFC5000BE7E3 /* Esus2tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Esus2tab.png; path = Images/Esus2tab.png; sourceTree = "<group>"; };
+		61F2BA4D1D5BFFC5000BE7E3 /* Esus4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Esus4.png; path = Images/Esus4.png; sourceTree = "<group>"; };
 		61F8C9621C56A64200816939 /* TimerLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerLabel.swift; sourceTree = "<group>"; };
 		61F8C9691C5A6D0E00816939 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		67F5B06A95074CB309B99A86 /* Pods_OneMinuteChanges.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneMinuteChanges.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -327,6 +339,12 @@
 		614AFB911C6150E0009ED3F2 /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
+				61F2BA481D5BFFC5000BE7E3 /* Asus2tab.png */,
+				61F2BA491D5BFFC5000BE7E3 /* Asus4tab.png */,
+				61F2BA4A1D5BFFC5000BE7E3 /* Dsus2tab.png */,
+				61F2BA4B1D5BFFC5000BE7E3 /* Dsus4tab.png */,
+				61F2BA4C1D5BFFC5000BE7E3 /* Esus2tab.png */,
+				61F2BA4D1D5BFFC5000BE7E3 /* Esus4.png */,
 				614357331C8492F1001E35D6 /* Abarretab.png */,
 				614AFB9C1C6150FF009ED3F2 /* Ctab.png */,
 				614AFB9D1C6150FF009ED3F2 /* D7tab.png */,
@@ -667,6 +685,7 @@
 				61A269551C658ABE0010ADBD /* Icon.png in Resources */,
 				61A269571C658ABE0010ADBD /* iTunesArtwork@2x.png in Resources */,
 				61A269561C658ABE0010ADBD /* Icon@2x.png in Resources */,
+				61F2BA531D5BFFC5000BE7E3 /* Esus4.png in Resources */,
 				61A269481C658ABE0010ADBD /* Icon-60@3x.png in Resources */,
 				61A268AF1C58A58B0010ADBD /* skipButton.png in Resources */,
 				61A2694A1C658ABE0010ADBD /* Icon-72@2x.png in Resources */,
@@ -679,9 +698,11 @@
 				614AFBA71C6150FF009ED3F2 /* Ctab.png in Resources */,
 				614AFB9A1C6150ED009ED3F2 /* B7tab.png in Resources */,
 				61A268D51C5EFFE50010ADBD /* timer@2x.png in Resources */,
+				61F2BA501D5BFFC5000BE7E3 /* Dsus2tab.png in Resources */,
 				61A268E51C5F00970010ADBD /* more@2x.png in Resources */,
 				61A268451C53DBD00010ADBD /* LaunchScreen.storyboard in Resources */,
 				614AFBB01C6150FF009ED3F2 /* G7tab.png in Resources */,
+				61F2BA511D5BFFC5000BE7E3 /* Dsus4tab.png in Resources */,
 				61A268E91C5F00AE0010ADBD /* more@3x.png in Resources */,
 				61A268AB1C589D320010ADBD /* pauseButton.png in Resources */,
 				61A268F91C5F0AF60010ADBD /* resetButton.png in Resources */,
@@ -699,6 +720,7 @@
 				61A269501C658ABE0010ADBD /* Icon-Small-50.png in Resources */,
 				61A269531C658ABE0010ADBD /* Icon-Small@2x.png in Resources */,
 				61A269541C658ABE0010ADBD /* Icon-Small@3x.png in Resources */,
+				61F2BA4F1D5BFFC5000BE7E3 /* Asus4tab.png in Resources */,
 				615C05BF1C5FC039000F4996 /* beep-07.wav in Resources */,
 				614AFBAD1C6150FF009ED3F2 /* Etab.png in Resources */,
 				614AFBA81C6150FF009ED3F2 /* D7tab.png in Resources */,
@@ -706,10 +728,12 @@
 				61A268FD1C5F0BB80010ADBD /* nextButton.png in Resources */,
 				614357341C8492F1001E35D6 /* Abarretab.png in Resources */,
 				61A269521C658ABE0010ADBD /* Icon-Small.png in Resources */,
+				61F2BA4E1D5BFFC5000BE7E3 /* Asus2tab.png in Resources */,
 				61A2694D1C658ABE0010ADBD /* Icon-Small-40.png in Resources */,
 				61A2694F1C658ABE0010ADBD /* Icon-Small-40@3x.png in Resources */,
 				614AFBAA1C6150FF009ED3F2 /* Dtab.png in Resources */,
 				614AFB981C6150ED009ED3F2 /* Amintab.png in Resources */,
+				61F2BA521D5BFFC5000BE7E3 /* Esus2tab.png in Resources */,
 				61A268421C53DBD00010ADBD /* Assets.xcassets in Resources */,
 				61A268991C58820D0010ADBD /* tabIcon.png in Resources */,
 				614AFBB11C6150FF009ED3F2 /* Gtab.png in Resources */,
